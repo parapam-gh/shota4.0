@@ -1,0 +1,38 @@
+/* ============================================================
+   SUPRA BRUTALISM — Radii, borders, shadows, texture
+   DECISION: structure is sharp (0px); photographic content gets a
+   soft radius. Brutalist depth = hard offset shadows (no blur),
+   reserved soft shadows only for lifted photo cards.
+   ============================================================ */
+:root {
+  /* Radii */
+  --radius-none:  0;          /* structure: buttons, sections, dividers */
+  --radius-sm:    3px;        /* inputs, small chips */
+  --radius-photo: 14px;       /* photographic content (refs 5–7) */
+  --radius-pill:  999px;      /* tags, avatars */
+
+  /* Borders */
+  --border-1: 1px;
+  --border-2: 2px;
+  --border-3: 3px;            /* monumental outline */
+  --hairline: var(--border-1) solid var(--border-hairline);
+  --ink-rule: var(--border-2) solid var(--border-strong);
+
+  /* Hard brutalist offset shadows (no blur) */
+  --shadow-block:  5px 5px 0 0 var(--ink-900);
+  --shadow-block-sm: 3px 3px 0 0 var(--ink-900);
+  --shadow-brand:  5px 5px 0 0 var(--orange-500);
+  --shadow-press:  2px 2px 0 0 var(--ink-900);
+
+  /* Soft shadow — photos only */
+  --shadow-photo:  0 18px 40px -16px rgba(30,27,24,0.45);
+  --shadow-photo-sm: 0 8px 20px -10px rgba(30,27,24,0.4);
+
+  /* System grain / dust overlay */
+  --texture-grain: url('../assets/textures/grain.png'); /* @kind other */
+
+  /* Motion */
+  --ease-block: cubic-bezier(0.2, 0, 0, 1); /* @kind other */
+  --dur-fast:   120ms; /* @kind other */
+  --dur-base:   200ms; /* @kind other */
+}

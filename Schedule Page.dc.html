@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/shota-4-0-design-system-84b24eed-f1bb-49ca-a30c-354a525c29e6/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/shota-4-0-design-system-84b24eed-f1bb-49ca-a30c-354a525c29e6/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/shota-4-0-design-system-84b24eed-f1bb-49ca-a30c-354a525c29e6/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/shota-4-0-design-system-84b24eed-f1bb-49ca-a30c-354a525c29e6/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/shota-4-0-design-system-84b24eed-f1bb-49ca-a30c-354a525c29e6/styles.css">
+  <script src="_ds/shota-4-0-design-system-84b24eed-f1bb-49ca-a30c-354a525c29e6/_ds_bundle.js"></script>
+  <style>
+    *{box-sizing:border-box}
+    html,body{margin:0}
+    body{font-family:var(--font-body);background:var(--surface-page);color:var(--text-body)}
+    ::selection{background:var(--orange-500);color:var(--folk-white)}
+    a{color:inherit}
+    @keyframes stroll{0%{transform:translateY(0) rotate(-4deg)}25%{transform:translateY(-4px) rotate(0deg)}50%{transform:translateY(0) rotate(4deg)}75%{transform:translateY(-4px) rotate(0deg)}100%{transform:translateY(0) rotate(-4deg)}}
+    @keyframes strollShadow{0%,50%,100%{transform:scaleX(1);opacity:.5}25%,75%{transform:scaleX(.82);opacity:.36}}
+    @keyframes flipFront{0%,49.99%{opacity:1}50%,100%{opacity:0}}
+    @keyframes flipBack{0%,49.99%{opacity:0}50%,100%{opacity:1}}
+    @media (prefers-reduced-motion: reduce){[data-walk],[data-walk-shadow],[data-flip] > span{animation:none!important}}
+    @media (max-width:560px){
+      [data-hero-fig]{position:absolute;top:92px;right:16px;z-index:2;gap:6px !important}
+      [data-hero-fig] [data-walk]{width:80px !important;height:100px !important}
+      [data-hero-fig] [data-walk-shadow]{width:60px !important;height:13px !important}
+      [data-days]{display:flex !important;overflow-x:auto;gap:12px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:14px;margin-left:calc(-1*var(--gutter));margin-right:calc(-1*var(--gutter));padding-left:var(--gutter);padding-right:var(--gutter)}
+      [data-days] > div{flex:0 0 46% !important;scroll-snap-align:start}
+      [data-days]::-webkit-scrollbar{height:5px}
+      [data-days]::-webkit-scrollbar-thumb{background:var(--ink-900);border-radius:3px}
+      [data-days]::-webkit-scrollbar-track{background:var(--concrete-300);border-radius:3px;margin:0 var(--gutter)}
+      [data-days-hint]{display:flex !important}
+    }
+  </style>
+</helmet>
+
+<div style="min-height:100vh;background:var(--surface-page);display:flex;flex-direction:column">
+
+  <!-- ===== TOP BAR ===== -->
+  <header style="position:sticky;top:0;zIndex:30;background:var(--ink-900);color:var(--on-ink);border-bottom:2px solid var(--orange-500)">
+    <div style="max-width:var(--container);margin:0 auto;padding:13px var(--gutter);display:flex;align-items:center;justify-content:space-between;gap:16px">
+      <a href="Route Page.dc.html" style="display:flex;align-items:baseline;gap:10px;flex:none;white-space:nowrap;text-decoration:none;font-family:var(--font-display);font-size:22px;letter-spacing:0.02em;text-transform:uppercase;color:var(--folk-white);transition:opacity 120ms" style-hover="opacity:0.8">
+        Shota 4.0
+        <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.14em;color:var(--orange-400);white-space:nowrap">GE · AM</span>
+      </a>
+      <nav style="display:flex;gap:8px;align-items:center">
+        <a href="Route Page.dc.html" style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--on-ink-muted);text-decoration:none;padding:7px 13px;border:2px solid var(--ink-600);transition:color 120ms,border-color 120ms,transform 120ms,box-shadow 120ms" style-hover="color:var(--folk-white);border-color:var(--orange-500);transform:translate(-2px,-2px);box-shadow:3px 3px 0 0 var(--orange-500)">Route</a>
+        <a href="Schedule Page.dc.html" style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--folk-white);text-decoration:none;padding:7px 13px;border:2px solid var(--orange-500);background:var(--orange-500);transition:background 120ms,transform 120ms,box-shadow 120ms" style-hover="background:var(--orange-600);transform:translate(-2px,-2px);box-shadow:3px 3px 0 0 var(--orange-700)">Schedule</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section style="position:relative;background:var(--ink-900);color:var(--on-ink);overflow:hidden">
+    <div style="position:absolute;inset:0;pointer-events:none;background-image:url('assets/textures/grain.png');background-repeat:repeat;mix-blend-mode:overlay;opacity:0.4"></div>
+    <div data-hero="" style="position:relative;zIndex:1;max-width:var(--container);margin:0 auto;padding:clamp(3.5rem,7vw,6.5rem) var(--gutter) clamp(2.5rem,5vw,4rem);display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(28px,4vw,56px);align-items:center">
+      <div>
+        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:22px">
+          <span style="display:inline-flex;align-items:center;font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:5px 12px;border-radius:var(--radius-pill);background:var(--orange-500);color:var(--folk-white)">The plan</span>
+          <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--on-ink-muted)">24 Oct – 3 Nov<br></span>
+        </div>
+        <h1 style="font-family:var(--font-display);font-weight:400;text-transform:uppercase;font-size:clamp(3rem,8vw,7rem);line-height:0.9;letter-spacing:0.01em;margin:0 0 22px;color:var(--folk-white);text-shadow:5px 5px 0 var(--orange-600)">Day by<br>day</h1>
+        <p style="font-family:var(--font-body);font-size:clamp(17px,2.1vw,21px);line-height:1.5;font-weight:500;max-width:38ch;margin:0 0 26px;color:var(--autumn-cream)">
+          Closer to the trip, this page fills in — where we sleep, where we eat, when each supra starts, the hour-by-hour of the fortieth. We're still planning it. Check back as October nears.
+        </p>
+        <div style="display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-900);background:var(--folk-ochre);padding:9px 14px">
+          <span style="display:inline-block;width:9px;height:9px;border-radius:999px;background:var(--ink-900)"></span> Still preparing
+        </div>
+      </div>
+      <div data-hero-fig="" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px">
+        <span data-walk="" style="display:inline-block;width:clamp(108px,14vw,156px);height:clamp(135px,17.5vw,195px);background:var(--orange-500);transform-origin:bottom center;animation:stroll 3.2s ease-in-out infinite;-webkit-mask-image:url('assets/stamps/supra-host.png');mask-image:url('assets/stamps/supra-host.png');-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center bottom;mask-position:center bottom;-webkit-mask-size:contain;mask-size:contain"></span>
+        <div data-walk-shadow="" style="width:clamp(92px,12vw,136px);height:20px;border-radius:50%;background:radial-gradient(ellipse at center, rgba(242,84,28,0.5), rgba(242,84,28,0) 70%);animation:strollShadow 3.2s ease-in-out infinite"></div>
+      </div>
+    </div>
+  </section>
+
+  <div style="width:100%;height:34px;background:var(--orange-500);-webkit-mask-image:url('assets/motifs/divider-carpet.png');mask-image:url('assets/motifs/divider-carpet.png');-webkit-mask-repeat:repeat-x;mask-repeat:repeat-x;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:auto 100%;mask-size:auto 100%"></div>
+
+  <!-- ===== DAY SKELETON ===== -->
+  <section style="flex:1;background:var(--surface-page)">
+    <div style="max-width:var(--container);margin:0 auto;padding:clamp(3rem,6vw,5rem) var(--gutter)">
+      <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-muted)">Eleven days · the shape of it</span>
+      <h2 style="font-family:var(--font-head);font-weight:900;font-size:clamp(28px,4.6vw,48px);line-height:0.98;margin:8px 0 8px;color:var(--text-strong)">What we know so far</h2>
+      <p style="font-family:var(--font-body);font-size:16px;line-height:1.6;color:var(--text-body);max-width:60ch;margin:0 0 32px">The skeleton is set — these are the days and roughly where we'll be. The detail lands here later.</p>
+
+      <div data-days-hint style="display:none;align-items:center;gap:9px;margin:0 0 14px"><span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange-600)">Swipe · all 11 days</span><span aria-hidden="true" style="display:inline-flex;color:var(--ink-900)"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span></div>
+      <div data-days style="display:grid;grid-template-columns:repeat(auto-fill,minmax(154px,1fr));gap:14px">
+
+        <div style="border:2px dashed var(--concrete-300);background:var(--surface-card);padding:16px;display:flex;flex-direction:column;gap:6px;min-height:118px">
+          <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--folk-blue)">Fri · 24 Oct</span>
+          <span style="font-family:var(--font-head);font-weight:800;font-size:18px;color:var(--text-strong)">Tbilisi</span>
+          <span style="margin-top:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--concrete-400)">Plan TBD</span>
+        </div>
+        <div style="border:2px dashed var(--concrete-300);background:var(--surface-card);padding:16px;display:flex;flex-direction:column;gap:6px;min-height:118px">
+          <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--folk-blue)">Sat · 25 Oct</span>
+          <span style="font-family:var(--font-head);font-weight:800;font-size:18px;color:var(--text-strong)">Tbilisi</span>
+          <span style="margin-top:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--concrete-400)">Plan TBD</span>
+        </div>
+        <div style="border:2px dashed var(--concrete-300);background:var(--surface-card);padding:16px;display:flex;flex-direction:column;gap:6px;min-height:118px">
+          <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--folk-blue)">Sun · 26 Oct</span>
+          <span style="font-family:var(--font-head);font-weight:800;font-size:18px;color:var(--text-strong)">Tbilisi</span>
+          <span style="margin-top:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--concrete-400)">Plan TBD</span>
+        </div>
+        <div style="border:2px dashed var(--concrete-300);background:var(--surface-card);padding:16px;display:flex;flex-direction:column;gap:6px;min-height:118px">
+          <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--folk-ochre)">Mon · 27 Oct</span>
+          <span style="font-family:var(--font-head);font-weight:800;font-size:18px;color:var(--text-strong)">Tbilisi → Kazbegi</span>
+          <span style="margin-top:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--concrete-400)">Plan TBD</span>
+        </div>
+        <div style="border:2px dashed var(--concrete-300);background:var(--surface-card);padding:16px;display:flex;flex-direction:column;gap:6px;min-height:118px">
+          <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--folk-ochre)">Tue · 28 Oct</span>
+          <span style="font-family:var(--font-head);font-weight:800;font-size:18px;color:var(--text-strong)">Kazbegi → Tbilisi</span>
+          <span style="margin-top:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--concrete-400)">Plan TBD</span>
+        </div>
+        <div style="border:2px dashed var(--concrete-300);background:var(--surface-card);padding:16px;display:flex;flex-direction:column;gap:6px;min-height:118px">
+          <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--folk-blue)">Wed · 29 Oct</span>
+          <span style="font-family:var(--font-head);font-weight:800;font-size:18px;color:var(--text-strong)">Tbilisi</span>
+          <span style="margin-top:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--concrete-400)">Plan TBD</span>
+        </div>
+
+        <!-- BIRTHDAY -->
+        <div style="border:2px solid var(--ink-900);background:var(--orange-500);box-shadow:5px 5px 0 0 var(--ink-900);padding:16px;display:flex;flex-direction:column;gap:6px;min-height:118px;position:relative;overflow:hidden">
+          <div style="position:absolute;inset:0;pointer-events:none;background-image:url('assets/textures/grain.png');background-repeat:repeat;mix-blend-mode:overlay;opacity:0.5"></div>
+          <div style="position:relative;display:flex;align-items:center;justify-content:space-between;gap:6px">
+            <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-900)">Thu · 30 Oct</span>
+            <span data-flip="" style="position:relative;display:inline-block;width:22px;height:28px;vertical-align:middle"><span style="position:absolute;inset:0;background:var(--ink-900);-webkit-mask-image:url('assets/stamps/supra-toast.png');mask-image:url('assets/stamps/supra-toast.png');-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;opacity:1;animation:flipFront 2s linear infinite"></span><span style="position:absolute;inset:0;background:var(--ink-900);-webkit-mask-image:url('assets/stamps/supra-toast.png');mask-image:url('assets/stamps/supra-toast.png');-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;transform:scaleX(-1);opacity:0;animation:flipBack 2s linear infinite"></span></span>
+          </div>
+          <span style="position:relative;font-family:var(--font-head);font-weight:900;font-size:19px;color:var(--folk-white)">Shota's night</span>
+          <span style="position:relative;margin-top:auto;font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-900)">★ The fixed point</span>
+        </div>
+
+        <div style="border:2px dashed var(--concrete-300);background:var(--surface-card);padding:16px;display:flex;flex-direction:column;gap:6px;min-height:118px">
+          <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--folk-blue)">Fri · 31 Oct</span>
+          <span style="font-family:var(--font-head);font-weight:800;font-size:18px;color:var(--text-strong)">Tbilisi → night train</span>
+          <span style="margin-top:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--concrete-400)">Plan TBD</span>
+        </div>
+        <div style="border:2px dashed var(--concrete-300);background:var(--surface-card);padding:16px;display:flex;flex-direction:column;gap:6px;min-height:118px">
+          <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--folk-red)">Sat · 1 Nov</span>
+          <span style="font-family:var(--font-head);font-weight:800;font-size:18px;color:var(--text-strong)">Yerevan</span>
+          <span style="margin-top:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--concrete-400)">Plan TBD</span>
+        </div>
+        <div style="border:2px dashed var(--concrete-300);background:var(--surface-card);padding:16px;display:flex;flex-direction:column;gap:6px;min-height:118px">
+          <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--folk-red)">Sun · 2 Nov</span>
+          <span style="font-family:var(--font-head);font-weight:800;font-size:18px;color:var(--text-strong)">Yerevan → home</span>
+          <span style="margin-top:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--concrete-400)">Plan TBD</span>
+        </div>
+        <div style="border:2px dashed var(--concrete-300);background:var(--surface-card);padding:16px;display:flex;flex-direction:column;gap:6px;min-height:118px">
+          <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-400)">Mon · 3 Nov</span>
+          <span style="font-family:var(--font-head);font-weight:800;font-size:18px;color:var(--text-strong)">Home</span>
+          <span style="margin-top:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--concrete-400)">Out of EVN</span>
+        </div>
+
+      </div>
+
+      <div style="margin-top:34px">
+        <a href="Route Page.dc.html" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--font-head);font-weight:800;font-size:16px;padding:14px 26px;color:var(--ink-900);background:var(--surface-card);border:2px solid var(--ink-900);box-shadow:5px 5px 0 0 var(--ink-900);transition:transform 120ms,box-shadow 120ms,background 120ms" style-hover="background:var(--concrete-50);transform:translate(-2px,-2px);box-shadow:7px 7px 0 0 var(--ink-900)">
+          <span aria-hidden="true">←</span> Back to the route
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer style="position:relative;background:var(--ink-900);color:var(--on-ink-muted);overflow:hidden">
+    <div style="width:100%;height:30px;background:var(--orange-500);-webkit-mask-image:url('assets/motifs/divider-carpet.png');mask-image:url('assets/motifs/divider-carpet.png');-webkit-mask-repeat:repeat-x;mask-repeat:repeat-x;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:auto 100%;mask-size:auto 100%"></div>
+    <div style="max-width:var(--container);margin:0 auto;padding:clamp(2.5rem,4vw,4rem) var(--gutter);display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
+      <div>
+        <div style="font-family:var(--font-display);font-size:clamp(32px,4vw,46px);color:var(--folk-white);text-transform:uppercase;line-height:0.9">Gaumarjos</div>
+        <p style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.08em;margin-top:10px">To Shota · to forty · to the road</p>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-end">
+        <span style="display:inline-block;width:40px;height:50px;background:var(--orange-400);-webkit-mask-image:url('assets/stamps/supra-toast.png');mask-image:url('assets/stamps/supra-toast.png');-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain"></span>
+        <span style="display:inline-block;width:40px;height:50px;background:var(--on-ink-muted);-webkit-mask-image:url('assets/stamps/deer.png');mask-image:url('assets/stamps/deer.png');-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain"></span>
+        <span style="display:inline-block;width:40px;height:50px;background:var(--orange-400);-webkit-mask-image:url('assets/stamps/supra-man-jug.png');mask-image:url('assets/stamps/supra-man-jug.png');-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain"></span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+</body>
+</html>

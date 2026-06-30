@@ -1,0 +1,80 @@
+/* ============================================================
+   SUPRA BRUTALISM — Color tokens
+   Orange dominant · warm concrete grey · folk accents in doses
+   ============================================================ */
+:root {
+  /* ---- Brand: terracotta-coral orange (the bridge across all sources) ---- */
+  --orange-700: #A83309;
+  --orange-600: #D24310;
+  --orange-500: #F2541C; /* primary brand — volcanic orange */
+  --orange-400: #FB7137;
+  --orange-300: #FF9663;
+  --orange-200: #FCC1A4;
+  --orange-100: #FCE2D5;
+
+  /* ---- Warm concrete grey (surfaces — grey, NOT sand) ---- */
+  --concrete-0:  #ECEAE5; /* lightest concrete */
+  --concrete-50: #E2DFD9;
+  --concrete-100:#D6D2CA; /* page field */
+  --concrete-200:#C3BEB4;
+  --concrete-300:#A8A299; /* mid concrete */
+  --concrete-400:#857F76;
+
+  /* ---- Warm charcoal ink (instead of pure black) ---- */
+  --ink-900: #1E1B18; /* deepest */
+  --ink-800: #211E1B;
+  --ink-700: #34302B; /* body strong */
+  --ink-600: #4B453E;
+  --ink-500: #6E665B; /* muted */
+  --ink-400: #8E867A;
+
+  /* ---- Folk accents (from the carpet — used sparingly) ---- */
+  --folk-blue:   #2E5EA6; /* cornflower */
+  --folk-green:  #4E7A3E;
+  --folk-red:    #B22F26;
+  --folk-ochre:  #D89A3C;
+  --folk-black:  #16130F;
+  --folk-white:  #F3EEE4;
+
+  /* ---- Autumn warms (photo grade + illustration) ---- */
+  --autumn-rust:  #BE441E;
+  --autumn-gold:  #E0A52E;
+  --autumn-olive: #7C763A;
+  --autumn-cream: #EFE3CC;
+
+  /* ============================================================
+     SEMANTIC TOKENS
+     ============================================================ */
+  /* Surface tiers */
+  --surface-page:    var(--concrete-100);
+  --surface-card:    var(--concrete-0);
+  --surface-raised:  #F4F2ED;
+  --surface-sunken:  var(--concrete-200);
+  --surface-ink:     var(--ink-900);   /* dark monumental sections */
+  --surface-brand:   var(--orange-500);
+
+  /* Text / on-* */
+  --text-strong:  var(--ink-900);
+  --text-body:    var(--ink-700);
+  --text-muted:   var(--ink-500);
+  --text-brand:   var(--orange-600);
+  --on-brand:     var(--autumn-cream);
+  --on-ink:       var(--concrete-50);
+  --on-ink-muted: var(--concrete-300);
+
+  /* Borders */
+  --border-hairline: var(--concrete-300);
+  --border-strong:   var(--ink-900);
+  --border-brand:    var(--orange-500);
+
+  /* Accents */
+  --accent-blue:  var(--folk-blue);
+  --accent-green: var(--folk-green);
+  --accent-ochre: var(--folk-ochre);
+
+  /* Status */
+  --status-success: var(--folk-green);
+  --status-warning: var(--folk-ochre);
+  --status-danger:  var(--folk-red);
+  --status-info:    var(--folk-blue);
+}

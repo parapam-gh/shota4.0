@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/shota-4-0-design-system-84b24eed-f1bb-49ca-a30c-354a525c29e6/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/shota-4-0-design-system-84b24eed-f1bb-49ca-a30c-354a525c29e6/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/shota-4-0-design-system-84b24eed-f1bb-49ca-a30c-354a525c29e6/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/shota-4-0-design-system-84b24eed-f1bb-49ca-a30c-354a525c29e6/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/shota-4-0-design-system-84b24eed-f1bb-49ca-a30c-354a525c29e6/styles.css">
+  <script src="_ds/shota-4-0-design-system-84b24eed-f1bb-49ca-a30c-354a525c29e6/_ds_bundle.js"></script>
+  <style>
+    *{box-sizing:border-box}
+    html,body{margin:0}
+    body{font-family:var(--font-body);background:var(--surface-page);color:var(--text-body)}
+    ::selection{background:var(--orange-500);color:var(--folk-white)}
+    a{color:inherit}
+    @keyframes flipFront{0%,49.99%{opacity:1}50%,100%{opacity:0}}
+    @keyframes flipBack{0%,49.99%{opacity:0}50%,100%{opacity:1}}
+    @media (prefers-reduced-motion: reduce){[data-flip] > span{animation:none!important}}
+    @keyframes twCaret{0%,100%{opacity:1}50%{opacity:0}}
+  </style>
+</helmet>
+
+<div style="min-height:100vh;background:var(--surface-page)">
+
+  <!-- ===== TOP BAR ===== -->
+  <header style="position:sticky;top:0;zIndex:30;background:var(--ink-900);color:var(--on-ink);border-bottom:2px solid var(--orange-500)">
+    <div style="max-width:var(--container);margin:0 auto;padding:13px var(--gutter);display:flex;align-items:center;justify-content:space-between;gap:16px">
+      <a href="#top" style="display:flex;align-items:baseline;gap:10px;flex:none;white-space:nowrap;text-decoration:none;font-family:var(--font-display);font-size:22px;letter-spacing:0.02em;text-transform:uppercase;color:var(--folk-white);transition:opacity 120ms" style-hover="opacity:0.8">
+        Shota 4.0
+        <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.14em;color:var(--orange-400);white-space:nowrap">GE · AM</span>
+      </a>
+      <nav style="display:flex;gap:8px;align-items:center">
+        <a href="Route Page.dc.html" style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--folk-white);text-decoration:none;padding:7px 13px;border:2px solid var(--orange-500);background:var(--orange-500);transition:background 120ms,transform 120ms,box-shadow 120ms" style-hover="background:var(--orange-600);transform:translate(-2px,-2px);box-shadow:3px 3px 0 0 var(--orange-700)">Route</a>
+        <a href="Schedule Page.dc.html" style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--on-ink-muted);text-decoration:none;padding:7px 13px;border:2px solid var(--ink-600);transition:color 120ms,border-color 120ms,transform 120ms,box-shadow 120ms" style-hover="color:var(--folk-white);border-color:var(--orange-500);transform:translate(-2px,-2px);box-shadow:3px 3px 0 0 var(--orange-500)">Schedule</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== BLOCK 1 — HERO / INVITATION ===== -->
+  <section id="top" style="position:relative;background:var(--orange-500);color:var(--on-brand);overflow:hidden">
+    <div style="position:absolute;inset:0;pointer-events:none;background-image:url('assets/textures/grain.png');background-repeat:repeat;mix-blend-mode:overlay;opacity:0.55"></div>
+    <div style="position:relative;zIndex:1;max-width:var(--container);margin:0 auto;padding:clamp(3rem,7vw,6rem) var(--gutter) clamp(2.5rem,5vw,4rem)">
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:22px">
+        <span style="display:inline-flex;align-items:center;font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:5px 12px;border-radius:var(--radius-pill);background:var(--ink-900);color:var(--folk-white)">The 40th</span>
+        <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--autumn-cream)">Georgia + Armenia · Autumn 2026</span>
+      </div>
+      <h1 style="font-family:var(--font-display);font-weight:400;text-transform:uppercase;font-size:var(--text-hero);line-height:0.84;letter-spacing:0.01em;margin:0 0 18px;color:var(--folk-white);text-shadow:5px 5px 0 var(--ink-900)">Shota {{ heroNum }}</h1>
+      <div style="display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:clamp(13px,1.6vw,16px);font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--folk-white);background:var(--ink-900);padding:9px 16px;margin-bottom:26px">24 Oct <span style="color: var(--orange-400);">–</span> 3 Nov 2026
+      </div>
+      <p style="font-family:var(--font-body);font-size:clamp(18px,2.2vw,23px);line-height:1.45;font-weight:500;max-width:30ch;margin:0;color:var(--autumn-cream)" data-comment-anchor="2163e4bf65-p">
+        Shota turns 40, and we're not letting it pass quietly. Ten autumn days of wine, mountains and sulphur baths. Come for the whole thing — or hop on for the leg that fits your life.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== ROUTE SCHEMA ===== -->
+  <section id="route" style="position:relative;background:var(--surface-page)">
+    <div style="max-width:var(--container);margin:0 auto;padding:clamp(3rem,6vw,5.5rem) var(--gutter)">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-bottom:8px">
+        <div>
+          <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-muted)">The route · one line</span>
+          <h2 style="font-family:var(--font-head);font-weight:900;font-size:clamp(30px,5vw,54px);line-height:0.98;margin:8px 0 0;color:var(--text-strong)">Where &amp; when</h2>
+        </div>
+        <div style="display:inline-flex;align-items:center;gap:9px;font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-body);border:2px solid var(--ink-900);padding:8px 13px;background:var(--surface-card)">
+          <span style="display:inline-block;width:11px;height:11px;border-radius:999px;background:var(--folk-green);border:2px solid var(--ink-900)"></span> Join
+          <span style="opacity:0.4">/</span>
+          <span style="display:inline-block;width:11px;height:11px;border-radius:999px;background:var(--surface-card);border:2px solid var(--ink-900)"></span> Leave anywhere
+        </div>
+      </div>
+
+      <!-- SCHEMA VARIANTS -->
+      <div style="margin-top:34px">
+        <sc-if value="{{ isSchemaA }}" hint-placeholder-val="{{ true }}">
+          <div data-variant="A">
+
+            <!-- start marker -->
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px;font-family:var(--font-mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted)">
+              <span style="display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:999px;border:2px solid var(--ink-900);background:var(--surface-card);color:var(--ink-900)">
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"></path></svg>
+              </span>
+              From Madrid · fly in, in waves
+            </div>
+
+            <!-- the rail -->
+            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px">
+
+              <!-- TBILISI 1 -->
+              <div style="flex:1 1 150px;min-width:142px;align-self:stretch;background:var(--surface-card);border:2px solid var(--ink-900);box-shadow:4px 4px 0 0 var(--ink-900);padding:15px 15px 17px;display:flex;flex-direction:column;gap:9px">
+                <span style="align-self:flex-start;font-family:var(--font-mono);font-size:10.5px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--folk-blue);border:2px solid var(--folk-blue);border-radius:999px;padding:4px 10px;line-height:1">24–27 Oct</span>
+                <div style="font-family:var(--font-head);font-weight:900;font-size:22px;line-height:1;color:var(--text-strong)">Tbilisi</div>
+                <div style="font-family:var(--font-body);font-size:13.5px;line-height:1.4;color:var(--text-muted)">Balconies, wine, sulphur baths</div>
+              </div>
+
+              <!-- seg: van -->
+              <div style="flex:0 0 auto;min-width:70px;display:flex;flex-direction:column;align-items:center;gap:5px">
+                <div style="display:flex;align-items:center;width:100%">
+                  <div style="flex:1;height:3px;background:var(--ink-900)"></div>
+                  <span style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:999px;border:2px solid var(--ink-900);background:var(--orange-100);color:var(--ink-900);flex:none">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h11v8H2z"></path><path d="M13 9h4l3 3v3h-7z"></path><circle cx="6.5" cy="17" r="1.6"></circle><circle cx="16.5" cy="17" r="1.6"></circle></svg>
+                  </span>
+                  <div style="flex:1;height:3px;background:var(--ink-900)"></div>
+                </div>
+                <span style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);text-align:center;line-height:1.3">~3h · Mil. Rd</span>
+              </div>
+
+              <!-- KAZBEGI -->
+              <div style="flex:1 1 150px;min-width:142px;align-self:stretch;background:var(--surface-card);border:2px solid var(--ink-900);box-shadow:4px 4px 0 0 var(--ink-900);padding:15px 15px 17px;display:flex;flex-direction:column;gap:9px">
+                <span style="align-self:flex-start;font-family:var(--font-mono);font-size:10.5px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--folk-ochre);border:2px solid var(--folk-ochre);border-radius:999px;padding:4px 10px;line-height:1">27–28 Oct</span>
+                <div style="font-family:var(--font-head);font-weight:900;font-size:22px;line-height:1;color:var(--text-strong)">Kazbegi</div>
+                <div style="font-family:var(--font-body);font-size:13.5px;line-height:1.4;color:var(--text-muted)">The mountains — one night up high</div>
+              </div>
+
+              <!-- seg: van back -->
+              <div style="flex:0 0 auto;min-width:70px;display:flex;flex-direction:column;align-items:center;gap:5px">
+                <div style="display:flex;align-items:center;width:100%">
+                  <div style="flex:1;height:3px;background:var(--ink-900)"></div>
+                  <span style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:999px;border:2px solid var(--ink-900);background:var(--orange-100);color:var(--ink-900);flex:none">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h11v8H2z"></path><path d="M13 9h4l3 3v3h-7z"></path><circle cx="6.5" cy="17" r="1.6"></circle><circle cx="16.5" cy="17" r="1.6"></circle></svg>
+                  </span>
+                  <div style="flex:1;height:3px;background:var(--ink-900)"></div>
+                </div>
+                <span style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);text-align:center;line-height:1.3">back</span>
+              </div>
+
+              <!-- TBILISI 2 — THE FIXED POINT -->
+              <div style="flex:1.4 1 178px;min-width:172px;align-self:stretch;background:var(--orange-500);border:2px solid var(--ink-900);box-shadow:6px 6px 0 0 var(--ink-900);padding:15px 16px 17px;display:flex;flex-direction:column;gap:8px;position:relative;overflow:hidden">
+                <div style="position:absolute;inset:0;pointer-events:none;background-image:url('assets/textures/grain.png');background-repeat:repeat;mix-blend-mode:overlay;opacity:0.5"></div>
+                <div style="position:relative;display:flex;align-items:center;justify-content:space-between;gap:8px">
+                  <span style="font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--folk-white);background:var(--ink-900);padding:4px 9px;line-height:1">★ The main event</span>
+                  <span data-flip="" style="position:relative;display:inline-block;width:30px;height:38px;flex:none"><span style="position:absolute;inset:0;background:var(--ink-900);-webkit-mask-image:url('assets/stamps/supra-toast.png');mask-image:url('assets/stamps/supra-toast.png');-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;opacity:1;animation:flipFront 2s linear infinite"></span><span style="position:absolute;inset:0;background:var(--ink-900);-webkit-mask-image:url('assets/stamps/supra-toast.png');mask-image:url('assets/stamps/supra-toast.png');-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;transform:scaleX(-1);opacity:0;animation:flipBack 2s linear infinite"></span></span>
+                </div>
+                <span style="position:relative;align-self:flex-start;font-family:var(--font-mono);font-size:10.5px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-900);border:2px solid var(--ink-900);border-radius:999px;padding:4px 10px;line-height:1">28–31 Oct</span>
+                <div style="position:relative;font-family:var(--font-head);font-weight:900;font-size:24px;line-height:1;color:var(--folk-white)">Tbilisi</div>
+                <div style="position:relative;font-family:var(--font-body);font-weight:700;font-size:14px;line-height:1.35;color:var(--ink-900)">Shota's night — <span style="white-space:nowrap">30 Oct.</span> Everything orbits this.</div>
+              </div>
+
+              <!-- seg: train -->
+              <div style="flex:0 0 auto;min-width:70px;display:flex;flex-direction:column;align-items:center;gap:5px">
+                <div style="display:flex;align-items:center;width:100%">
+                  <div style="flex:1;height:3px;background:var(--ink-900)"></div>
+                  <span style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:999px;border:2px solid var(--ink-900);background:var(--folk-blue);color:var(--folk-white);flex:none">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="13" rx="2"></rect><path d="M5 10h14"></path><path d="M8 16l-2 4"></path><path d="M16 16l2 4"></path></svg>
+                  </span>
+                  <div style="flex:1;height:3px;background:var(--ink-900)"></div>
+                </div>
+                <span style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);text-align:center;line-height:1.3">night train</span>
+              </div>
+
+              <!-- YEREVAN -->
+              <div style="flex:1 1 150px;min-width:142px;align-self:stretch;background:var(--surface-card);border:2px solid var(--ink-900);box-shadow:4px 4px 0 0 var(--ink-900);padding:15px 15px 17px;display:flex;flex-direction:column;gap:9px">
+                <span style="align-self:flex-start;font-family:var(--font-mono);font-size:10.5px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--folk-red);border:2px solid var(--folk-red);border-radius:999px;padding:4px 10px;line-height:1">1 Nov</span>
+                <div style="font-family:var(--font-head);font-weight:900;font-size:22px;line-height:1;color:var(--text-strong)">Yerevan</div>
+                <div style="font-family:var(--font-body);font-size:13.5px;line-height:1.4;color:var(--text-muted)">Cascade, cognac, the way home</div>
+              </div>
+
+              <!-- seg: fly out -->
+              <div style="flex:0 0 auto;min-width:70px;display:flex;flex-direction:column;align-items:center;gap:5px">
+                <div style="display:flex;align-items:center;width:100%">
+                  <div style="flex:1;height:3px;background:var(--ink-900)"></div>
+                  <span style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:999px;border:2px solid var(--ink-900);background:var(--surface-card);color:var(--ink-900);flex:none">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"></path></svg>
+                  </span>
+                  <div style="flex:1;height:3px;background:var(--ink-900)"></div>
+                </div>
+                <span style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);text-align:center;line-height:1.3">out · EVN</span>
+              </div>
+
+              <!-- HOME -->
+              <div style="flex:1 1 130px;min-width:124px;align-self:stretch;background:var(--ink-900);border:2px solid var(--ink-900);box-shadow:4px 4px 0 0 var(--orange-500);padding:15px 15px 17px;display:flex;flex-direction:column;gap:9px">
+                <span style="align-self:flex-start;font-family:var(--font-mono);font-size:10.5px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--orange-400);border:2px solid var(--orange-400);border-radius:999px;padding:4px 10px;line-height:1">2–3 Nov</span>
+                <div style="font-family:var(--font-head);font-weight:900;font-size:22px;line-height:1;color:var(--folk-white)">Home</div>
+                <div style="font-family:var(--font-body);font-size:13.5px;line-height:1.4;color:var(--on-ink-muted)">Fly out of Yerevan</div>
+              </div>
+
+            </div>
+
+            <!-- join/leave hint along the line -->
+            <div style="margin-top:16px;display:inline-flex;align-items:center;gap:9px;font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-body);background:var(--folk-green);color:var(--folk-white);padding:7px 13px">
+              <span aria-hidden="true" style="font-size:14px;line-height:1">↧</span> Hop on, or off, at any stop along the line
+            </div>
+
+          </div>
+        </sc-if>
+        <sc-if value="{{ isSchemaB }}" hint-placeholder-val="{{ false }}">
+          <div data-variant="B" style="background:var(--ink-900);color:var(--on-ink);border:2px solid var(--ink-900);box-shadow:7px 7px 0 0 var(--orange-500);position:relative;overflow:hidden">
+            <div style="position:absolute;inset:0;pointer-events:none;background-image:url('assets/textures/grain.png');background-repeat:repeat;mix-blend-mode:overlay;opacity:0.35"></div>
+            <!-- board header -->
+            <div style="position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 20px;border-bottom:2px solid var(--orange-500)">
+              <span style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--orange-400)">Departures · Shota 4.0</span>
+            </div>
+            <!-- rows -->
+            <div style="position:relative">
+              <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:16px 20px;border-bottom:1px solid var(--ink-700)">
+                <span style="flex:none;font-family:var(--font-mono);font-weight:700;font-size:13px;letter-spacing:0.04em;color:var(--orange-400);width:86px">24–27 Oct</span>
+                <div style="flex:1 1 170px;min-width:150px"><div style="font-family:var(--font-head);font-weight:900;font-size:21px;line-height:1;color:var(--folk-white)">Tbilisi</div></div>
+                <span style="flex:none;display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--autumn-cream);border:1px solid var(--ink-600);padding:5px 9px">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"></path></svg> Fly in
+                </span>
+                <span style="flex:2 1 200px;min-width:160px;font-family:var(--font-body);font-size:14.5px;color:var(--on-ink-muted)">Balconies, wine, sulphur baths</span>
+              </div>
+
+              <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:16px 20px;border-bottom:1px solid var(--ink-700)">
+                <span style="flex:none;font-family:var(--font-mono);font-weight:700;font-size:13px;letter-spacing:0.04em;color:var(--orange-400);width:86px">27–28 Oct</span>
+                <div style="flex:1 1 170px;min-width:150px"><div style="font-family:var(--font-head);font-weight:900;font-size:21px;line-height:1;color:var(--folk-white)">Kazbegi</div></div>
+                <span style="flex:none;display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--autumn-cream);border:1px solid var(--ink-600);padding:5px 9px">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h11v8H2z"></path><path d="M13 9h4l3 3v3h-7z"></path><circle cx="6.5" cy="17" r="1.6"></circle><circle cx="16.5" cy="17" r="1.6"></circle></svg> ~3h drive
+                </span>
+                <span style="flex:2 1 200px;min-width:160px;font-family:var(--font-body);font-size:14.5px;color:var(--on-ink-muted)">The mountains — one night up high</span>
+              </div>
+
+              <!-- BIRTHDAY ROW -->
+              <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:20px;background:var(--orange-500);color:var(--ink-900);position:relative">
+                <span style="flex:none;font-family:var(--font-mono);font-weight:700;font-size:13px;letter-spacing:0.04em;color:var(--ink-900);width:86px">28–31 Oct</span>
+                <div style="flex:1 1 170px;min-width:150px"><div style="display:flex;align-items:center;gap:8px"><div style="font-family:var(--font-head);font-weight:900;font-size:23px;line-height:1;color:var(--folk-white)">Tbilisi</div><span data-flip="" style="position:relative;display:inline-block;width:22px;height:28px;vertical-align:middle"><span style="position:absolute;inset:0;background:var(--ink-900);-webkit-mask-image:url('assets/stamps/supra-toast.png');mask-image:url('assets/stamps/supra-toast.png');-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;opacity:1;animation:flipFront 2s linear infinite"></span><span style="position:absolute;inset:0;background:var(--ink-900);-webkit-mask-image:url('assets/stamps/supra-toast.png');mask-image:url('assets/stamps/supra-toast.png');-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;transform:scaleX(-1);opacity:0;animation:flipBack 2s linear infinite"></span></span></div></div>
+                <span style="flex:none;display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--folk-white);background:var(--ink-900);padding:6px 10px">★ The main event</span>
+                <span style="flex:2 1 200px;min-width:160px;font-family:var(--font-body);font-weight:700;font-size:15px;color:var(--ink-900)">Shota's night — 30 Oct. Everything orbits this.</span>
+              </div>
+
+              <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:16px 20px;border-bottom:1px solid var(--ink-700)">
+                <span style="flex:none;font-family:var(--font-mono);font-weight:700;font-size:13px;letter-spacing:0.04em;color:var(--orange-400);width:86px">1 Nov</span>
+                <div style="flex:1 1 170px;min-width:150px"><div style="font-family:var(--font-head);font-weight:900;font-size:21px;line-height:1;color:var(--folk-white)">Yerevan</div></div>
+                <span style="flex:none;display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--autumn-cream);border:1px solid var(--ink-600);padding:5px 9px">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="13" rx="2"></rect><path d="M5 10h14"></path><path d="M8 16l-2 4"></path><path d="M16 16l2 4"></path></svg> Night train
+                </span>
+                <span style="flex:2 1 200px;min-width:160px;font-family:var(--font-body);font-size:14.5px;color:var(--on-ink-muted)">Cascade, cognac, the way home</span>
+              </div>
+
+              <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:16px 20px">
+                <span style="flex:none;font-family:var(--font-mono);font-weight:700;font-size:13px;letter-spacing:0.04em;color:var(--orange-400);width:86px">2–3 Nov</span>
+                <div style="flex:1 1 170px;min-width:150px"><div style="font-family:var(--font-head);font-weight:900;font-size:21px;line-height:1;color:var(--folk-white)">Home</div></div>
+                <span style="flex:none;display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--autumn-cream);border:1px solid var(--ink-600);padding:5px 9px">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"></path></svg> Out · EVN
+                </span>
+                <span style="flex:2 1 200px;min-width:160px;font-family:var(--font-body);font-size:14.5px;color:var(--on-ink-muted)">Fly out of Yerevan</span>
+              </div>
+            </div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ isSchemaC }}" hint-placeholder-val="{{ false }}">
+          <div data-variant="C" style="background:var(--surface-raised);border:2px solid var(--ink-900);box-shadow:6px 6px 0 0 var(--ink-900);padding:clamp(20px,3vw,32px)">
+            <div style="display:flex;flex-wrap:wrap;align-items:stretch;gap:8px;justify-content:center">
+
+              <!-- TBILISI -->
+              <div style="flex:1 1 158px;min-width:150px;background:var(--surface-card);border:3px solid var(--ink-900);padding:18px 15px;display:flex;flex-direction:column;align-items:flex-start;gap:11px">
+                <span style="display:inline-block;width:50px;height:62px;background:var(--orange-500);-webkit-mask-image:url('assets/stamps/supra-woman-cup.png');mask-image:url('assets/stamps/supra-woman-cup.png');-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain"></span>
+                <div style="font-family:var(--font-head);font-weight:900;font-size:22px;line-height:1;color:var(--text-strong)">Tbilisi</div>
+                <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.06em;color:var(--folk-blue)">24–27 Oct</span>
+                <div style="font-family:var(--font-body);font-size:13.5px;line-height:1.4;color:var(--text-muted)">Balconies, wine, sulphur baths</div>
+              </div>
+
+              <!-- conn van -->
+              <div style="flex:0 0 auto;min-width:62px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px">
+                <div style="display:flex;align-items:center;width:100%">
+                  <div style="flex:1;border-top:3px dashed var(--ink-900)"></div>
+                  <span style="display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:999px;border:2px solid var(--ink-900);background:var(--orange-200);color:var(--ink-900);flex:none">
+                    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h11v8H2z"></path><path d="M13 9h4l3 3v3h-7z"></path><circle cx="6.5" cy="17" r="1.6"></circle><circle cx="16.5" cy="17" r="1.6"></circle></svg>
+                  </span>
+                  <div style="flex:1;border-top:3px dashed var(--ink-900)"></div>
+                </div>
+                <span style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.05em;text-transform:uppercase;color:var(--text-muted);text-align:center;line-height:1.3">~3h</span>
+              </div>
+
+              <!-- KAZBEGI -->
+              <div style="flex:1 1 158px;min-width:150px;background:var(--surface-card);border:3px solid var(--ink-900);padding:18px 15px;display:flex;flex-direction:column;align-items:flex-start;gap:11px">
+                <span style="display:inline-block;width:50px;height:62px;background:var(--folk-green);-webkit-mask-image:url('assets/stamps/deer.png');mask-image:url('assets/stamps/deer.png');-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain"></span>
+                <div style="font-family:var(--font-head);font-weight:900;font-size:22px;line-height:1;color:var(--text-strong)">Kazbegi</div>
+                <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.06em;color:var(--folk-ochre)">27–28 Oct</span>
+                <div style="font-family:var(--font-body);font-size:13.5px;line-height:1.4;color:var(--text-muted)">The mountains — one night up high</div>
+              </div>
+
+              <!-- conn van back -->
+              <div style="flex:0 0 auto;min-width:62px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px">
+                <div style="display:flex;align-items:center;width:100%">
+                  <div style="flex:1;border-top:3px dashed var(--ink-900)"></div>
+                  <span style="display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:999px;border:2px solid var(--ink-900);background:var(--orange-200);color:var(--ink-900);flex:none">
+                    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h11v8H2z"></path><path d="M13 9h4l3 3v3h-7z"></path><circle cx="6.5" cy="17" r="1.6"></circle><circle cx="16.5" cy="17" r="1.6"></circle></svg>
+                  </span>
+                  <div style="flex:1;border-top:3px dashed var(--ink-900)"></div>
+                </div>
+                <span style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.05em;text-transform:uppercase;color:var(--text-muted);text-align:center;line-height:1.3">back</span>
+              </div>
+
+              <!-- BIRTHDAY -->
+              <div style="flex:1.3 1 176px;min-width:168px;background:var(--orange-500);border:3px solid var(--ink-900);box-shadow:5px 5px 0 0 var(--ink-900);padding:18px 16px;display:flex;flex-direction:column;align-items:flex-start;gap:10px;position:relative;overflow:hidden">
+                <div style="position:absolute;inset:0;pointer-events:none;background-image:url('assets/textures/grain.png');background-repeat:repeat;mix-blend-mode:overlay;opacity:0.5"></div>
+                <span data-flip="" style="position:relative;display:inline-block;width:54px;height:66px"><span style="position:absolute;inset:0;background:var(--ink-900);-webkit-mask-image:url('assets/stamps/supra-toast.png');mask-image:url('assets/stamps/supra-toast.png');-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;opacity:1;animation:flipFront 2s linear infinite"></span><span style="position:absolute;inset:0;background:var(--ink-900);-webkit-mask-image:url('assets/stamps/supra-toast.png');mask-image:url('assets/stamps/supra-toast.png');-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;transform:scaleX(-1);opacity:0;animation:flipBack 2s linear infinite"></span></span>
+                <span style="position:relative;font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--folk-white);background:var(--ink-900);padding:4px 9px">★ The main event</span>
+                <div style="position:relative;font-family:var(--font-head);font-weight:900;font-size:24px;line-height:1;color:var(--folk-white)">Tbilisi</div>
+                <span style="position:relative;font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.06em;color:var(--ink-900)">28–31 Oct</span>
+                <div style="position:relative;font-family:var(--font-body);font-weight:700;font-size:14px;line-height:1.35;color:var(--ink-900)">Shota's night — 30 Oct. Everything orbits this.</div>
+              </div>
+
+              <!-- conn train -->
+              <div style="flex:0 0 auto;min-width:62px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px">
+                <div style="display:flex;align-items:center;width:100%">
+                  <div style="flex:1;border-top:3px dashed var(--ink-900)"></div>
+                  <span style="display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:999px;border:2px solid var(--ink-900);background:var(--folk-blue);color:var(--folk-white);flex:none">
+                    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="13" rx="2"></rect><path d="M5 10h14"></path><path d="M8 16l-2 4"></path><path d="M16 16l2 4"></path></svg>
+                  </span>
+                  <div style="flex:1;border-top:3px dashed var(--ink-900)"></div>
+                </div>
+                <span style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.05em;text-transform:uppercase;color:var(--text-muted);text-align:center;line-height:1.3">train</span>
+              </div>
+
+              <!-- YEREVAN -->
+              <div style="flex:1 1 158px;min-width:150px;background:var(--surface-card);border:3px solid var(--ink-900);padding:18px 15px;display:flex;flex-direction:column;align-items:flex-start;gap:11px">
+                <span style="display:inline-block;width:50px;height:62px;background:var(--folk-red);-webkit-mask-image:url('assets/stamps/supra-host.png');mask-image:url('assets/stamps/supra-host.png');-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain"></span>
+                <div style="font-family:var(--font-head);font-weight:900;font-size:22px;line-height:1;color:var(--text-strong)">Yerevan</div>
+                <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.06em;color:var(--folk-red)">1 Nov</span>
+                <div style="font-family:var(--font-body);font-size:13.5px;line-height:1.4;color:var(--text-muted)">Cascade, cognac, the way home</div>
+              </div>
+
+              <!-- conn fly out -->
+              <div style="flex:0 0 auto;min-width:62px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px">
+                <div style="display:flex;align-items:center;width:100%">
+                  <div style="flex:1;border-top:3px dashed var(--ink-900)"></div>
+                  <span style="display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:999px;border:2px solid var(--ink-900);background:var(--surface-card);color:var(--ink-900);flex:none">
+                    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"></path></svg>
+                  </span>
+                  <div style="flex:1;border-top:3px dashed var(--ink-900)"></div>
+                </div>
+                <span style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.05em;text-transform:uppercase;color:var(--text-muted);text-align:center;line-height:1.3">EVN</span>
+              </div>
+
+              <!-- HOME -->
+              <div style="flex:1 1 132px;min-width:126px;background:var(--ink-900);border:3px solid var(--ink-900);padding:18px 15px;display:flex;flex-direction:column;align-items:flex-start;gap:11px">
+                <span style="display:inline-flex;align-items:center;justify-content:center;width:50px;height:62px;color:var(--orange-400)">
+                  <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"></path><path d="M5 9.5V20h14V9.5"></path></svg>
+                </span>
+                <div style="font-family:var(--font-head);font-weight:900;font-size:22px;line-height:1;color:var(--folk-white)">Home</div>
+                <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.06em;color:var(--orange-400)">2–3 Nov</span>
+                <div style="font-family:var(--font-body);font-size:13.5px;line-height:1.4;color:var(--on-ink-muted)">Fly out of Yerevan</div>
+              </div>
+
+            </div>
+          </div>
+        </sc-if>
+      </div>
+
+      <!-- JOIN/LEAVE NOTE -->
+      <div style="margin-top:38px;display:grid;grid-template-columns:minmax(0,1fr);gap:24px;max-width:var(--container-narrow)">
+        <p style="font-family:var(--font-body);font-size:clamp(16px,1.9vw,19px);line-height:1.6;color:var(--text-body);margin:0">
+          You can join — and leave — at any point on this line. Just tell us your legs in the <strong style="color:var(--text-strong)">RSVP</strong> — it's two minutes, and it's how we plan.
+        </p>
+      </div>
+
+      <!-- RSVP CALLOUT -->
+      <div style="margin-top:34px;background:var(--ink-900);color:var(--on-ink);border:2px solid var(--ink-900);box-shadow:6px 6px 0 0 var(--orange-500);display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;align-items:center;padding:clamp(24px,3vw,38px)" data-comment-anchor="923d692167-div">
+        <div>
+          <h3 style="font-family:var(--font-head);font-weight:900;font-size:clamp(24px,3vw,32px);margin:0 0 10px;color:var(--folk-white)">Coming? Tell us<span style="position:relative;display:inline-block"><span style="visibility:hidden" aria-hidden="true">, please</span><span style="position:absolute;left:0;top:0;white-space:nowrap"><span style="color:var(--folk-white)">{{ dot }}</span><span style="color:var(--orange-300)">{{ tw }}</span><span style="display:inline-block;width:3px;height:0.92em;margin-left:2px;background:var(--orange-300);vertical-align:-1px;animation:twCaret 0.85s steps(1,end) infinite"></span></span></span></h3>
+          <p style="font-family:var(--font-body);font-size:16px;line-height:1.6;margin:0;color:var(--on-ink-muted);max-width:46ch">One 2-minute form: your dates, Kazbegi, Yerevan, and where you want to sleep. It's how we size the vans and sort the night-train tickets.</p>
+        </div>
+        <div style="justify-self:start">
+          <a href="{{ rsvpUrl }}" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--font-head);font-weight:800;font-size:17px;padding:16px 30px;color:var(--on-brand);background:var(--orange-500);border:2px solid var(--orange-500);box-shadow:5px 5px 0 0 var(--orange-700);transition:transform 120ms,box-shadow 120ms,background 120ms" style-hover="background:var(--orange-600);transform:translate(-2px,-2px);box-shadow:7px 7px 0 0 var(--orange-700)">
+            RSVP <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div style="width:100%;height:34px;background:var(--orange-500);-webkit-mask-image:url('assets/motifs/divider-carpet.png');mask-image:url('assets/motifs/divider-carpet.png');-webkit-mask-repeat:repeat-x;mask-repeat:repeat-x;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:auto 100%;mask-size:auto 100%"></div>
+
+  <!-- ===== BLOCK 2 — WHERE WE STAY ===== -->
+  <section id="stay" style="position:relative;background:var(--surface-page)">
+    <div style="max-width:var(--container);margin:0 auto;padding:clamp(3rem,6vw,5.5rem) var(--gutter)">
+      <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-muted)">Beds · three cities</span>
+      <h2 style="font-family:var(--font-head);font-weight:900;font-size:clamp(30px,5vw,54px);line-height:0.98;margin:8px 0 32px;color:var(--text-strong)">Where we stay</h2>
+
+      <div>
+        <sc-if value="{{ isStayA }}" hint-placeholder-val="{{ true }}">
+          <div data-variant="A" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(22px,3vw,34px)">
+
+            <!-- Tbilisi -->
+            <div style="display:flex;flex-direction:column">
+              <figure style="margin:0;position:relative;overflow:hidden;border-radius:14px;box-shadow:0 18px 40px -16px rgba(30,27,24,0.45);aspect-ratio:3/4">
+                <img src="assets/photos/tbilisi-balcony.png" alt="Old Tbilisi balconies at sunset" style="display:block;width:100%;height:100%;object-fit:cover;filter:saturate(1.08) contrast(1.04) sepia(0.10)">
+                <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(20,18,15,0.84) 0%, rgba(20,18,15,0.28) 40%, transparent 64%)"></div>
+                <div style="position:absolute;left:0;right:0;bottom:0;padding:20px 18px 17px">
+                  <div style="font-family:var(--font-mono);font-size:10.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange-300);margin-bottom:7px">3 + 3 nights</div>
+                  <div style="font-family:var(--font-head);font-weight:900;font-size:clamp(34px,4.4vw,42px);line-height:0.92;color:var(--folk-white);text-shadow:0 2px 14px rgba(0,0,0,0.55)">Tbilisi</div>
+                </div>
+              </figure>
+              <div style="padding-top:16px">
+                <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--folk-blue);border:2px solid var(--folk-blue);border-radius:999px;padding:4px 11px">24–27 + 28–31 Oct</span>
+                <p style="font-family:var(--font-body);font-size:15.5px;line-height:1.6;margin:12px 0 0;color:var(--text-body)">Most book their own place; some of us may share an Airbnb. Set your preference in the <a href="{{ rsvpUrl }}" target="_blank" rel="noopener" style="color:var(--orange-600);text-decoration:underline;text-underline-offset:2px">RSVP</a> and we'll connect the sharers.</p>
+              </div>
+            </div>
+
+            <!-- Kazbegi -->
+            <div style="display:flex;flex-direction:column">
+              <figure style="margin:0;position:relative;overflow:hidden;border-radius:14px;box-shadow:0 18px 40px -16px rgba(30,27,24,0.45);aspect-ratio:3/4">
+                <img src="assets/photos/kazbegi-church.jpg" alt="Gergeti Trinity church under snowy Mount Kazbek" style="display:block;width:100%;height:100%;object-fit:cover;filter:saturate(1.08) contrast(1.04) sepia(0.10)">
+                <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(20,18,15,0.84) 0%, rgba(20,18,15,0.28) 40%, transparent 64%)"></div>
+                <div style="position:absolute;left:0;right:0;bottom:0;padding:20px 18px 17px">
+                  <div style="font-family:var(--font-mono);font-size:10.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange-300);margin-bottom:7px">1 night</div>
+                  <div style="font-family:var(--font-head);font-weight:900;font-size:clamp(34px,4.4vw,42px);line-height:0.92;color:var(--folk-white);text-shadow:0 2px 14px rgba(0,0,0,0.55)">Kazbegi</div>
+                </div>
+              </figure>
+              <div style="padding-top:16px">
+                <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--folk-ochre);border:2px solid var(--folk-ochre);border-radius:999px;padding:4px 11px">One night up high</span>
+                <p style="font-family:var(--font-body);font-size:15.5px;line-height:1.6;margin:12px 0 0;color:var(--text-body)">Book <a href="https://roomshotels.com/kazbegi/" target="_blank" rel="noopener" style="color:var(--orange-600);text-decoration:underline;text-underline-offset:2px">Rooms Hotel</a> if you want the full Kazbek-view splurge (basically a religion), or cheaper rooms nearby.</p>
+              </div>
+            </div>
+
+            <!-- Yerevan — TBD -->
+            <div style="display:flex;flex-direction:column">
+              <figure style="margin:0;position:relative;overflow:hidden;border-radius:14px;box-shadow:0 18px 40px -16px rgba(30,27,24,0.45);aspect-ratio:3/4">
+                <img src="assets/photos/yerevan-ararat.jpg" alt="Yerevan at sunset with Mount Ararat" style="display:block;width:100%;height:100%;object-fit:cover;filter:saturate(1.08) contrast(1.04) sepia(0.10)">
+                <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(20,18,15,0.84) 0%, rgba(20,18,15,0.28) 40%, transparent 64%)"></div>
+                <div style="position:absolute;left:0;right:0;bottom:0;padding:20px 18px 17px">
+                  <div style="font-family:var(--font-mono);font-size:10.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange-300);margin-bottom:7px">1 night</div>
+                  <div style="font-family:var(--font-head);font-weight:900;font-size:clamp(34px,4.4vw,42px);line-height:0.92;color:var(--folk-white);text-shadow:0 2px 14px rgba(0,0,0,0.55)">Yerevan</div>
+                </div>
+              </figure>
+              <div style="padding-top:16px">
+                <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--folk-red);border:2px solid var(--folk-red);border-radius:999px;padding:4px 11px">1 → 2 Nov</span>
+                <p style="font-family:var(--font-body);font-size:15.5px;line-height:1.6;margin:12px 0 0;color:var(--text-body)">Again, most book their own place; some of us may share an Airbnb. Set your preference in the <a href="{{ rsvpUrl }}" target="_blank" rel="noopener" style="color:var(--orange-600);text-decoration:underline;text-underline-offset:2px">RSVP</a> and we'll connect the sharers.</p>
+              </div>
+            </div>
+
+          </div>
+        </sc-if>
+        <sc-if value="{{ isStayB }}" hint-placeholder-val="{{ false }}">
+          <div data-variant="B" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(22px,3vw,30px)">
+
+            <!-- Tbilisi -->
+            <div style="background:var(--surface-card);border:2px solid var(--ink-900);box-shadow:5px 5px 0 0 var(--ink-900);padding:24px;display:flex;flex-direction:column;gap:14px">
+              <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px">
+                <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--folk-blue);border:2px solid var(--folk-blue);border-radius:999px;padding:4px 11px">24–27 + 28–31 Oct</span>
+                <span style="display:inline-block;width:34px;height:42px;flex:none;background:var(--orange-500);-webkit-mask-image:url('assets/stamps/supra-woman-cup.png');mask-image:url('assets/stamps/supra-woman-cup.png');-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain"></span>
+              </div>
+              <h3 style="font-family:var(--font-head);font-weight:900;font-size:30px;margin:0;color:var(--text-strong)">Tbilisi</h3>
+              <div style="display:flex;align-items:baseline;gap:8px;border-top:2px solid var(--ink-900);border-bottom:2px solid var(--ink-900);padding:12px 0">
+                <span style="font-family:var(--font-mono);font-weight:700;font-size:24px;color:var(--orange-600)">~€200–300</span>
+                <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted)">pp · share · 5–6 nts</span>
+              </div>
+              <p style="font-family:var(--font-body);font-size:15px;line-height:1.6;margin:0;color:var(--text-body)">Two stays — before and after Kazbegi — not one straight week. Most book their own place; some may share an Airbnb. Set your preference in the <a href="{{ rsvpUrl }}" target="_blank" rel="noopener" style="color:var(--orange-600);text-decoration:underline;text-underline-offset:2px">RSVP</a> and we'll connect the sharers.</p>
+            </div>
+
+            <!-- Kazbegi -->
+            <div style="background:var(--surface-card);border:2px solid var(--ink-900);box-shadow:5px 5px 0 0 var(--ink-900);padding:24px;display:flex;flex-direction:column;gap:14px">
+              <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px">
+                <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--folk-ochre);border:2px solid var(--folk-ochre);border-radius:999px;padding:4px 11px">One night</span>
+                <span style="display:inline-block;width:34px;height:42px;flex:none;background:var(--folk-green);-webkit-mask-image:url('assets/stamps/deer.png');mask-image:url('assets/stamps/deer.png');-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain"></span>
+              </div>
+              <h3 style="font-family:var(--font-head);font-weight:900;font-size:30px;margin:0;color:var(--text-strong)">Kazbegi</h3>
+              <div style="display:flex;align-items:baseline;gap:8px;border-top:2px solid var(--ink-900);border-bottom:2px solid var(--ink-900);padding:12px 0">
+                <span style="font-family:var(--font-mono);font-weight:700;font-size:24px;color:var(--orange-600)">≈€200</span>
+                <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted)">Rooms Hotel · or cheaper</span>
+              </div>
+              <p style="font-family:var(--font-body);font-size:15px;line-height:1.6;margin:0;color:var(--text-body)">Rooms Hotel for the full Kazbek-view splurge (basically a religion), or cheaper rooms nearby. We book as a group.</p>
+            </div>
+
+            <!-- Yerevan -->
+            <div style="background:var(--surface-card);border:2px solid var(--ink-900);box-shadow:5px 5px 0 0 var(--ink-900);padding:24px;display:flex;flex-direction:column;gap:14px">
+              <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px">
+                <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--folk-red);border:2px solid var(--folk-red);border-radius:999px;padding:4px 11px">1 → 2 Nov</span>
+                <span style="display:inline-block;width:34px;height:42px;flex:none;background:var(--folk-red);-webkit-mask-image:url('assets/stamps/supra-host.png');mask-image:url('assets/stamps/supra-host.png');-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain"></span>
+              </div>
+              <h3 style="font-family:var(--font-head);font-weight:900;font-size:30px;margin:0;color:var(--text-strong)">Yerevan</h3>
+              <div style="display:flex;align-items:center;gap:8px;border-top:2px solid var(--ink-900);border-bottom:2px solid var(--ink-900);padding:12px 0">
+                <span style="font-family:var(--font-mono);font-weight:700;font-size:18px;letter-spacing:0.1em;color:var(--ink-900);background:var(--folk-ochre);padding:4px 10px">TBD</span>
+                <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted)">we'll pin it down</span>
+              </div>
+              <p style="font-family:var(--font-body);font-size:15px;line-height:1.6;margin:0;color:var(--text-body)">One night before the flights home, still TBD — we'll share the place once it's sorted.</p>
+            </div>
+
+          </div>
+        </sc-if>
+        <sc-if value="{{ isStayC }}" hint-placeholder-val="{{ false }}">
+          <div data-variant="C" style="border:2px solid var(--ink-900);box-shadow:6px 6px 0 0 var(--ink-900)">
+
+            <!-- Tbilisi -->
+            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:clamp(16px,3vw,32px);padding:clamp(20px,3vw,30px);background:var(--surface-card);border-bottom:2px solid var(--ink-900)">
+              <span style="flex:none;font-family:var(--font-mono);font-weight:700;font-size:18px;color:var(--orange-500)">01</span>
+              <div style="flex:1 1 200px;min-width:160px;display:flex;align-items:center;gap:14px">
+                <span style="display:inline-block;width:38px;height:48px;flex:none;background:var(--folk-blue);-webkit-mask-image:url('assets/stamps/supra-woman-cup.png');mask-image:url('assets/stamps/supra-woman-cup.png');-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain"></span>
+                <div>
+                  <div style="font-family:var(--font-head);font-weight:900;font-size:clamp(26px,3.4vw,38px);line-height:0.95;color:var(--text-strong)">Tbilisi</div>
+                  <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--folk-blue);margin-top:4px">24–27 + 28–31 Oct · share ~€200–300 pp</div>
+                </div>
+              </div>
+              <p style="flex:2 1 280px;min-width:220px;font-family:var(--font-body);font-size:15.5px;line-height:1.6;margin:0;color:var(--text-body)">Two stays, before and after Kazbegi — not one long week. Most book their own place; some of us may share an Airbnb. Set your preference in the <a href="{{ rsvpUrl }}" target="_blank" rel="noopener" style="color:var(--orange-600);text-decoration:underline;text-underline-offset:2px">RSVP</a> and we'll connect the sharers.</p>
+            </div>
+
+            <!-- Kazbegi -->
+            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:clamp(16px,3vw,32px);padding:clamp(20px,3vw,30px);background:var(--ink-900);color:var(--on-ink);border-bottom:2px solid var(--ink-900)">
+              <span style="flex:none;font-family:var(--font-mono);font-weight:700;font-size:18px;color:var(--orange-400)">02</span>
+              <div style="flex:1 1 200px;min-width:160px;display:flex;align-items:center;gap:14px">
+                <span style="display:inline-block;width:38px;height:48px;flex:none;background:var(--orange-400);-webkit-mask-image:url('assets/stamps/deer.png');mask-image:url('assets/stamps/deer.png');-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain"></span>
+                <div>
+                  <div style="font-family:var(--font-head);font-weight:900;font-size:clamp(26px,3.4vw,38px);line-height:0.95;color:var(--folk-white)">Kazbegi</div>
+                  <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange-400);margin-top:4px">One night · Rooms Hotel ≈€200</div>
+                </div>
+              </div>
+              <p style="flex:2 1 280px;min-width:220px;font-family:var(--font-body);font-size:15.5px;line-height:1.6;margin:0;color:var(--on-ink-muted)">Rooms Hotel for the full Kazbek-view splurge (basically a religion), or cheaper rooms nearby. We book as a group.</p>
+            </div>
+
+            <!-- Yerevan -->
+            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:clamp(16px,3vw,32px);padding:clamp(20px,3vw,30px);background:var(--surface-card)">
+              <span style="flex:none;font-family:var(--font-mono);font-weight:700;font-size:18px;color:var(--orange-500)">03</span>
+              <div style="flex:1 1 200px;min-width:160px;display:flex;align-items:center;gap:14px">
+                <span style="display:inline-block;width:38px;height:48px;flex:none;background:var(--folk-red);-webkit-mask-image:url('assets/stamps/supra-host.png');mask-image:url('assets/stamps/supra-host.png');-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain"></span>
+                <div>
+                  <div style="font-family:var(--font-head);font-weight:900;font-size:clamp(26px,3.4vw,38px);line-height:0.95;color:var(--text-strong)">Yerevan</div>
+                  <div style="display:inline-flex;align-items:center;gap:7px;margin-top:6px"><span style="font-family:var(--font-mono);font-weight:700;font-size:12px;letter-spacing:0.08em;color:var(--ink-900);background:var(--folk-ochre);padding:3px 8px">TBD</span><span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--folk-red)">1 → 2 Nov</span></div>
+                </div>
+              </div>
+              <p style="flex:2 1 280px;min-width:220px;font-family:var(--font-body);font-size:15.5px;line-height:1.6;margin:0;color:var(--text-body)">One night before the flights home, still TBD — we'll share the place once it's pinned down.</p>
+            </div>
+
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BLOCK 3 — THE NIGHT TRAIN ===== -->
+  <section id="train" style="position:relative;background:var(--ink-900);color:var(--on-ink);overflow:hidden">
+    <div style="position:absolute;inset:0;pointer-events:none;background-image:url('assets/textures/grain.png');background-repeat:repeat;mix-blend-mode:overlay;opacity:0.4"></div>
+    <div style="position:relative;zIndex:1;max-width:var(--container);margin:0 auto;padding:clamp(3rem,6vw,5.5rem) var(--gutter)">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(28px,4vw,56px);align-items:center">
+        <div>
+          <div style="display:inline-flex;align-items:center;gap:9px;font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-900);background:var(--orange-400);padding:6px 12px;margin-bottom:20px">
+            Book this one ahead
+          </div>
+          <h2 style="font-family:var(--font-display);font-weight:400;text-transform:uppercase;font-size:clamp(40px,6vw,76px);line-height:0.95;margin:0 0 20px;color:var(--folk-white);text-shadow:4px 4px 0 var(--orange-600)">The night train</h2>
+          <p style="font-family:var(--font-body);font-size:clamp(17px,2vw,20px);line-height:1.5;color:var(--autumn-cream);max-width:34ch;margin:0 0 26px">
+            Finishing in Yerevan? This is the one thing on the whole page you book in advance. Tbilisi to Yerevan, sleeping the whole way.
+          </p>
+          <a href="{{ trainUrl }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--font-head);font-weight:800;font-size:17px;padding:16px 30px;color:var(--on-brand);background:var(--orange-500);border:2px solid var(--orange-500);box-shadow:5px 5px 0 0 var(--folk-white);transition:transform 120ms,box-shadow 120ms,background 120ms" style-hover="background:var(--orange-600);transform:translate(-2px,-2px);box-shadow:7px 7px 0 0 var(--folk-white)">
+            Book the train <span aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <!-- ticket stub -->
+        <div style="background:var(--surface-card);color:var(--text-body);border:2px solid var(--orange-500);padding:0;box-shadow:7px 7px 0 0 var(--orange-600)">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 22px;border-bottom:2px dashed var(--ink-900)">
+            <div style="font-family:var(--font-head);font-weight:900;font-size:20px;color:var(--text-strong)">Tbilisi → Yerevan</div>
+            <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange-600)">Overnight</div>
+          </div>
+          <div style="padding:8px 22px 18px">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;padding:13px 0;border-bottom:1px solid var(--border-hairline)">
+              <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Date</span>
+              <span style="font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--text-strong)">31 Oct → 1 Nov</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;padding:13px 0;border-bottom:1px solid var(--border-hairline)">
+              <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Depart → Arrive</span>
+              <span style="font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--text-strong)">20:20 → 07:00 · ~10.5h</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;padding:13px 0;border-bottom:1px solid var(--border-hairline)">
+              <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Runs</span>
+              <span style="font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--text-strong)">Every other day · limited</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;padding:13px 0">
+              <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Bring</span>
+              <span style="font-family:var(--font-mono);font-weight:700;font-size:14px;color:var(--text-strong);text-align:right">Passport · warm layer · water</span>
+            </div>
+            <div style="margin-top:14px;display:flex;align-items:flex-start;gap:10px;background:var(--folk-ochre);color:var(--ink-900);padding:12px 14px">
+              <span style="font-family:var(--font-mono);font-weight:700;font-size:18px;line-height:1">!</span>
+              <span style="font-family:var(--font-body);font-weight:600;font-size:14px;line-height:1.4">Tickets open <strong>~21 Sep</strong> (40 days before) and sell out fast. Set a reminder.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BLOCK 4 — GOOD TO KNOW ===== -->
+  <section id="know" style="position:relative;background:var(--surface-page)">
+    <div style="max-width:var(--container);margin:0 auto;padding:clamp(3rem,6vw,5.5rem) var(--gutter)">
+      <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-muted)">Practical basics</span>
+      <h2 style="font-family:var(--font-head);font-weight:900;font-size:clamp(30px,5vw,54px);line-height:0.98;margin:8px 0 32px;color:var(--text-strong)">Good to know</h2>
+      <!-- VARIANT A — reference rows -->
+      <sc-if value="{{ isKnowA }}" hint-placeholder-val="{{ true }}">
+        <div data-variant="A" style="border-top:2px solid var(--ink-900)">
+          <div style="display:flex;flex-wrap:wrap;gap:6px 28px;align-items:baseline;padding:18px 2px;border-bottom:1px solid var(--border-hairline)">
+            <div style="flex:0 0 180px;display:flex;align-items:center;gap:9px;font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange-600)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="M5 13l1.4-4.2A2 2 0 0 1 8.3 7.5h7.4a2 2 0 0 1 1.9 1.3L19 13"></path><path d="M4 13h16v4H4z"></path><circle cx="7.5" cy="17.5" r="1.3"></circle><circle cx="16.5" cy="17.5" r="1.3"></circle></svg>Taxi</div>
+            <p style="flex:1 1 320px;min-width:220px;margin:0;font-family:var(--font-body);font-size:16px;line-height:1.55;color:var(--text-body)"><a href="https://bolt.eu" target="_blank" rel="noopener" style="color:var(--orange-600);text-decoration:underline;text-underline-offset:2px">Bolt</a> (main) + <a href="https://go.yandex" target="_blank" rel="noopener" style="color:var(--orange-600);text-decoration:underline;text-underline-offset:2px">Yandex Go</a>. Download before you fly.</p>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px 28px;align-items:baseline;padding:18px 2px;border-bottom:1px solid var(--border-hairline)">
+            <div style="flex:0 0 180px;display:flex;align-items:center;gap:9px;font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange-600)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><rect x="3" y="6" width="18" height="12" rx="1.5"></rect><circle cx="12" cy="12" r="2.5"></circle><path d="M6 9.5v5M18 9.5v5"></path></svg>Money</div>
+            <p style="flex:1 1 320px;min-width:220px;margin:0;font-family:var(--font-body);font-size:16px;line-height:1.55;color:var(--text-body)">Georgian lari (GEL); cards everywhere, cash for markets &amp; taxis. <span style="color:var(--text-muted)">(Yerevan: Armenian dram)</span></p>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px 28px;align-items:baseline;padding:18px 2px;border-bottom:1px solid var(--border-hairline)">
+            <div style="flex:0 0 180px;display:flex;align-items:center;gap:9px;font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange-600)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><rect x="5" y="3" width="14" height="18" rx="2"></rect><circle cx="12" cy="10" r="2.4"></circle><path d="M8.5 16.5h7"></path></svg>Visa</div>
+            <p style="flex:1 1 320px;min-width:220px;margin:0;font-family:var(--font-body);font-size:16px;line-height:1.55;color:var(--text-body)">EU: none. Other passports: check.</p>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px 28px;align-items:baseline;padding:18px 2px;border-bottom:1px solid var(--border-hairline)">
+            <div style="flex:0 0 180px;display:flex;align-items:center;gap:9px;font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange-600)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="M5 19v-2.5"></path><path d="M10 19v-6"></path><path d="M15 19v-9"></path><path d="M20 19V7"></path></svg>SIM</div>
+            <p style="flex:1 1 320px;min-width:220px;margin:0;font-family:var(--font-body);font-size:16px;line-height:1.55;color:var(--text-body)">Magti / Geocell at the airport.</p>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px 28px;align-items:baseline;padding:18px 2px">
+            <div style="flex:0 0 180px;display:flex;align-items:center;gap:9px;font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange-600)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="M6 15a4 4 0 0 1 1-7.9A5 5 0 0 1 17.5 8 3.5 3.5 0 0 1 18 15"></path><path d="M9 18.5h.01M13 19.5h.01M16 18.5h.01M11 21h.01M15 21h.01"></path></svg>Weather</div>
+            <p style="flex:1 1 320px;min-width:220px;margin:0;font-family:var(--font-body);font-size:16px;line-height:1.55;color:var(--text-body)">Tbilisi +12–20°C; Kazbegi 0–10°C, maybe snow. Warm layers + swimsuit for the baths.</p>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- VARIANT B — icon cards (masonry) -->
+      <sc-if value="{{ isKnowB }}" hint-placeholder-val="{{ false }}">
+        <div data-variant="B" style="column-width:248px;column-gap:18px">
+          <div style="break-inside:avoid;margin:0 0 18px;background:var(--surface-card);border:2px solid var(--ink-900);box-shadow:4px 4px 0 0 var(--ink-900);padding:20px">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:11px">
+              <span style="display:inline-flex;color:var(--ink-900)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l1.4-4.2A2 2 0 0 1 8.3 7.5h7.4a2 2 0 0 1 1.9 1.3L19 13"></path><path d="M4 13h16v4H4z"></path><circle cx="7.5" cy="17.5" r="1.3"></circle><circle cx="16.5" cy="17.5" r="1.3"></circle></svg></span>
+              <span style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange-600)">Taxi</span>
+            </div>
+            <p style="font-family:var(--font-body);font-size:15px;line-height:1.55;margin:0;color:var(--text-body)"><a href="https://bolt.eu" target="_blank" rel="noopener" style="color:var(--orange-600);text-decoration:underline;text-underline-offset:2px">Bolt</a> (main) + <a href="https://go.yandex" target="_blank" rel="noopener" style="color:var(--orange-600);text-decoration:underline;text-underline-offset:2px">Yandex Go</a>. Download before you fly.</p>
+          </div>
+          <div style="break-inside:avoid;margin:0 0 18px;background:var(--surface-card);border:2px solid var(--ink-900);box-shadow:4px 4px 0 0 var(--ink-900);padding:20px">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:11px">
+              <span style="display:inline-flex;color:var(--ink-900)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="1.5"></rect><circle cx="12" cy="12" r="2.5"></circle><path d="M6 9.5v5M18 9.5v5"></path></svg></span>
+              <span style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange-600)">Money</span>
+            </div>
+            <p style="font-family:var(--font-body);font-size:15px;line-height:1.55;margin:0;color:var(--text-body)">Georgian lari (GEL); cards everywhere, cash for markets &amp; taxis. <span style="color:var(--text-muted)">(Yerevan: Armenian dram)</span></p>
+          </div>
+          <div style="break-inside:avoid;margin:0 0 18px;background:var(--surface-card);border:2px solid var(--ink-900);box-shadow:4px 4px 0 0 var(--ink-900);padding:20px">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:11px">
+              <span style="display:inline-flex;color:var(--ink-900)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"></rect><circle cx="12" cy="10" r="2.4"></circle><path d="M8.5 16.5h7"></path></svg></span>
+              <span style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange-600)">Visa</span>
+            </div>
+            <p style="font-family:var(--font-body);font-size:15px;line-height:1.55;margin:0;color:var(--text-body)">EU: none. Other passports: check.</p>
+          </div>
+          <div style="break-inside:avoid;margin:0 0 18px;background:var(--surface-card);border:2px solid var(--ink-900);box-shadow:4px 4px 0 0 var(--ink-900);padding:20px">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:11px">
+              <span style="display:inline-flex;color:var(--ink-900)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19v-2.5"></path><path d="M10 19v-6"></path><path d="M15 19v-9"></path><path d="M20 19V7"></path></svg></span>
+              <span style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange-600)">SIM</span>
+            </div>
+            <p style="font-family:var(--font-body);font-size:15px;line-height:1.55;margin:0;color:var(--text-body)">Magti / Geocell at the airport.</p>
+          </div>
+          <div style="break-inside:avoid;margin:0 0 18px;background:var(--surface-card);border:2px solid var(--ink-900);box-shadow:4px 4px 0 0 var(--ink-900);padding:20px">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:11px">
+              <span style="display:inline-flex;color:var(--ink-900)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15a4 4 0 0 1 1-7.9A5 5 0 0 1 17.5 8 3.5 3.5 0 0 1 18 15"></path><path d="M9 18.5h.01M13 19.5h.01M16 18.5h.01M11 21h.01M15 21h.01"></path></svg></span>
+              <span style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange-600)">Weather</span>
+            </div>
+            <p style="font-family:var(--font-body);font-size:15px;line-height:1.55;margin:0;color:var(--text-body)">Tbilisi +12–20°C; Kazbegi 0–10°C, maybe snow. Warm layers + swimsuit for the baths.</p>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- VARIANT C — dark info strip -->
+      <sc-if value="{{ isKnowC }}" hint-placeholder-val="{{ false }}">
+        <div data-variant="C" style="display:flex;flex-wrap:wrap;background:var(--ink-900);border:2px solid var(--ink-900);box-shadow:6px 6px 0 0 var(--orange-500)">
+          <div style="flex:1 1 200px;padding:22px;border-right:1px solid var(--ink-700);border-bottom:1px solid var(--ink-700)">
+            <div style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange-400);margin-bottom:10px">Taxi</div>
+            <p style="font-family:var(--font-body);font-size:14.5px;line-height:1.55;margin:0;color:var(--autumn-cream)"><a href="https://bolt.eu" target="_blank" rel="noopener" style="color:var(--orange-600);text-decoration:underline;text-underline-offset:2px">Bolt</a> (main) + <a href="https://go.yandex" target="_blank" rel="noopener" style="color:var(--orange-600);text-decoration:underline;text-underline-offset:2px">Yandex Go</a>. Download before you fly.</p>
+          </div>
+          <div style="flex:1 1 200px;padding:22px;border-right:1px solid var(--ink-700);border-bottom:1px solid var(--ink-700)">
+            <div style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange-400);margin-bottom:10px">Money</div>
+            <p style="font-family:var(--font-body);font-size:14.5px;line-height:1.55;margin:0;color:var(--autumn-cream)">Georgian lari (GEL); cards everywhere, cash for markets &amp; taxis. <span style="color:var(--on-ink-muted)">(Yerevan: dram)</span></p>
+          </div>
+          <div style="flex:1 1 200px;padding:22px;border-right:1px solid var(--ink-700);border-bottom:1px solid var(--ink-700)">
+            <div style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange-400);margin-bottom:10px">Visa</div>
+            <p style="font-family:var(--font-body);font-size:14.5px;line-height:1.55;margin:0;color:var(--autumn-cream)">EU: none. Other passports: check.</p>
+          </div>
+          <div style="flex:1 1 200px;padding:22px;border-right:1px solid var(--ink-700);border-bottom:1px solid var(--ink-700)">
+            <div style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange-400);margin-bottom:10px">SIM</div>
+            <p style="font-family:var(--font-body);font-size:14.5px;line-height:1.55;margin:0;color:var(--autumn-cream)">Magti / Geocell at the airport.</p>
+          </div>
+          <div style="flex:1 1 200px;padding:22px;border-bottom:1px solid var(--ink-700)">
+            <div style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange-400);margin-bottom:10px">Weather</div>
+            <p style="font-family:var(--font-body);font-size:14.5px;line-height:1.55;margin:0;color:var(--autumn-cream)">Tbilisi +12–20°C; Kazbegi 0–10°C, maybe snow. Warm layers + swimsuit for the baths.</p>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer style="position:relative;background:var(--ink-900);color:var(--on-ink-muted);overflow:hidden">
+    <div style="width:100%;height:30px;background:var(--orange-500);-webkit-mask-image:url('assets/motifs/divider-carpet.png');mask-image:url('assets/motifs/divider-carpet.png');-webkit-mask-repeat:repeat-x;mask-repeat:repeat-x;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:auto 100%;mask-size:auto 100%"></div>
+    <div style="max-width:var(--container);margin:0 auto;padding:clamp(2.5rem,4vw,4rem) var(--gutter);display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
+      <div>
+        <div style="font-family:var(--font-display);font-size:clamp(32px,4vw,46px);color:var(--folk-white);text-transform:uppercase;line-height:0.9">Gaumarjos</div>
+        <p style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.08em;margin-top:10px">To Shota · to forty · to the road</p>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-end">
+        <span style="display:inline-block;width:40px;height:50px;background:var(--orange-400);-webkit-mask-image:url('assets/stamps/supra-toast.png');mask-image:url('assets/stamps/supra-toast.png');-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain"></span>
+        <span style="display:inline-block;width:40px;height:50px;background:var(--on-ink-muted);-webkit-mask-image:url('assets/stamps/deer.png');mask-image:url('assets/stamps/deer.png');-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain"></span>
+        <span style="display:inline-block;width:40px;height:50px;background:var(--orange-400);-webkit-mask-image:url('assets/stamps/supra-man-jug.png');mask-image:url('assets/stamps/supra-man-jug.png');-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain"></span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:2400},&quot;schemaVariant&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;A&quot;,&quot;B&quot;,&quot;C&quot;],&quot;default&quot;:&quot;B&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Choose a design&quot;,&quot;label&quot;:&quot;Route schema style&quot;},&quot;stayVariant&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;A&quot;,&quot;B&quot;,&quot;C&quot;],&quot;default&quot;:&quot;A&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Choose a design&quot;,&quot;label&quot;:&quot;Where-we-stay style&quot;},&quot;knowVariant&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;A&quot;,&quot;B&quot;,&quot;C&quot;],&quot;default&quot;:&quot;A&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Choose a design&quot;,&quot;label&quot;:&quot;Good-to-know style&quot;},&quot;rsvpUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;#rsvp&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Links&quot;,&quot;label&quot;:&quot;RSVP form URL&quot;}}">
+class Component extends DCLogic {
+  state = { dot: '.', tw: '', heroNum: '3.9' };
+  componentDidMount() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { this.setState({ dot: '', tw: ', please', heroNum: '4.0' }); return; }
+    const word = 'please';
+    const F = [];
+    const rep = (o, n) => { for (let k = 0; k < n; k++) F.push(o); };
+    rep({ dot: '.', tw: '' }, 16);          // hold "Tell us."
+    rep({ dot: '', tw: '' }, 2);            // white period removed
+    rep({ dot: '', tw: ',' }, 3);          // orange comma in
+    rep({ dot: '', tw: ', ' }, 1);
+    for (let i = 1; i <= word.length; i++) F.push({ dot: '', tw: ', ' + word.slice(0, i) }); // type please
+    rep({ dot: '', tw: ', ' + word }, 16); // hold "Tell us, please"
+    for (let i = word.length - 1; i >= 0; i--) F.push({ dot: '', tw: ', ' + word.slice(0, i) }); // delete please
+    rep({ dot: '', tw: ',' }, 2);
+    rep({ dot: '', tw: '' }, 2);            // comma removed (period returns on loop)
+    let idx = 0;
+    this._tw = setInterval(() => { const f = F[idx % F.length]; this.setState({ dot: f.dot, tw: f.tw }); idx++; }, 120);
+    const hseq = ['3.9','3.9','3.9','3.9','3.9','3.','3','','4','4.','4.0'];
+    let hi = 0;
+    this._ht = setInterval(() => { this.setState({ heroNum: hseq[hi] }); hi++; if (hi >= hseq.length) clearInterval(this._ht); }, 135);
+  }
+  componentWillUnmount() { clearInterval(this._tw); clearInterval(this._ht); }
+  renderVals() {
+    const sv = this.props.schemaVariant || 'A';
+    const kv = this.props.knowVariant || 'A';
+    const tv = this.props.stayVariant || 'A';
+    return {
+      rsvpUrl: this.props.rsvpUrl || '#rsvp',
+      trainUrl: 'https://ticket.railway.am/en',
+      isSchemaA: sv === 'A', isSchemaB: sv === 'B', isSchemaC: sv === 'C',
+      isStayA: tv === 'A', isStayB: tv === 'B', isStayC: tv === 'C',
+      isKnowA: kv === 'A', isKnowB: kv === 'B', isKnowC: kv === 'C',
+      dot: this.state.dot, tw: this.state.tw, heroNum: this.state.heroNum,
+    };
+  }
+}
+</script>
+</body>
+</html>
