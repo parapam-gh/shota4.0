@@ -692,7 +692,7 @@
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:2400},&quot;schemaVariant&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;A&quot;,&quot;B&quot;,&quot;C&quot;],&quot;default&quot;:&quot;B&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Choose a design&quot;,&quot;label&quot;:&quot;Route schema style&quot;},&quot;stayVariant&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;A&quot;,&quot;B&quot;,&quot;C&quot;],&quot;default&quot;:&quot;A&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Choose a design&quot;,&quot;label&quot;:&quot;Where-we-stay style&quot;},&quot;knowVariant&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;A&quot;,&quot;B&quot;,&quot;C&quot;],&quot;default&quot;:&quot;A&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Choose a design&quot;,&quot;label&quot;:&quot;Good-to-know style&quot;},&quot;rsvpUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;#rsvp&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Links&quot;,&quot;label&quot;:&quot;RSVP form URL&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:2400},&quot;schemaVariant&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;A&quot;,&quot;B&quot;,&quot;C&quot;],&quot;default&quot;:&quot;B&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Choose a design&quot;,&quot;label&quot;:&quot;Route schema style&quot;},&quot;stayVariant&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;A&quot;,&quot;B&quot;,&quot;C&quot;],&quot;default&quot;:&quot;A&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Choose a design&quot;,&quot;label&quot;:&quot;Where-we-stay style&quot;},&quot;knowVariant&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;A&quot;,&quot;B&quot;,&quot;C&quot;],&quot;default&quot;:&quot;A&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Choose a design&quot;,&quot;label&quot;:&quot;Good-to-know style&quot;},&quot;rsvpUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://docs.google.com/forms/d/e/1FAIpQLSdcUWj8XSv0MHt_40hQDQwTrVmRjb33fYgi_BLkU-vxI3SH1w/viewform?usp=sharing&amp;ouid=104411468829427216543&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Links&quot;,&quot;label&quot;:&quot;RSVP form URL&quot;}}">
 class Component extends DCLogic {
   state = { dot: '.', tw: '', heroNum: '3.9' };
   componentDidMount() {
@@ -721,7 +721,7 @@ class Component extends DCLogic {
     const kv = this.props.knowVariant || 'A';
     const tv = this.props.stayVariant || 'A';
     return {
-      rsvpUrl: this.props.rsvpUrl || '#rsvp',
+      rsvpUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSdcUWj8XSv0MHt_40hQDQwTrVmRjb33fYgi_BLkU-vxI3SH1w/viewform?usp=sharing&ouid=104411468829427216543',
       trainUrl: 'https://ticket.railway.am/en',
       isSchemaA: sv === 'A', isSchemaB: sv === 'B', isSchemaC: sv === 'C',
       isStayA: tv === 'A', isStayB: tv === 'B', isStayC: tv === 'C',
