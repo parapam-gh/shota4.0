@@ -134,37 +134,37 @@
         </sc-if>
       </div>
 
-      <!-- SHOTA'S INBOUND FLIGHT / BOARDING PASS -->
-      <div style="margin-top:26px;background:var(--surface-card);color:var(--text-strong);border:2px solid var(--ink-900);box-shadow:6px 6px 0 0 var(--ink-900);position:relative;overflow:hidden">
-        <div style="position:absolute;inset:0;pointer-events:none;background-image:url('assets/textures/grain.png');background-repeat:repeat;mix-blend-mode:overlay;opacity:0.22"></div>
-        <!-- pass header -->
-        <div style="position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 20px;background:var(--ink-900);border-bottom:2px solid var(--orange-500)">
-          <span style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--orange-400)">Boarding pass · the guest of honour</span>
-          <span style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.06em;color:var(--folk-white)">24 Oct 2026</span>
+      <!-- SHOTA'S INBOUND FLIGHT — boarding pass (matches the night-train ticket stub) -->
+      <div style="margin-top:26px;max-width:var(--container-narrow);background:var(--surface-card);color:var(--text-body);border:2px solid var(--orange-500);box-shadow:7px 7px 0 0 var(--orange-600)">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 22px;border-bottom:2px dashed var(--ink-900)">
+          <div style="font-family:var(--font-head);font-weight:900;font-size:20px;color:var(--text-strong)">Madrid → Tbilisi</div>
+          <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange-600)">Boarding pass</div>
         </div>
-        <!-- pass body -->
-        <div style="position:relative;display:flex;align-items:center;gap:clamp(18px,3vw,40px);flex-wrap:wrap;padding:clamp(18px,3vw,26px) 20px">
-          <div style="display:flex;align-items:center;gap:16px">
-            <div>
-              <div style="font-family:var(--font-head);font-weight:900;font-size:clamp(34px,5vw,52px);line-height:0.9;color:var(--text-strong)">MAD</div>
-              <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.06em;color:var(--text-muted);margin-top:5px">14:30 · Madrid</div>
-            </div>
-            <span style="display:inline-flex;color:var(--orange-500)"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"></path></svg></span>
-            <div>
-              <div style="font-family:var(--font-head);font-weight:900;font-size:clamp(34px,5vw,52px);line-height:0.9;color:var(--text-strong)">TBS</div>
-              <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.06em;color:var(--text-muted);margin-top:5px">01:40 (+1) · Tbilisi</div>
-            </div>
+        <div style="padding:8px 22px 18px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px solid var(--border-hairline)">
+            <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Date</span>
+            <span style="font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--text-strong);text-align:right">24 Oct 2026</span>
           </div>
-          <div style="display:flex;flex-direction:column;gap:7px;font-family:var(--font-mono);font-size:12px;letter-spacing:0.03em;color:var(--text-body);border-left:2px dashed var(--ink-600);padding-left:clamp(18px,3vw,28px)">
-            <span><strong style="color:var(--text-strong)">Pegasus</strong> · via Istanbul SAW · 9h 10m</span>
-            <span>Flights <strong style="color:var(--text-strong)">PC1100 + PC318</strong></span>
-            <span style="color:var(--text-muted)">Passenger: SHOTA 4.0 · CONFIRMED</span>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px solid var(--border-hairline)">
+            <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Depart → Arrive</span>
+            <span style="font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--text-strong);text-align:right">14:30 → 01:40 (+1) · 9h 10m</span>
           </div>
-        </div>
-        <!-- CTA strip -->
-        <div style="position:relative;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:15px 20px;border-top:2px solid var(--ink-900);background:var(--orange-500);color:var(--ink-900)">
-          <span style="font-family:var(--font-body);font-weight:700;font-size:15px;line-height:1.45;max-width:54ch">Grab the same flight and we land together — it gets in around 01:40, so book your stay from the 24th with a late check-in.</span>
-          <a href="https://www.google.com/travel/flights?q=flights%20from%20MAD%20to%20TBS%20on%202026-10-24" target="_blank" rel="noopener" style="flex:none;display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-family:var(--font-head);font-weight:800;font-size:15px;padding:11px 20px;color:var(--folk-white);background:var(--ink-900);border:2px solid var(--ink-900);box-shadow:4px 4px 0 0 var(--orange-700);transition:transform 120ms,box-shadow 120ms" style-hover="transform:translate(-2px,-2px);box-shadow:6px 6px 0 0 var(--orange-700)">Find this flight <span aria-hidden="true">→</span></a>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px solid var(--border-hairline)">
+            <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Route</span>
+            <span style="font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--text-strong);text-align:right">MAD → SAW → TBS · Pegasus</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px solid var(--border-hairline)">
+            <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Flights</span>
+            <span style="font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--text-strong);text-align:right">PC1100 + PC318</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0">
+            <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Passenger</span>
+            <span style="font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--text-strong);text-align:right">Shota 4.0 · confirmed</span>
+          </div>
+          <div style="margin-top:14px;display:flex;align-items:flex-start;gap:10px;background:var(--folk-ochre);color:var(--ink-900);padding:12px 14px">
+            <span style="font-family:var(--font-mono);font-weight:700;font-size:16px;line-height:1.3">✈</span>
+            <span style="font-family:var(--font-body);font-weight:600;font-size:14px;line-height:1.45">Same flight as Shota — book the identical one and we land together (~01:40, so book your stay from the 24th with a late check-in).</span>
+          </div>
         </div>
       </div>
 
