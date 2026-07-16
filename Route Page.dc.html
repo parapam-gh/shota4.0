@@ -134,40 +134,6 @@
         </sc-if>
       </div>
 
-      <!-- SHOTA'S INBOUND FLIGHT — boarding pass (matches the night-train ticket stub) -->
-      <div style="margin-top:26px;max-width:var(--container-narrow);background:var(--surface-card);color:var(--text-body);border:2px solid var(--orange-500);box-shadow:7px 7px 0 0 var(--orange-600)">
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 22px;border-bottom:2px dashed var(--ink-900)">
-          <div style="font-family:var(--font-head);font-weight:900;font-size:20px;color:var(--text-strong)">Madrid → Tbilisi</div>
-          <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange-600)">Boarding pass</div>
-        </div>
-        <div style="padding:8px 22px 18px">
-          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px solid var(--border-hairline)">
-            <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Date</span>
-            <span style="font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--text-strong);text-align:right">24 Oct 2026</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px solid var(--border-hairline)">
-            <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Depart → Arrive</span>
-            <span style="font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--text-strong);text-align:right">14:30 → 01:40 (+1) · 9h 10m</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px solid var(--border-hairline)">
-            <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Route</span>
-            <span style="font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--text-strong);text-align:right">MAD → SAW → TBS · Pegasus</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px solid var(--border-hairline)">
-            <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Flights</span>
-            <span style="font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--text-strong);text-align:right">PC1100 + PC318</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0">
-            <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Passenger</span>
-            <span style="font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--text-strong);text-align:right">Shota 4.0 · confirmed</span>
-          </div>
-          <div style="margin-top:14px;display:flex;align-items:flex-start;gap:10px;background:var(--folk-ochre);color:var(--ink-900);padding:12px 14px">
-            <span style="font-family:var(--font-mono);font-weight:700;font-size:16px;line-height:1.3">✈</span>
-            <span style="font-family:var(--font-body);font-weight:600;font-size:14px;line-height:1.45">Same flight as Shota — book the identical one and we land together (~01:40, so book your stay from the 24th with a late check-in).</span>
-          </div>
-        </div>
-      </div>
-
       <!-- JOIN/LEAVE NOTE -->
       <div style="margin-top:38px;display:grid;grid-template-columns:minmax(0,1fr);gap:24px;max-width:var(--container-narrow)">
         <p style="font-family:var(--font-body);font-size:clamp(16px,1.9vw,19px);line-height:1.6;color:var(--text-body);margin:0">
@@ -256,53 +222,87 @@
     </div>
   </section>
 
-  <!-- ===== BLOCK 3 — THE NIGHT TRAIN ===== -->
-  <section id="train" style="position:relative;background:var(--ink-900);color:var(--on-ink);overflow:hidden">
+  <!-- ===== BLOCK 3 — LOGISTICS · flight in + night train out ===== -->
+  <section id="logistics" style="position:relative;background:var(--ink-900);color:var(--on-ink);overflow:hidden">
     <div style="position:absolute;inset:0;pointer-events:none;background-image:url('assets/textures/grain.png');background-repeat:repeat;mix-blend-mode:overlay;opacity:0.4"></div>
     <div style="position:relative;zIndex:1;max-width:var(--container);margin:0 auto;padding:clamp(3rem,6vw,5.5rem) var(--gutter)">
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(28px,4vw,56px);align-items:center">
-        <div>
-          <div style="display:inline-flex;align-items:center;gap:9px;font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-900);background:var(--orange-400);padding:6px 12px;margin-bottom:20px">
-            Book this one ahead
+      <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--orange-400)">Logistics · book ahead</span>
+      <h2 style="font-family:var(--font-display);font-weight:400;text-transform:uppercase;font-size:clamp(40px,6vw,76px);line-height:0.95;margin:8px 0 18px;color:var(--folk-white);text-shadow:4px 4px 0 var(--orange-600)">Getting there &amp; back</h2>
+      <p style="font-family:var(--font-body);font-size:clamp(17px,2vw,20px);line-height:1.55;color:var(--autumn-cream);max-width:56ch;margin:0 0 clamp(30px,4vw,44px)">
+        Two tickets you sort yourself: the flight into Tbilisi, and — if you're finishing in Yerevan — the night train out. Book both early; the train especially — it opens only 40 days ahead and sells out.
+      </p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(24px,3.5vw,40px);align-items:start">
+
+        <!-- FLIGHT IN — Shota's boarding pass -->
+        <div style="background:var(--surface-card);color:var(--text-body);border:2px solid var(--orange-500);box-shadow:7px 7px 0 0 var(--orange-600)">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 22px;border-bottom:2px dashed var(--ink-900)">
+            <div style="font-family:var(--font-head);font-weight:900;font-size:20px;color:var(--text-strong)">Madrid → Tbilisi</div>
+            <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange-600)">Boarding pass · fly in</div>
           </div>
-          <h2 style="font-family:var(--font-display);font-weight:400;text-transform:uppercase;font-size:clamp(40px,6vw,76px);line-height:0.95;margin:0 0 20px;color:var(--folk-white);text-shadow:4px 4px 0 var(--orange-600)">The night train</h2>
-          <p style="font-family:var(--font-body);font-size:clamp(17px,2vw,20px);line-height:1.5;color:var(--autumn-cream);max-width:34ch;margin:0 0 26px">
-            Finishing in Yerevan? This is the one thing on the whole page you book in advance. Tbilisi to Yerevan, sleeping the whole way.
-          </p>
-          <a href="{{ trainUrl }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--font-head);font-weight:800;font-size:17px;padding:16px 30px;color:var(--on-brand);background:var(--orange-500);border:2px solid var(--orange-500);box-shadow:5px 5px 0 0 var(--folk-white);transition:transform 120ms,box-shadow 120ms,background 120ms" style-hover="background:var(--orange-600);transform:translate(-2px,-2px);box-shadow:7px 7px 0 0 var(--folk-white)">
+          <div style="padding:8px 22px 18px">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px solid var(--border-hairline)">
+              <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Date</span>
+              <span style="font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--text-strong);text-align:right">24 Oct 2026</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px solid var(--border-hairline)">
+              <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Depart → Arrive</span>
+              <span style="font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--text-strong);text-align:right">14:30 → 01:40 (+1) · 9h 10m</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px solid var(--border-hairline)">
+              <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Route</span>
+              <span style="font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--text-strong);text-align:right">MAD → SAW → TBS · Pegasus</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px solid var(--border-hairline)">
+              <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Flights</span>
+              <span style="font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--text-strong);text-align:right">PC1100 + PC318</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0">
+              <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Passenger</span>
+              <span style="font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--text-strong);text-align:right">Shota 4.0 · confirmed</span>
+            </div>
+            <div style="margin-top:14px;display:flex;align-items:flex-start;gap:10px;background:var(--folk-ochre);color:var(--ink-900);padding:12px 14px">
+              <span style="font-family:var(--font-mono);font-weight:700;font-size:16px;line-height:1.3">✈</span>
+              <span style="font-family:var(--font-body);font-weight:600;font-size:14px;line-height:1.45">Same flight as Shota — book the identical one and we land together (~01:40, so book your stay from the 24th with a late check-in).</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- NIGHT TRAIN OUT -->
+        <div style="display:flex;flex-direction:column;gap:18px">
+          <div style="background:var(--surface-card);color:var(--text-body);border:2px solid var(--orange-500);box-shadow:7px 7px 0 0 var(--orange-600)">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 22px;border-bottom:2px dashed var(--ink-900)">
+              <div style="font-family:var(--font-head);font-weight:900;font-size:20px;color:var(--text-strong)">Tbilisi → Yerevan</div>
+              <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange-600)">Night train · out</div>
+            </div>
+            <div style="padding:8px 22px 18px">
+              <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px solid var(--border-hairline)">
+                <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Date</span>
+                <span style="font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--text-strong);text-align:right">31 Oct → 1 Nov</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px solid var(--border-hairline)">
+                <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Depart → Arrive</span>
+                <span style="font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--text-strong);text-align:right">20:20 → 07:00 · ~10.5h</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px solid var(--border-hairline)">
+                <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Runs</span>
+                <span style="font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--text-strong);text-align:right">Every other day · limited</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0">
+                <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Bring</span>
+                <span style="font-family:var(--font-mono);font-weight:700;font-size:14px;color:var(--text-strong);text-align:right">Passport · warm layer · water</span>
+              </div>
+              <div style="margin-top:14px;display:flex;align-items:flex-start;gap:10px;background:var(--folk-ochre);color:var(--ink-900);padding:12px 14px">
+                <span style="font-family:var(--font-mono);font-weight:700;font-size:18px;line-height:1">!</span>
+                <span style="font-family:var(--font-body);font-weight:600;font-size:14px;line-height:1.4">Tickets open <strong>~21 Sep</strong> (40 days before) and sell out fast. Set a reminder.</span>
+              </div>
+            </div>
+          </div>
+          <a href="{{ trainUrl }}" target="_blank" rel="noopener" style="align-self:flex-start;display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--font-head);font-weight:800;font-size:17px;padding:15px 28px;color:var(--on-brand);background:var(--orange-500);border:2px solid var(--orange-500);box-shadow:5px 5px 0 0 var(--folk-white);transition:transform 120ms,box-shadow 120ms,background 120ms" style-hover="background:var(--orange-600);transform:translate(-2px,-2px);box-shadow:7px 7px 0 0 var(--folk-white)">
             Book the train <span aria-hidden="true">→</span>
           </a>
         </div>
 
-        <!-- ticket stub -->
-        <div style="background:var(--surface-card);color:var(--text-body);border:2px solid var(--orange-500);padding:0;box-shadow:7px 7px 0 0 var(--orange-600)">
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 22px;border-bottom:2px dashed var(--ink-900)">
-            <div style="font-family:var(--font-head);font-weight:900;font-size:20px;color:var(--text-strong)">Tbilisi → Yerevan</div>
-            <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange-600)">Overnight</div>
-          </div>
-          <div style="padding:8px 22px 18px">
-            <div style="display:flex;justify-content:space-between;align-items:baseline;padding:13px 0;border-bottom:1px solid var(--border-hairline)">
-              <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Date</span>
-              <span style="font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--text-strong)">31 Oct → 1 Nov</span>
-            </div>
-            <div style="display:flex;justify-content:space-between;align-items:baseline;padding:13px 0;border-bottom:1px solid var(--border-hairline)">
-              <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Depart → Arrive</span>
-              <span style="font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--text-strong)">20:20 → 07:00 · ~10.5h</span>
-            </div>
-            <div style="display:flex;justify-content:space-between;align-items:baseline;padding:13px 0;border-bottom:1px solid var(--border-hairline)">
-              <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Runs</span>
-              <span style="font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--text-strong)">Every other day · limited</span>
-            </div>
-            <div style="display:flex;justify-content:space-between;align-items:baseline;padding:13px 0">
-              <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Bring</span>
-              <span style="font-family:var(--font-mono);font-weight:700;font-size:14px;color:var(--text-strong);text-align:right">Passport · warm layer · water</span>
-            </div>
-            <div style="margin-top:14px;display:flex;align-items:flex-start;gap:10px;background:var(--folk-ochre);color:var(--ink-900);padding:12px 14px">
-              <span style="font-family:var(--font-mono);font-weight:700;font-size:18px;line-height:1">!</span>
-              <span style="font-family:var(--font-body);font-weight:600;font-size:14px;line-height:1.4">Tickets open <strong>~21 Sep</strong> (40 days before) and sell out fast. Set a reminder.</span>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -345,6 +345,18 @@
       <!-- VARIANT B — icon cards (masonry) -->
 
       <!-- VARIANT C — dark info strip -->
+    </div>
+  </section>
+
+  <!-- ===== FINAL RSVP ===== -->
+  <section id="rsvp-final" style="position:relative;background:var(--orange-500);color:var(--ink-900);overflow:hidden">
+    <div style="position:absolute;inset:0;pointer-events:none;background-image:url('assets/textures/grain.png');background-repeat:repeat;mix-blend-mode:overlay;opacity:0.3"></div>
+    <div style="position:relative;zIndex:1;max-width:var(--container);margin:0 auto;padding:clamp(2.5rem,5vw,4.5rem) var(--gutter);display:flex;align-items:center;justify-content:space-between;gap:clamp(20px,4vw,48px);flex-wrap:wrap">
+      <div>
+        <h2 style="font-family:var(--font-head);font-weight:900;font-size:clamp(26px,4vw,44px);line-height:1.02;margin:0 0 10px;color:var(--ink-900)">Still here? Then you're coming.</h2>
+        <p style="font-family:var(--font-body);font-size:clamp(15px,1.8vw,18px);line-height:1.5;margin:0;color:var(--ink-900);max-width:50ch">Two minutes: your dates, Kazbegi, Yerevan, and where you want to sleep. It's how we size the vans and grab the train tickets.</p>
+      </div>
+      <a href="{{ rsvpUrl }}" target="_blank" rel="noopener" style="flex:none;display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--font-head);font-weight:800;font-size:18px;padding:17px 34px;color:var(--folk-white);background:var(--ink-900);border:2px solid var(--ink-900);box-shadow:5px 5px 0 0 var(--orange-700);transition:transform 120ms,box-shadow 120ms" style-hover="transform:translate(-2px,-2px);box-shadow:7px 7px 0 0 var(--orange-700)">RSVP <span aria-hidden="true">→</span></a>
     </div>
   </section>
 
