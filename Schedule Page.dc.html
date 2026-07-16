@@ -32,7 +32,18 @@
       [data-days]{display:flex !important;flex-direction:column;gap:12px}
       [data-cal-head]{display:none !important}
     }
+    .i18.ru{display:none}
+    html[data-lang="ru"] .i18.en{display:none}
+    html[data-lang="ru"] .i18.ru{display:inline}
+    [data-lang-switch]{display:inline-flex;flex:none;border:2px solid var(--orange-500)}
+    [data-lang-btn]{font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:6px 9px;background:transparent;color:var(--on-ink-muted);border:0;cursor:pointer;line-height:1}
+    html[data-lang="en"] [data-lang-btn="en"],html[data-lang="ru"] [data-lang-btn="ru"]{background:var(--orange-500);color:var(--on-brand)}
   </style>
+  <script>
+  (function(){var d=document.documentElement;try{d.setAttribute('data-lang',localStorage.getItem('shota-lang')||'en')}catch(e){d.setAttribute('data-lang','en')}
+  document.addEventListener('click',function(e){var t=e.target.closest?e.target.closest('[data-lang-btn]'):null;if(!t)return;e.preventDefault();var l=t.getAttribute('data-lang-btn');d.setAttribute('data-lang',l);try{localStorage.setItem('shota-lang',l)}catch(_){}})
+  })();
+  </script>
 </helmet>
 
 <div style="min-height:100vh;background:var(--surface-page);display:flex;flex-direction:column">
@@ -45,8 +56,9 @@
         <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.14em;color:var(--orange-400);white-space:nowrap">GE · AM</span>
       </a>
       <nav style="display:flex;gap:8px;align-items:center">
-        <a href="Route Page.dc.html" style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--on-ink-muted);text-decoration:none;padding:7px 13px;border:2px solid var(--ink-600);transition:color 120ms,border-color 120ms,transform 120ms,box-shadow 120ms" style-hover="color:var(--folk-white);border-color:var(--orange-500);transform:translate(-2px,-2px);box-shadow:3px 3px 0 0 var(--orange-500)">Route</a>
-        <a href="Schedule Page.dc.html" style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--folk-white);text-decoration:none;padding:7px 13px;border:2px solid var(--orange-500);background:var(--orange-500);transition:background 120ms,transform 120ms,box-shadow 120ms" style-hover="background:var(--orange-600);transform:translate(-2px,-2px);box-shadow:3px 3px 0 0 var(--orange-700)">Schedule</a>
+        <a href="Route Page.dc.html" style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--on-ink-muted);text-decoration:none;padding:7px 13px;border:2px solid var(--ink-600);transition:color 120ms,border-color 120ms,transform 120ms,box-shadow 120ms" style-hover="color:var(--folk-white);border-color:var(--orange-500);transform:translate(-2px,-2px);box-shadow:3px 3px 0 0 var(--orange-500)"><span class="i18 en">Route</span><span class="i18 ru">Маршрут</span></a>
+        <a href="Schedule Page.dc.html" style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--folk-white);text-decoration:none;padding:7px 13px;border:2px solid var(--orange-500);background:var(--orange-500);transition:background 120ms,transform 120ms,box-shadow 120ms" style-hover="background:var(--orange-600);transform:translate(-2px,-2px);box-shadow:3px 3px 0 0 var(--orange-700)"><span class="i18 en">Schedule</span><span class="i18 ru">Расписание</span></a>
+        <span data-lang-switch role="group" aria-label="Language"><button type="button" data-lang-btn="en">EN</button><button type="button" data-lang-btn="ru">RU</button></span>
       </nav>
     </div>
   </header>
@@ -57,15 +69,15 @@
     <div data-hero="" style="position:relative;zIndex:1;max-width:var(--container);margin:0 auto;padding:clamp(3.5rem,7vw,6.5rem) var(--gutter) clamp(2.5rem,5vw,4rem);display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(28px,4vw,56px);align-items:center">
       <div>
         <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:22px">
-          <span style="display:inline-flex;align-items:center;font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:5px 12px;border-radius:var(--radius-pill);background:var(--orange-500);color:var(--folk-white)">The plan</span>
-          <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--on-ink-muted)">24 Oct – 2 Nov<br></span>
+          <span style="display:inline-flex;align-items:center;font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:5px 12px;border-radius:var(--radius-pill);background:var(--orange-500);color:var(--folk-white)"><span class="i18 en">The plan</span><span class="i18 ru">План</span></span>
+          <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--on-ink-muted)"><span class="i18 en">24 Oct – 2 Nov</span><span class="i18 ru">24 окт – 2 ноя</span><br></span>
         </div>
-        <h1 style="font-family:var(--font-display);font-weight:400;text-transform:uppercase;font-size:clamp(3rem,8vw,7rem);line-height:0.9;letter-spacing:0.01em;margin:0 0 22px;color:var(--folk-white);text-shadow:5px 5px 0 var(--orange-600)">Day by<br>day</h1>
+        <h1 style="font-family:var(--font-display);font-weight:400;text-transform:uppercase;font-size:clamp(3rem,8vw,7rem);line-height:0.9;letter-spacing:0.01em;margin:0 0 22px;color:var(--folk-white);text-shadow:5px 5px 0 var(--orange-600)"><span class="i18 en">Day by</span><span class="i18 ru">День за</span><br><span class="i18 en">day</span><span class="i18 ru">днём</span></h1>
         <p style="font-family:var(--font-body);font-size:clamp(17px,2.1vw,21px);line-height:1.5;font-weight:500;max-width:38ch;margin:0 0 26px;color:var(--autumn-cream)">
-          Closer to the trip, this page fills in — where we sleep, where we eat, when each supra starts, the hour-by-hour of the fortieth. We're still planning it. Check back as October nears.
+          <span class="i18 en">Closer to the trip, this page fills in — where we sleep, where we eat, when each supra starts, the hour-by-hour of the fortieth. We're still planning it. Check back as October nears.</span><span class="i18 ru">Ближе к поездке страница заполнится — где останавливаемся, где едим, когда начинается каждая супра (застолье), почасовка юбилея. Мы ещё планируем. Загляни ближе к октябрю.</span>
         </p>
         <div style="display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-900);background:var(--folk-ochre);padding:9px 14px">
-          <span style="display:inline-block;width:9px;height:9px;border-radius:999px;background:var(--ink-900)"></span> Still preparing
+          <span style="display:inline-block;width:9px;height:9px;border-radius:999px;background:var(--ink-900)"></span> <span class="i18 en">Still preparing</span><span class="i18 ru">Ещё готовим</span>
         </div>
       </div>
       <div data-hero-fig="" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px">
@@ -80,78 +92,78 @@
   <!-- ===== DAY SKELETON ===== -->
   <section style="flex:1;background:var(--surface-page)">
     <div style="max-width:var(--container);margin:0 auto;padding:clamp(3rem,6vw,5rem) var(--gutter)">
-      <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-muted)">The shape of it</span>
-      <h2 style="font-family:var(--font-head);font-weight:900;font-size:clamp(28px,4.6vw,48px);line-height:0.98;margin:8px 0 8px;color:var(--text-strong)">What we know so far</h2>
-      <p style="font-family:var(--font-body);font-size:16px;line-height:1.6;color:var(--text-body);margin:0 0 32px">The skeleton is set — these are the days and roughly where we'll be. The details land here later.</p>
+      <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-muted)"><span class="i18 en">The shape of it</span><span class="i18 ru">В общих чертах</span></span>
+      <h2 style="font-family:var(--font-head);font-weight:900;font-size:clamp(28px,4.6vw,48px);line-height:0.98;margin:8px 0 8px;color:var(--text-strong)"><span class="i18 en">What we know so far</span><span class="i18 ru">Что уже известно</span></h2>
+      <p style="font-family:var(--font-body);font-size:16px;line-height:1.6;color:var(--text-body);margin:0 0 32px"><span class="i18 en">The skeleton is set — these are the days and roughly where we'll be. The details land here later.</span><span class="i18 ru">Каркас готов — вот дни и примерно где мы будем. Детали появятся здесь позже.</span></p>
 
       <div data-days style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:14px">
 
-        <div data-cal-head style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);padding:0 2px 4px">Mon</div>
-        <div data-cal-head style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);padding:0 2px 4px">Tue</div>
-        <div data-cal-head style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);padding:0 2px 4px">Wed</div>
-        <div data-cal-head style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);padding:0 2px 4px">Thu</div>
-        <div data-cal-head style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);padding:0 2px 4px">Fri</div>
-        <div data-cal-head style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);padding:0 2px 4px">Sat</div>
-        <div data-cal-head style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);padding:0 2px 4px">Sun</div>
+        <div data-cal-head style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);padding:0 2px 4px"><span class="i18 en">Mon</span><span class="i18 ru">Пн</span></div>
+        <div data-cal-head style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);padding:0 2px 4px"><span class="i18 en">Tue</span><span class="i18 ru">Вт</span></div>
+        <div data-cal-head style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);padding:0 2px 4px"><span class="i18 en">Wed</span><span class="i18 ru">Ср</span></div>
+        <div data-cal-head style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);padding:0 2px 4px"><span class="i18 en">Thu</span><span class="i18 ru">Чт</span></div>
+        <div data-cal-head style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);padding:0 2px 4px"><span class="i18 en">Fri</span><span class="i18 ru">Пт</span></div>
+        <div data-cal-head style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);padding:0 2px 4px"><span class="i18 en">Sat</span><span class="i18 ru">Сб</span></div>
+        <div data-cal-head style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);padding:0 2px 4px"><span class="i18 en">Sun</span><span class="i18 ru">Вс</span></div>
 
         <div style="grid-column-start:6;border:2px dashed var(--concrete-300);background:var(--surface-card);padding:16px;display:flex;flex-direction:column;gap:6px;min-height:118px">
-          <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--folk-blue)">Sat · 25 Oct</span>
-          <span style="font-family:var(--font-head);font-weight:800;font-size:18px;color:var(--text-strong)">Tbilisi</span>
-          <span style="margin-top:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--concrete-400)">Plan TBD</span>
+          <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--folk-blue)"><span class="i18 en">Sat · 25 Oct</span><span class="i18 ru">Сб · 25 окт</span></span>
+          <span style="font-family:var(--font-head);font-weight:800;font-size:18px;color:var(--text-strong)"><span class="i18 en">Tbilisi</span><span class="i18 ru">Тбилиси</span></span>
+          <span style="margin-top:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--concrete-400)"><span class="i18 en">Plan TBD</span><span class="i18 ru">Уточняется</span></span>
         </div>
         <div style="border:2px dashed var(--concrete-300);background:var(--surface-card);padding:16px;display:flex;flex-direction:column;gap:6px;min-height:118px">
-          <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--folk-blue)">Sun · 26 Oct</span>
-          <span style="font-family:var(--font-head);font-weight:800;font-size:18px;color:var(--text-strong)">Tbilisi</span>
-          <span style="margin-top:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--concrete-400)">Plan TBD</span>
+          <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--folk-blue)"><span class="i18 en">Sun · 26 Oct</span><span class="i18 ru">Вс · 26 окт</span></span>
+          <span style="font-family:var(--font-head);font-weight:800;font-size:18px;color:var(--text-strong)"><span class="i18 en">Tbilisi</span><span class="i18 ru">Тбилиси</span></span>
+          <span style="margin-top:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--concrete-400)"><span class="i18 en">Plan TBD</span><span class="i18 ru">Уточняется</span></span>
         </div>
         <div style="border:2px dashed var(--concrete-300);background:var(--surface-card);padding:16px;display:flex;flex-direction:column;gap:6px;min-height:118px">
-          <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--folk-ochre)">Mon · 27 Oct</span>
-          <span style="font-family:var(--font-head);font-weight:800;font-size:18px;color:var(--text-strong)">Tbilisi → Kazbegi</span>
-          <span style="margin-top:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--concrete-400)">Plan TBD</span>
+          <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--folk-ochre)"><span class="i18 en">Mon · 27 Oct</span><span class="i18 ru">Пн · 27 окт</span></span>
+          <span style="font-family:var(--font-head);font-weight:800;font-size:18px;color:var(--text-strong)"><span class="i18 en">Tbilisi → Kazbegi</span><span class="i18 ru">Тбилиси → Казбеги</span></span>
+          <span style="margin-top:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--concrete-400)"><span class="i18 en">Plan TBD</span><span class="i18 ru">Уточняется</span></span>
         </div>
         <div style="border:2px dashed var(--concrete-300);background:var(--surface-card);padding:16px;display:flex;flex-direction:column;gap:6px;min-height:118px">
-          <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--folk-ochre)">Tue · 28 Oct</span>
-          <span style="font-family:var(--font-head);font-weight:800;font-size:18px;color:var(--text-strong)">Kazbegi → Tbilisi</span>
-          <span style="margin-top:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--concrete-400)">Plan TBD</span>
+          <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--folk-ochre)"><span class="i18 en">Tue · 28 Oct</span><span class="i18 ru">Вт · 28 окт</span></span>
+          <span style="font-family:var(--font-head);font-weight:800;font-size:18px;color:var(--text-strong)"><span class="i18 en">Kazbegi → Tbilisi</span><span class="i18 ru">Казбеги → Тбилиси</span></span>
+          <span style="margin-top:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--concrete-400)"><span class="i18 en">Plan TBD</span><span class="i18 ru">Уточняется</span></span>
         </div>
         <div style="border:2px dashed var(--concrete-300);background:var(--surface-card);padding:16px;display:flex;flex-direction:column;gap:6px;min-height:118px">
-          <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--folk-blue)">Wed · 29 Oct</span>
-          <span style="font-family:var(--font-head);font-weight:800;font-size:18px;color:var(--text-strong)">Tbilisi</span>
-          <span style="margin-top:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--concrete-400)">Plan TBD</span>
+          <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--folk-blue)"><span class="i18 en">Wed · 29 Oct</span><span class="i18 ru">Ср · 29 окт</span></span>
+          <span style="font-family:var(--font-head);font-weight:800;font-size:18px;color:var(--text-strong)"><span class="i18 en">Tbilisi</span><span class="i18 ru">Тбилиси</span></span>
+          <span style="margin-top:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--concrete-400)"><span class="i18 en">Plan TBD</span><span class="i18 ru">Уточняется</span></span>
         </div>
 
         <!-- BIRTHDAY -->
         <div style="border:2px solid var(--ink-900);background:var(--orange-500);box-shadow:5px 5px 0 0 var(--ink-900);padding:16px;display:flex;flex-direction:column;gap:6px;min-height:118px;position:relative;overflow:hidden">
           <div style="position:absolute;inset:0;pointer-events:none;background-image:url('assets/textures/grain.png');background-repeat:repeat;mix-blend-mode:overlay;opacity:0.5"></div>
           <div style="position:relative;display:flex;align-items:center;justify-content:space-between;gap:6px">
-            <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-900)">Thu · 30 Oct</span>
+            <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-900)"><span class="i18 en">Thu · 30 Oct</span><span class="i18 ru">Чт · 30 окт</span></span>
             <span data-flip="" style="position:relative;display:inline-block;width:22px;height:28px;vertical-align:middle"><span style="position:absolute;inset:0;background:var(--ink-900);-webkit-mask-image:url('assets/stamps/supra-toast.png');mask-image:url('assets/stamps/supra-toast.png');-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;opacity:1;animation:flipFront 2s linear infinite"></span><span style="position:absolute;inset:0;background:var(--ink-900);-webkit-mask-image:url('assets/stamps/supra-toast.png');mask-image:url('assets/stamps/supra-toast.png');-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;transform:scaleX(-1);opacity:0;animation:flipBack 2s linear infinite"></span></span>
           </div>
-          <span style="position:relative;font-family:var(--font-head);font-weight:900;font-size:19px;color:var(--folk-white)">Shota's night</span>
-          <span style="position:relative;margin-top:auto;font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-900)">★ The fixed point</span>
+          <span style="position:relative;font-family:var(--font-head);font-weight:900;font-size:19px;color:var(--folk-white)"><span class="i18 en">Shota's night</span><span class="i18 ru">Вечер Шоты</span></span>
+          <span style="position:relative;margin-top:auto;font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-900)"><span class="i18 en">★ The fixed point</span><span class="i18 ru">★ Точка отсчёта</span></span>
         </div>
 
         <div style="border:2px dashed var(--concrete-300);background:var(--surface-card);padding:16px;display:flex;flex-direction:column;gap:6px;min-height:118px">
-          <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--folk-blue)">Fri · 31 Oct</span>
-          <span style="font-family:var(--font-head);font-weight:800;font-size:18px;color:var(--text-strong)">Tbilisi → night train</span>
-          <span style="margin-top:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--concrete-400)">Plan TBD</span>
+          <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--folk-blue)"><span class="i18 en">Fri · 31 Oct</span><span class="i18 ru">Пт · 31 окт</span></span>
+          <span style="font-family:var(--font-head);font-weight:800;font-size:18px;color:var(--text-strong)"><span class="i18 en">Tbilisi → night train</span><span class="i18 ru">Тбилиси → ночной поезд</span></span>
+          <span style="margin-top:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--concrete-400)"><span class="i18 en">Plan TBD</span><span class="i18 ru">Уточняется</span></span>
         </div>
         <div style="border:2px dashed var(--concrete-300);background:var(--surface-card);padding:16px;display:flex;flex-direction:column;gap:6px;min-height:118px">
-          <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--folk-red)">Sat · 1 Nov</span>
-          <span style="font-family:var(--font-head);font-weight:800;font-size:18px;color:var(--text-strong)">Yerevan</span>
-          <span style="margin-top:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--concrete-400)">Plan TBD</span>
+          <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--folk-red)"><span class="i18 en">Sat · 1 Nov</span><span class="i18 ru">Сб · 1 ноя</span></span>
+          <span style="font-family:var(--font-head);font-weight:800;font-size:18px;color:var(--text-strong)"><span class="i18 en">Yerevan</span><span class="i18 ru">Ереван</span></span>
+          <span style="margin-top:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--concrete-400)"><span class="i18 en">Plan TBD</span><span class="i18 ru">Уточняется</span></span>
         </div>
         <div style="border:2px dashed var(--concrete-300);background:var(--surface-card);padding:16px;display:flex;flex-direction:column;gap:6px;min-height:118px">
-          <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--folk-red)">Sun · 2 Nov</span>
-          <span style="font-family:var(--font-head);font-weight:800;font-size:18px;color:var(--text-strong)">Yerevan → home</span>
-          <span style="margin-top:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--concrete-400)">Plan TBD</span>
+          <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--folk-red)"><span class="i18 en">Sun · 2 Nov</span><span class="i18 ru">Вс · 2 ноя</span></span>
+          <span style="font-family:var(--font-head);font-weight:800;font-size:18px;color:var(--text-strong)"><span class="i18 en">Yerevan → home</span><span class="i18 ru">Ереван → домой</span></span>
+          <span style="margin-top:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--concrete-400)"><span class="i18 en">Plan TBD</span><span class="i18 ru">Уточняется</span></span>
         </div>
 
       </div>
 
       <div style="margin-top:34px">
         <a href="Route Page.dc.html" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--font-head);font-weight:800;font-size:16px;padding:14px 26px;color:var(--ink-900);background:var(--surface-card);border:2px solid var(--ink-900);box-shadow:5px 5px 0 0 var(--ink-900);transition:transform 120ms,box-shadow 120ms,background 120ms" style-hover="background:var(--concrete-50);transform:translate(-2px,-2px);box-shadow:7px 7px 0 0 var(--ink-900)">
-          <span aria-hidden="true">←</span> Back to the route
+          <span aria-hidden="true">←</span> <span class="i18 en">Back to the route</span><span class="i18 ru">Назад к маршруту</span>
         </a>
       </div>
     </div>
@@ -162,8 +174,8 @@
     <div style="width:100%;height:30px;background:var(--orange-500);-webkit-mask-image:url('assets/motifs/divider-carpet.png');mask-image:url('assets/motifs/divider-carpet.png');-webkit-mask-repeat:repeat-x;mask-repeat:repeat-x;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:auto 100%;mask-size:auto 100%"></div>
     <div style="max-width:var(--container);margin:0 auto;padding:clamp(2.5rem,4vw,4rem) var(--gutter);display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
       <div>
-        <div style="font-family:var(--font-display);font-size:clamp(32px,4vw,46px);color:var(--folk-white);text-transform:uppercase;line-height:0.9">Gaumarjos</div>
-        <p style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.08em;margin-top:10px">To Shota · to forty · to the road</p>
+        <div style="font-family:var(--font-display);font-size:clamp(32px,4vw,46px);color:var(--folk-white);text-transform:uppercase;line-height:0.9"><span class="i18 en">Gaumarjos</span><span class="i18 ru">Гаумарджос</span></div>
+        <p style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.08em;margin-top:10px"><span class="i18 en">To Shota · to forty · to the road</span><span class="i18 ru">За Шоту · за сорок · за дорогу</span></p>
       </div>
       <div style="display:flex;gap:14px;align-items:flex-end">
         <span style="display:inline-block;width:40px;height:50px;background:var(--orange-400);-webkit-mask-image:url('assets/stamps/supra-toast.png');mask-image:url('assets/stamps/supra-toast.png');-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain"></span>

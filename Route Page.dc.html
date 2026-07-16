@@ -24,7 +24,18 @@
     @keyframes flipBack{0%,49.99%{opacity:0}50%,100%{opacity:1}}
     @media (prefers-reduced-motion: reduce){[data-flip] > span{animation:none!important}}
     @keyframes twCaret{0%,100%{opacity:1}50%{opacity:0}}
+    .i18.ru{display:none}
+    html[data-lang="ru"] .i18.en{display:none}
+    html[data-lang="ru"] .i18.ru{display:inline}
+    [data-lang-switch]{display:inline-flex;flex:none;border:2px solid var(--orange-500)}
+    [data-lang-btn]{font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:6px 9px;background:transparent;color:var(--on-ink-muted);border:0;cursor:pointer;line-height:1}
+    html[data-lang="en"] [data-lang-btn="en"],html[data-lang="ru"] [data-lang-btn="ru"]{background:var(--orange-500);color:var(--on-brand)}
   </style>
+  <script>
+  (function(){var d=document.documentElement;try{d.setAttribute('data-lang',localStorage.getItem('shota-lang')||'en')}catch(e){d.setAttribute('data-lang','en')}
+  document.addEventListener('click',function(e){var t=e.target.closest?e.target.closest('[data-lang-btn]'):null;if(!t)return;e.preventDefault();var l=t.getAttribute('data-lang-btn');d.setAttribute('data-lang',l);try{localStorage.setItem('shota-lang',l)}catch(_){}})
+  })();
+  </script>
 </helmet>
 
 <div style="min-height:100vh;background:var(--surface-page)">
@@ -37,8 +48,9 @@
         <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.14em;color:var(--orange-400);white-space:nowrap">GE · AM</span>
       </a>
       <nav style="display:flex;gap:8px;align-items:center">
-        <a href="Route Page.dc.html" style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--folk-white);text-decoration:none;padding:7px 13px;border:2px solid var(--orange-500);background:var(--orange-500);transition:background 120ms,transform 120ms,box-shadow 120ms" style-hover="background:var(--orange-600);transform:translate(-2px,-2px);box-shadow:3px 3px 0 0 var(--orange-700)">Route</a>
-        <a href="Schedule Page.dc.html" style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--on-ink-muted);text-decoration:none;padding:7px 13px;border:2px solid var(--ink-600);transition:color 120ms,border-color 120ms,transform 120ms,box-shadow 120ms" style-hover="color:var(--folk-white);border-color:var(--orange-500);transform:translate(-2px,-2px);box-shadow:3px 3px 0 0 var(--orange-500)">Schedule</a>
+        <a href="Route Page.dc.html" style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--folk-white);text-decoration:none;padding:7px 13px;border:2px solid var(--orange-500);background:var(--orange-500);transition:background 120ms,transform 120ms,box-shadow 120ms" style-hover="background:var(--orange-600);transform:translate(-2px,-2px);box-shadow:3px 3px 0 0 var(--orange-700)"><span class="i18 en">Route</span><span class="i18 ru">Маршрут</span></a>
+        <a href="Schedule Page.dc.html" style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--on-ink-muted);text-decoration:none;padding:7px 13px;border:2px solid var(--ink-600);transition:color 120ms,border-color 120ms,transform 120ms,box-shadow 120ms" style-hover="color:var(--folk-white);border-color:var(--orange-500);transform:translate(-2px,-2px);box-shadow:3px 3px 0 0 var(--orange-500)"><span class="i18 en">Schedule</span><span class="i18 ru">Расписание</span></a>
+        <span data-lang-switch role="group" aria-label="Language"><button type="button" data-lang-btn="en">EN</button><button type="button" data-lang-btn="ru">RU</button></span>
       </nav>
     </div>
   </header>
@@ -48,14 +60,14 @@
     <div style="position:absolute;inset:0;pointer-events:none;background-image:url('assets/textures/grain.png');background-repeat:repeat;mix-blend-mode:overlay;opacity:0.55"></div>
     <div style="position:relative;zIndex:1;max-width:var(--container);margin:0 auto;padding:clamp(3rem,7vw,6rem) var(--gutter) clamp(2.5rem,5vw,4rem)">
       <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:22px">
-        <span style="display:inline-flex;align-items:center;font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:5px 12px;border-radius:var(--radius-pill);background:var(--ink-900);color:var(--folk-white)">The 40th</span>
-        <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--autumn-cream)">Georgia + Armenia · Autumn 2026</span>
+        <span style="display:inline-flex;align-items:center;font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:5px 12px;border-radius:var(--radius-pill);background:var(--ink-900);color:var(--folk-white)"><span class="i18 en">The 40th</span><span class="i18 ru">40-летие</span></span>
+        <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--autumn-cream)"><span class="i18 en">Georgia + Armenia · Autumn 2026</span><span class="i18 ru">Грузия + Армения · Осень 2026</span></span>
       </div>
       <h1 id="hero-num" style="font-family:var(--font-display);font-weight:400;text-transform:uppercase;font-size:var(--text-hero);line-height:0.84;letter-spacing:0.01em;margin:0 0 18px;color:var(--folk-white);text-shadow:5px 5px 0 var(--ink-900)">Shota {{ heroNum }}</h1>
-      <div style="display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:clamp(13px,1.6vw,16px);font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--folk-white);background:var(--ink-900);padding:9px 16px;margin-bottom:26px">24 Oct <span style="color: var(--orange-400);">–</span> 2 Nov 2026
+      <div style="display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:clamp(13px,1.6vw,16px);font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--folk-white);background:var(--ink-900);padding:9px 16px;margin-bottom:26px"><span class="i18 en">24 Oct <span style="color: var(--orange-400);">–</span> 2 Nov 2026</span><span class="i18 ru">24 окт <span style="color: var(--orange-400);">–</span> 2 ноя 2026</span>
       </div>
       <p style="font-family:var(--font-body);font-size:clamp(18px,2.2vw,23px);line-height:1.45;font-weight:500;margin:0;color:var(--autumn-cream)" data-comment-anchor="2163e4bf65-p">
-        Shota turns 40, and we're not letting it pass quietly. Ten autumn days of wine, mountains and khinkali. Come for the whole thing — or hop on for the leg that fits your life.
+        <span class="i18 en">Shota turns 40, and we're not letting it pass quietly. Ten autumn days of wine, mountains and khinkali. Come for the whole thing — or hop on for the leg that fits your life.</span><span class="i18 ru">Шоте 40, и мы не дадим этому пройти тихо. Десять осенних дней с вином среди гор и гор хинкалей. Приезжай на всё целиком — или на часть маршрута.</span>
       </p>
     </div>
   </section>
@@ -65,13 +77,13 @@
     <div style="max-width:var(--container);margin:0 auto;padding:clamp(3rem,6vw,5.5rem) var(--gutter)">
       <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-bottom:8px">
         <div>
-          <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-muted)">The route · one line</span>
-          <h2 style="font-family:var(--font-head);font-weight:900;font-size:clamp(30px,5vw,54px);line-height:0.98;margin:8px 0 0;color:var(--text-strong)">Where &amp; when</h2>
+          <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-muted)"><span class="i18 en">The route · one line</span><span class="i18 ru">Маршрут · одной строкой</span></span>
+          <h2 style="font-family:var(--font-head);font-weight:900;font-size:clamp(30px,5vw,54px);line-height:0.98;margin:8px 0 0;color:var(--text-strong)"><span class="i18 en">Where &amp; when</span><span class="i18 ru">Где и когда</span></h2>
         </div>
         <div style="display:inline-flex;align-items:center;gap:9px;font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-body);border:2px solid var(--ink-900);padding:8px 13px;background:var(--surface-card)">
-          <span style="display:inline-block;width:11px;height:11px;border-radius:999px;background:var(--folk-green);border:2px solid var(--ink-900)"></span> Join
+          <span style="display:inline-block;width:11px;height:11px;border-radius:999px;background:var(--folk-green);border:2px solid var(--ink-900)"></span> <span class="i18 en">Join</span><span class="i18 ru">Присоединяйся</span>
           <span style="opacity:0.4">/</span>
-          <span style="display:inline-block;width:11px;height:11px;border-radius:999px;background:var(--surface-card);border:2px solid var(--ink-900)"></span> Leave anywhere
+          <span style="display:inline-block;width:11px;height:11px;border-radius:999px;background:var(--surface-card);border:2px solid var(--ink-900)"></span> <span class="i18 en">Leave anywhere</span><span class="i18 ru">уходи где угодно</span>
         </div>
       </div>
 
@@ -82,52 +94,52 @@
             <div style="position:absolute;inset:0;pointer-events:none;background-image:url('assets/textures/grain.png');background-repeat:repeat;mix-blend-mode:overlay;opacity:0.35"></div>
             <!-- board header -->
             <div style="position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 20px;border-bottom:2px solid var(--orange-500)">
-              <span style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--orange-400)">Departures · Shota 4.0</span>
+              <span style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--orange-400)"><span class="i18 en">Departures · Shota 4.0</span><span class="i18 ru">Отправления · Shota 4.0</span></span>
             </div>
             <!-- rows -->
             <div style="position:relative">
               <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:16px 20px;border-bottom:1px solid var(--ink-700)">
-                <span style="flex:none;font-family:var(--font-mono);font-weight:700;font-size:13px;letter-spacing:0.04em;color:var(--orange-400);width:86px">24–27 Oct</span>
-                <div style="flex:1 1 170px;min-width:150px"><div style="font-family:var(--font-head);font-weight:900;font-size:21px;line-height:1;color:var(--folk-white)">Tbilisi</div></div>
+                <span style="flex:none;font-family:var(--font-mono);font-weight:700;font-size:13px;letter-spacing:0.04em;color:var(--orange-400);width:86px"><span class="i18 en">24–27 Oct</span><span class="i18 ru">24–27 окт</span></span>
+                <div style="flex:1 1 170px;min-width:150px"><div style="font-family:var(--font-head);font-weight:900;font-size:21px;line-height:1;color:var(--folk-white)"><span class="i18 en">Tbilisi</span><span class="i18 ru">Тбилиси</span></div></div>
                 <span style="flex:none;display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--autumn-cream);border:1px solid var(--ink-600);padding:5px 9px">
-                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"></path></svg> Fly in
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"></path></svg> <span class="i18 en">Fly in</span><span class="i18 ru">Прилёт</span>
                 </span>
-                <span style="flex:2 1 200px;min-width:160px;font-family:var(--font-body);font-size:14.5px;color:var(--on-ink-muted)">Sightseeing, wine, local food</span>
+                <span style="flex:2 1 200px;min-width:160px;font-family:var(--font-body);font-size:14.5px;color:var(--on-ink-muted)"><span class="i18 en">Sightseeing, wine, local food</span><span class="i18 ru">Прогулки, вино, местная еда</span></span>
               </div>
 
               <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:16px 20px;border-bottom:1px solid var(--ink-700)">
-                <span style="flex:none;font-family:var(--font-mono);font-weight:700;font-size:13px;letter-spacing:0.04em;color:var(--orange-400);width:86px">27–28 Oct</span>
-                <div style="flex:1 1 170px;min-width:150px"><div style="font-family:var(--font-head);font-weight:900;font-size:21px;line-height:1;color:var(--folk-white)">Kazbegi</div></div>
+                <span style="flex:none;font-family:var(--font-mono);font-weight:700;font-size:13px;letter-spacing:0.04em;color:var(--orange-400);width:86px"><span class="i18 en">27–28 Oct</span><span class="i18 ru">27–28 окт</span></span>
+                <div style="flex:1 1 170px;min-width:150px"><div style="font-family:var(--font-head);font-weight:900;font-size:21px;line-height:1;color:var(--folk-white)"><span class="i18 en">Kazbegi</span><span class="i18 ru">Казбеги</span></div></div>
                 <span style="flex:none;display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--autumn-cream);border:1px solid var(--ink-600);padding:5px 9px">
-                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h11v8H2z"></path><path d="M13 9h4l3 3v3h-7z"></path><circle cx="6.5" cy="17" r="1.6"></circle><circle cx="16.5" cy="17" r="1.6"></circle></svg> ~3h drive
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h11v8H2z"></path><path d="M13 9h4l3 3v3h-7z"></path><circle cx="6.5" cy="17" r="1.6"></circle><circle cx="16.5" cy="17" r="1.6"></circle></svg> <span class="i18 en">~3h drive</span><span class="i18 ru">~3 ч в пути</span>
                 </span>
-                <span style="flex:2 1 200px;min-width:160px;font-family:var(--font-body);font-size:14.5px;color:var(--on-ink-muted)">The mountains — one night up high</span>
+                <span style="flex:2 1 200px;min-width:160px;font-family:var(--font-body);font-size:14.5px;color:var(--on-ink-muted)"><span class="i18 en">The mountains — one night up high</span><span class="i18 ru">Горы — одна ночь в горах</span></span>
               </div>
 
               <!-- BIRTHDAY ROW -->
               <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:20px;background:var(--orange-500);color:var(--ink-900);position:relative">
-                <span style="flex:none;font-family:var(--font-mono);font-weight:700;font-size:13px;letter-spacing:0.04em;color:var(--ink-900);width:86px">28–31 Oct</span>
-                <div style="flex:1 1 170px;min-width:150px"><div style="display:flex;align-items:center;gap:8px"><div style="font-family:var(--font-head);font-weight:900;font-size:23px;line-height:1;color:var(--folk-white)">Tbilisi</div><span data-flip="" style="position:relative;display:inline-block;width:22px;height:28px;vertical-align:middle"><span style="position:absolute;inset:0;background:var(--ink-900);-webkit-mask-image:url('assets/stamps/supra-toast.png');mask-image:url('assets/stamps/supra-toast.png');-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;opacity:1;animation:flipFront 2s linear infinite"></span><span style="position:absolute;inset:0;background:var(--ink-900);-webkit-mask-image:url('assets/stamps/supra-toast.png');mask-image:url('assets/stamps/supra-toast.png');-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;transform:scaleX(-1);opacity:0;animation:flipBack 2s linear infinite"></span></span></div></div>
-                <span style="flex:none;display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--folk-white);background:var(--ink-900);padding:6px 10px">★ The main event</span>
-                <span style="flex:2 1 200px;min-width:160px;font-family:var(--font-body);font-weight:700;font-size:15px;color:var(--ink-900)">Flea market, sulphur baths, folk music and Shota's night</span>
+                <span style="flex:none;font-family:var(--font-mono);font-weight:700;font-size:13px;letter-spacing:0.04em;color:var(--ink-900);width:86px"><span class="i18 en">28–31 Oct</span><span class="i18 ru">28–31 окт</span></span>
+                <div style="flex:1 1 170px;min-width:150px"><div style="display:flex;align-items:center;gap:8px"><div style="font-family:var(--font-head);font-weight:900;font-size:23px;line-height:1;color:var(--folk-white)"><span class="i18 en">Tbilisi</span><span class="i18 ru">Тбилиси</span></div><span data-flip="" style="position:relative;display:inline-block;width:22px;height:28px;vertical-align:middle"><span style="position:absolute;inset:0;background:var(--ink-900);-webkit-mask-image:url('assets/stamps/supra-toast.png');mask-image:url('assets/stamps/supra-toast.png');-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;opacity:1;animation:flipFront 2s linear infinite"></span><span style="position:absolute;inset:0;background:var(--ink-900);-webkit-mask-image:url('assets/stamps/supra-toast.png');mask-image:url('assets/stamps/supra-toast.png');-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;transform:scaleX(-1);opacity:0;animation:flipBack 2s linear infinite"></span></span></div></div>
+                <span style="flex:none;display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--folk-white);background:var(--ink-900);padding:6px 10px"><span class="i18 en">★ The main event</span><span class="i18 ru">★ Главное событие</span></span>
+                <span style="flex:2 1 200px;min-width:160px;font-family:var(--font-body);font-weight:700;font-size:15px;color:var(--ink-900)"><span class="i18 en">Flea market, sulphur baths, folk music and Shota's night</span><span class="i18 ru">Блошиный рынок, серные бани, фолк-музыка и вечер Шоты</span></span>
               </div>
 
               <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:16px 20px;border-bottom:1px solid var(--ink-700)">
-                <span style="flex:none;font-family:var(--font-mono);font-weight:700;font-size:13px;letter-spacing:0.04em;color:var(--orange-400);width:86px">1 Nov</span>
-                <div style="flex:1 1 170px;min-width:150px"><div style="font-family:var(--font-head);font-weight:900;font-size:21px;line-height:1;color:var(--folk-white)">Yerevan</div></div>
+                <span style="flex:none;font-family:var(--font-mono);font-weight:700;font-size:13px;letter-spacing:0.04em;color:var(--orange-400);width:86px"><span class="i18 en">1 Nov</span><span class="i18 ru">1 ноя</span></span>
+                <div style="flex:1 1 170px;min-width:150px"><div style="font-family:var(--font-head);font-weight:900;font-size:21px;line-height:1;color:var(--folk-white)"><span class="i18 en">Yerevan</span><span class="i18 ru">Ереван</span></div></div>
                 <span style="flex:none;display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--autumn-cream);border:1px solid var(--ink-600);padding:5px 9px">
-                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="13" rx="2"></rect><path d="M5 10h14"></path><path d="M8 16l-2 4"></path><path d="M16 16l2 4"></path></svg> Night train
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="13" rx="2"></rect><path d="M5 10h14"></path><path d="M8 16l-2 4"></path><path d="M16 16l2 4"></path></svg> <span class="i18 en">Night train</span><span class="i18 ru">Ночной поезд</span>
                 </span>
-                <span style="flex:2 1 200px;min-width:160px;font-family:var(--font-body);font-size:14.5px;color:var(--on-ink-muted)">Cascade, cognac, the way home</span>
+                <span style="flex:2 1 200px;min-width:160px;font-family:var(--font-body);font-size:14.5px;color:var(--on-ink-muted)"><span class="i18 en">Cascade, cognac, the way home</span><span class="i18 ru">Каскад, коньяк, дорога домой</span></span>
               </div>
 
               <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:16px 20px">
-                <span style="flex:none;font-family:var(--font-mono);font-weight:700;font-size:13px;letter-spacing:0.04em;color:var(--orange-400);width:86px">2 Nov</span>
-                <div style="flex:1 1 170px;min-width:150px"><div style="font-family:var(--font-head);font-weight:900;font-size:21px;line-height:1;color:var(--folk-white)">Home</div></div>
+                <span style="flex:none;font-family:var(--font-mono);font-weight:700;font-size:13px;letter-spacing:0.04em;color:var(--orange-400);width:86px"><span class="i18 en">2 Nov</span><span class="i18 ru">2 ноя</span></span>
+                <div style="flex:1 1 170px;min-width:150px"><div style="font-family:var(--font-head);font-weight:900;font-size:21px;line-height:1;color:var(--folk-white)"><span class="i18 en">Home</span><span class="i18 ru">Домой</span></div></div>
                 <span style="flex:none;display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--autumn-cream);border:1px solid var(--ink-600);padding:5px 9px">
-                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"></path></svg> Out · EVN
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"></path></svg> <span class="i18 en">Out · EVN</span><span class="i18 ru">Вылет · EVN</span>
                 </span>
-                <span style="flex:2 1 200px;min-width:160px;font-family:var(--font-body);font-size:14.5px;color:var(--on-ink-muted)">Fly out of Yerevan</span>
+                <span style="flex:2 1 200px;min-width:160px;font-family:var(--font-body);font-size:14.5px;color:var(--on-ink-muted)"><span class="i18 en">Fly out of Yerevan</span><span class="i18 ru">Вылет из Еревана</span></span>
               </div>
             </div>
           </div>
@@ -144,8 +156,8 @@
       <!-- RSVP CALLOUT -->
       <div style="margin-top:34px;background:var(--ink-900);color:var(--on-ink);border:2px solid var(--ink-900);box-shadow:6px 6px 0 0 var(--orange-500);display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;align-items:center;padding:clamp(24px,3vw,38px)" data-comment-anchor="923d692167-div">
         <div>
-          <h3 style="font-family:var(--font-head);font-weight:900;font-size:clamp(24px,3vw,32px);margin:0 0 10px;color:var(--folk-white)">Coming? Tell us<span style="position:relative;display:inline-block"><span style="visibility:hidden" aria-hidden="true">, please</span><span style="position:absolute;left:0;top:0;white-space:nowrap"><span style="color:var(--folk-white)">{{ dot }}</span><span style="color:var(--orange-300)">{{ tw }}</span><span style="display:inline-block;width:3px;height:0.92em;margin-left:2px;background:var(--orange-300);vertical-align:-1px;animation:twCaret 0.85s steps(1,end) infinite"></span></span></span></h3>
-          <p style="font-family:var(--font-body);font-size:16px;line-height:1.6;margin:0;color:var(--on-ink-muted);max-width:46ch">One 2-minute form: your dates, Kazbegi, Yerevan, and where you want to sleep. It's how we size the vans and sort the night-train tickets.</p>
+          <h3 style="font-family:var(--font-head);font-weight:900;font-size:clamp(24px,3vw,32px);margin:0 0 10px;color:var(--folk-white)"><span class="i18 en">Coming? Tell us<span style="position:relative;display:inline-block"><span style="visibility:hidden" aria-hidden="true">, please</span><span style="position:absolute;left:0;top:0;white-space:nowrap"><span style="color:var(--folk-white)">{{ dot }}</span><span style="color:var(--orange-300)">{{ tw }}</span><span style="display:inline-block;width:3px;height:0.92em;margin-left:2px;background:var(--orange-300);vertical-align:-1px;animation:twCaret 0.85s steps(1,end) infinite"></span></span></span></span><span class="i18 ru">Едешь? Дай знать, пожалуйста</span></h3>
+          <p style="font-family:var(--font-body);font-size:16px;line-height:1.6;margin:0;color:var(--on-ink-muted);max-width:46ch"><span class="i18 en">One 2-minute form: your dates, Kazbegi, Yerevan, and where you want to sleep. It's how we size the vans and sort the night-train tickets.</span><span class="i18 ru">Одна форма на 2 минуты: твои даты, Казбеги, Ереван и ночлег. По ней считаем минивэны и берём билеты на ночной поезд.</span></p>
         </div>
         <div style="justify-self:start">
           <a href="{{ rsvpUrl }}" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--font-head);font-weight:800;font-size:17px;padding:16px 30px;color:var(--on-brand);background:var(--orange-500);border:2px solid var(--orange-500);box-shadow:5px 5px 0 0 var(--orange-700);transition:transform 120ms,box-shadow 120ms,background 120ms" style-hover="background:var(--orange-600);transform:translate(-2px,-2px);box-shadow:7px 7px 0 0 var(--orange-700)">
@@ -161,8 +173,8 @@
   <!-- ===== BLOCK 2 — WHERE WE STAY ===== -->
   <section id="stay" style="position:relative;background:var(--surface-page)">
     <div style="max-width:var(--container);margin:0 auto;padding:clamp(3rem,6vw,5.5rem) var(--gutter)">
-      <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-muted)">Beds · three cities</span>
-      <h2 style="font-family:var(--font-head);font-weight:900;font-size:clamp(30px,5vw,54px);line-height:0.98;margin:8px 0 32px;color:var(--text-strong)">Where we stay</h2>
+      <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-muted)"><span class="i18 en">Beds · three cities</span><span class="i18 ru">Ночлег · три города</span></span>
+      <h2 style="font-family:var(--font-head);font-weight:900;font-size:clamp(30px,5vw,54px);line-height:0.98;margin:8px 0 32px;color:var(--text-strong)"><span class="i18 en">Where we stay</span><span class="i18 ru">Где живём</span></h2>
 
       <div>
         <sc-if value="{{ isStayA }}" hint-placeholder-val="{{ true }}">
@@ -174,13 +186,13 @@
                 <img src="assets/photos/tbilisi-balcony.png" alt="Old Tbilisi balconies at sunset" style="display:block;width:100%;height:100%;object-fit:cover;filter:saturate(1.08) contrast(1.04) sepia(0.10)">
                 <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(20,18,15,0.84) 0%, rgba(20,18,15,0.28) 40%, transparent 64%)"></div>
                 <div style="position:absolute;left:0;right:0;bottom:0;padding:20px 18px 17px">
-                  <div style="font-family:var(--font-mono);font-size:10.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange-300);margin-bottom:7px">3 + 3 nights</div>
-                  <div style="font-family:var(--font-head);font-weight:900;font-size:clamp(34px,4.4vw,42px);line-height:0.92;color:var(--folk-white);text-shadow:0 2px 14px rgba(0,0,0,0.55)">Tbilisi</div>
+                  <div style="font-family:var(--font-mono);font-size:10.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange-300);margin-bottom:7px"><span class="i18 en">3 + 3 nights</span><span class="i18 ru">3 + 3 ночи</span></div>
+                  <div style="font-family:var(--font-head);font-weight:900;font-size:clamp(34px,4.4vw,42px);line-height:0.92;color:var(--folk-white);text-shadow:0 2px 14px rgba(0,0,0,0.55)"><span class="i18 en">Tbilisi</span><span class="i18 ru">Тбилиси</span></div>
                 </div>
               </figure>
               <div style="padding-top:16px">
-                <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--folk-blue);border:2px solid var(--folk-blue);border-radius:999px;padding:4px 11px">24–27 + 28–31 Oct</span>
-                <p style="font-family:var(--font-body);font-size:15.5px;line-height:1.6;margin:12px 0 0;color:var(--text-body)">Most book their own place; some of us may share an Airbnb. Set your preference in the <a href="{{ rsvpUrl }}" target="_blank" rel="noopener" style="color:var(--orange-600);text-decoration:underline;text-underline-offset:2px">RSVP</a> and we'll connect the sharers.</p>
+                <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--folk-blue);border:2px solid var(--folk-blue);border-radius:999px;padding:4px 11px"><span class="i18 en">24–27 + 28–31 Oct</span><span class="i18 ru">24–27 + 28–31 окт</span></span>
+                <p style="font-family:var(--font-body);font-size:15.5px;line-height:1.6;margin:12px 0 0;color:var(--text-body)"><span class="i18 en">Most book their own place; some of us may share an Airbnb. Set your preference in the <a href="{{ rsvpUrl }}" target="_blank" rel="noopener" style="color:var(--orange-600);text-decoration:underline;text-underline-offset:2px">RSVP</a> and we'll connect the sharers.</span><span class="i18 ru">Большинство бронирует своё жильё; некоторые скидываются на Airbnb. Отметь в <a href="{{ rsvpUrl }}" target="_blank" rel="noopener" style="color:var(--orange-600);text-decoration:underline;text-underline-offset:2px">RSVP</a>, как тебе удобнее — законнектим тех, кто хочет скидываться.</span></p>
               </div>
             </div>
 
@@ -190,13 +202,13 @@
                 <img src="assets/photos/kazbegi-church.jpg" alt="Gergeti Trinity church under snowy Mount Kazbek" style="display:block;width:100%;height:100%;object-fit:cover;filter:saturate(1.08) contrast(1.04) sepia(0.10)">
                 <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(20,18,15,0.84) 0%, rgba(20,18,15,0.28) 40%, transparent 64%)"></div>
                 <div style="position:absolute;left:0;right:0;bottom:0;padding:20px 18px 17px">
-                  <div style="font-family:var(--font-mono);font-size:10.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange-300);margin-bottom:7px">1 night</div>
-                  <div style="font-family:var(--font-head);font-weight:900;font-size:clamp(34px,4.4vw,42px);line-height:0.92;color:var(--folk-white);text-shadow:0 2px 14px rgba(0,0,0,0.55)">Kazbegi</div>
+                  <div style="font-family:var(--font-mono);font-size:10.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange-300);margin-bottom:7px"><span class="i18 en">1 night</span><span class="i18 ru">1 ночь</span></div>
+                  <div style="font-family:var(--font-head);font-weight:900;font-size:clamp(34px,4.4vw,42px);line-height:0.92;color:var(--folk-white);text-shadow:0 2px 14px rgba(0,0,0,0.55)"><span class="i18 en">Kazbegi</span><span class="i18 ru">Казбеги</span></div>
                 </div>
               </figure>
               <div style="padding-top:16px">
-                <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--folk-ochre);border:2px solid var(--folk-ochre);border-radius:999px;padding:4px 11px">One night up high</span>
-                <p style="font-family:var(--font-body);font-size:15.5px;line-height:1.6;margin:12px 0 0;color:var(--text-body)">Book <a href="https://roomshotels.com/kazbegi/" target="_blank" rel="noopener" style="color:var(--orange-600);text-decoration:underline;text-underline-offset:2px">Rooms Hotel</a> if you want the full Kazbek-view splurge (basically a religion), or cheaper rooms nearby.</p>
+                <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--folk-ochre);border:2px solid var(--folk-ochre);border-radius:999px;padding:4px 11px"><span class="i18 en">One night up high</span><span class="i18 ru">Одна ночь наверху</span></span>
+                <p style="font-family:var(--font-body);font-size:15.5px;line-height:1.6;margin:12px 0 0;color:var(--text-body)"><span class="i18 en">Book <a href="https://roomshotels.com/kazbegi/" target="_blank" rel="noopener" style="color:var(--orange-600);text-decoration:underline;text-underline-offset:2px">Rooms Hotel</a> if you want the full Kazbek-view splurge (basically a religion), or cheaper rooms nearby.</span><span class="i18 ru">Бронируй <a href="https://roomshotels.com/kazbegi/" target="_blank" rel="noopener" style="color:var(--orange-600);text-decoration:underline;text-underline-offset:2px">Rooms Hotel</a>, если хочешь вид на Казбек и Шоту, или что подешевле рядом.</span></p>
               </div>
             </div>
 
@@ -206,13 +218,13 @@
                 <img src="assets/photos/yerevan-ararat.jpg" alt="Yerevan at sunset with Mount Ararat" style="display:block;width:100%;height:100%;object-fit:cover;filter:saturate(1.08) contrast(1.04) sepia(0.10)">
                 <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(20,18,15,0.84) 0%, rgba(20,18,15,0.28) 40%, transparent 64%)"></div>
                 <div style="position:absolute;left:0;right:0;bottom:0;padding:20px 18px 17px">
-                  <div style="font-family:var(--font-mono);font-size:10.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange-300);margin-bottom:7px">1 night</div>
-                  <div style="font-family:var(--font-head);font-weight:900;font-size:clamp(34px,4.4vw,42px);line-height:0.92;color:var(--folk-white);text-shadow:0 2px 14px rgba(0,0,0,0.55)">Yerevan</div>
+                  <div style="font-family:var(--font-mono);font-size:10.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange-300);margin-bottom:7px"><span class="i18 en">1 night</span><span class="i18 ru">1 ночь</span></div>
+                  <div style="font-family:var(--font-head);font-weight:900;font-size:clamp(34px,4.4vw,42px);line-height:0.92;color:var(--folk-white);text-shadow:0 2px 14px rgba(0,0,0,0.55)"><span class="i18 en">Yerevan</span><span class="i18 ru">Ереван</span></div>
                 </div>
               </figure>
               <div style="padding-top:16px">
-                <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--folk-red);border:2px solid var(--folk-red);border-radius:999px;padding:4px 11px">1 → 2 Nov</span>
-                <p style="font-family:var(--font-body);font-size:15.5px;line-height:1.6;margin:12px 0 0;color:var(--text-body)">Again, most book their own place; some of us may share an Airbnb. Set your preference in the <a href="{{ rsvpUrl }}" target="_blank" rel="noopener" style="color:var(--orange-600);text-decoration:underline;text-underline-offset:2px">RSVP</a> and we'll connect the sharers.</p>
+                <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--folk-red);border:2px solid var(--folk-red);border-radius:999px;padding:4px 11px"><span class="i18 en">1 → 2 Nov</span><span class="i18 ru">1 → 2 ноя</span></span>
+                <p style="font-family:var(--font-body);font-size:15.5px;line-height:1.6;margin:12px 0 0;color:var(--text-body)"><span class="i18 en">Again, most book their own place; some of us may share an Airbnb. Set your preference in the <a href="{{ rsvpUrl }}" target="_blank" rel="noopener" style="color:var(--orange-600);text-decoration:underline;text-underline-offset:2px">RSVP</a> and we'll connect the sharers.</span><span class="i18 ru">Снова: большинство бронирует своё, кто-то скинется на Airbnb. Отметь в <a href="{{ rsvpUrl }}" target="_blank" rel="noopener" style="color:var(--orange-600);text-decoration:underline;text-underline-offset:2px">RSVP</a> — законнектим тех, кто хочет скидываться.</span></p>
               </div>
             </div>
 
@@ -226,10 +238,10 @@
   <section id="logistics" style="position:relative;background:var(--ink-900);color:var(--on-ink);overflow:hidden">
     <div style="position:absolute;inset:0;pointer-events:none;background-image:url('assets/textures/grain.png');background-repeat:repeat;mix-blend-mode:overlay;opacity:0.4"></div>
     <div style="position:relative;zIndex:1;max-width:var(--container);margin:0 auto;padding:clamp(3rem,6vw,5.5rem) var(--gutter)">
-      <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--orange-400)">Logistics · book ahead</span>
-      <h2 style="font-family:var(--font-display);font-weight:400;text-transform:uppercase;font-size:clamp(40px,6vw,76px);line-height:0.95;margin:8px 0 18px;color:var(--folk-white);text-shadow:4px 4px 0 var(--orange-600)">Getting there &amp; back</h2>
+      <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--orange-400)"><span class="i18 en">Logistics · book ahead</span><span class="i18 ru">Логистика · бронируй заранее</span></span>
+      <h2 style="font-family:var(--font-display);font-weight:400;text-transform:uppercase;font-size:clamp(40px,6vw,76px);line-height:0.95;margin:8px 0 18px;color:var(--folk-white);text-shadow:4px 4px 0 var(--orange-600)"><span class="i18 en">Getting there &amp; back</span><span class="i18 ru">Как добираться</span></h2>
       <p style="font-family:var(--font-body);font-size:clamp(17px,2vw,20px);line-height:1.55;color:var(--autumn-cream);max-width:56ch;margin:0 0 clamp(30px,4vw,44px)">
-        You book your own flights — a couple of legs are just worth pinning:
+        <span class="i18 en">You book your own flights — a couple of legs are just worth pinning:</span><span class="i18 ru">Перелёты каждый берёт сам — просто пара билетов, которые стоит закрепить:</span>
       </p>
 
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(24px,3.5vw,40px);align-items:stretch">
@@ -238,33 +250,33 @@
         <div style="display:flex;flex-direction:column;gap:16px">
           <div style="background:var(--surface-card);color:var(--text-body);border:2px solid var(--orange-500);box-shadow:7px 7px 0 0 var(--orange-600)">
           <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 22px;border-bottom:2px dashed var(--ink-900)">
-            <div style="font-family:var(--font-head);font-weight:900;font-size:20px;color:var(--text-strong)">Madrid → Tbilisi</div>
-            <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange-600)">Flight</div>
+            <div style="font-family:var(--font-head);font-weight:900;font-size:20px;color:var(--text-strong)"><span class="i18 en">Madrid → Tbilisi</span><span class="i18 ru">Мадрид → Тбилиси</span></div>
+            <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange-600)"><span class="i18 en">Flight</span><span class="i18 ru">Рейс</span></div>
           </div>
           <div style="padding:8px 22px 18px">
             <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px solid var(--border-hairline)">
-              <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Date</span>
-              <span style="font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--text-strong);text-align:right">24 Oct 2026</span>
+              <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)"><span class="i18 en">Date</span><span class="i18 ru">Дата</span></span>
+              <span style="font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--text-strong);text-align:right"><span class="i18 en">24 Oct 2026</span><span class="i18 ru">24 окт 2026</span></span>
             </div>
             <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px solid var(--border-hairline)">
-              <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Depart → Arrive</span>
+              <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)"><span class="i18 en">Depart → Arrive</span><span class="i18 ru">Отпр. → Приб.</span></span>
               <span style="font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--text-strong);text-align:right">14:30 → 01:40 (+1) · 9h 10m</span>
             </div>
             <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px solid var(--border-hairline)">
-              <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Route</span>
+              <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)"><span class="i18 en">Route</span><span class="i18 ru">Маршрут</span></span>
               <span style="font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--text-strong);text-align:right">MAD → SAW → TBS · Pegasus</span>
             </div>
             <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px solid var(--border-hairline)">
-              <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Flights</span>
+              <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)"><span class="i18 en">Flights</span><span class="i18 ru">Рейсы</span></span>
               <span style="font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--text-strong);text-align:right">PC1100 + PC318</span>
             </div>
             <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0">
-              <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Passenger</span>
-              <span style="font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--text-strong);text-align:right">Shota 4.0 · confirmed</span>
+              <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)"><span class="i18 en">Passenger</span><span class="i18 ru">Пассажир</span></span>
+              <span style="font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--text-strong);text-align:right"><span class="i18 en">Shota 4.0 · confirmed</span><span class="i18 ru">Shota 4.0 · подтверждён</span></span>
             </div>
             <div style="margin-top:8px;padding-top:14px;border-top:1px dashed var(--border-hairline);display:flex;align-items:flex-start;gap:8px">
               <span style="font-family:var(--font-mono);font-size:13px;line-height:1.5;color:var(--orange-600)">✈</span>
-              <span style="font-family:var(--font-body);font-size:13.5px;line-height:1.5;color:var(--text-muted)">Same flight as Shota — book the identical one and we land together.</span>
+              <span style="font-family:var(--font-body);font-size:13.5px;line-height:1.5;color:var(--text-muted)"><span class="i18 en">Same flight as Shota — book the identical one and we land together.</span><span class="i18 ru">Возьми тот же рейс, что у Шоты, и прилетим вместе.</span></span>
             </div>
           </div>
         </div>
@@ -274,30 +286,30 @@
         <div style="display:flex;flex-direction:column;gap:18px">
           <div style="background:var(--surface-card);color:var(--text-body);border:2px solid var(--orange-500);box-shadow:7px 7px 0 0 var(--orange-600)">
             <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 22px;border-bottom:2px dashed var(--ink-900)">
-              <div style="font-family:var(--font-head);font-weight:900;font-size:20px;color:var(--text-strong)">Tbilisi → Yerevan</div>
-              <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange-600)">Night train · book ahead</div>
+              <div style="font-family:var(--font-head);font-weight:900;font-size:20px;color:var(--text-strong)"><span class="i18 en">Tbilisi → Yerevan</span><span class="i18 ru">Тбилиси → Ереван</span></div>
+              <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange-600)"><span class="i18 en">Night train · book ahead</span><span class="i18 ru">Ночной поезд · бронь заранее</span></div>
             </div>
             <div style="padding:8px 22px 18px">
               <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px solid var(--border-hairline)">
-                <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Date</span>
-                <span style="font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--text-strong);text-align:right">31 Oct → 1 Nov</span>
+                <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)"><span class="i18 en">Date</span><span class="i18 ru">Дата</span></span>
+                <span style="font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--text-strong);text-align:right"><span class="i18 en">31 Oct → 1 Nov</span><span class="i18 ru">31 окт → 1 ноя</span></span>
               </div>
               <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px solid var(--border-hairline)">
-                <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Depart → Arrive</span>
+                <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)"><span class="i18 en">Depart → Arrive</span><span class="i18 ru">Отпр. → Приб.</span></span>
                 <span style="font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--text-strong);text-align:right">20:20 → 07:00 · ~10.5h</span>
               </div>
               <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0">
-                <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Runs</span>
-                <span style="font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--text-strong);text-align:right">Every other day · limited</span>
+                <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)"><span class="i18 en">Runs</span><span class="i18 ru">Ходит</span></span>
+                <span style="font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--text-strong);text-align:right"><span class="i18 en">Every other day · limited</span><span class="i18 ru">Через день · мест мало</span></span>
               </div>
               <div style="margin-top:14px;display:flex;align-items:flex-start;gap:10px;background:var(--folk-ochre);color:var(--ink-900);padding:12px 14px">
                 <span style="font-family:var(--font-mono);font-weight:700;font-size:18px;line-height:1">!</span>
-                <span style="font-family:var(--font-body);font-weight:600;font-size:14px;line-height:1.4">Tickets open <strong>~21 Sep</strong> (40 days before) and sell out fast. Set a reminder.</span>
+                <span style="font-family:var(--font-body);font-weight:600;font-size:14px;line-height:1.4"><span class="i18 en">Tickets open <strong>~21 Sep</strong> (40 days before) and sell out fast. Set a reminder.</span><span class="i18 ru">Билеты открываются <strong>~21 сен</strong> (за 40 дней) и быстро разбирают. Поставь напоминание.</span></span>
               </div>
             </div>
           </div>
           <a href="{{ trainUrl }}" target="_blank" rel="noopener" style="align-self:flex-start;margin-top:auto;display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--font-head);font-weight:800;font-size:17px;padding:15px 28px;color:var(--on-brand);background:var(--orange-500);border:2px solid var(--orange-500);box-shadow:5px 5px 0 0 var(--folk-white);transition:transform 120ms,box-shadow 120ms,background 120ms" style-hover="background:var(--orange-600);transform:translate(-2px,-2px);box-shadow:7px 7px 0 0 var(--folk-white)">
-            Book the train <span aria-hidden="true">→</span>
+            <span class="i18 en">Book the train</span><span class="i18 ru">Купить билет на поезд</span> <span aria-hidden="true">→</span>
           </a>
         </div>
 
@@ -308,34 +320,34 @@
   <!-- ===== BLOCK 4 — GOOD TO KNOW ===== -->
   <section id="know" style="position:relative;background:var(--surface-page)">
     <div style="max-width:var(--container);margin:0 auto;padding:clamp(3rem,6vw,5.5rem) var(--gutter)">
-      <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-muted)">Practical basics</span>
-      <h2 style="font-family:var(--font-head);font-weight:900;font-size:clamp(30px,5vw,54px);line-height:0.98;margin:8px 0 32px;color:var(--text-strong)">Good to know</h2>
+      <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-muted)"><span class="i18 en">Practical basics</span><span class="i18 ru">Практика</span></span>
+      <h2 style="font-family:var(--font-head);font-weight:900;font-size:clamp(30px,5vw,54px);line-height:0.98;margin:8px 0 32px;color:var(--text-strong)"><span class="i18 en">Good to know</span><span class="i18 ru">Полезно знать</span></h2>
       <!-- VARIANT A — reference rows -->
       <sc-if value="{{ isKnowA }}" hint-placeholder-val="{{ true }}">
         <div data-variant="A" style="border-top:2px solid var(--ink-900)">
           <div style="display:flex;flex-wrap:wrap;gap:6px 28px;align-items:baseline;padding:18px 2px;border-bottom:1px solid var(--border-hairline)">
             <div style="flex:0 0 180px;display:flex;align-items:center;gap:9px;font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange-600)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="M5 13l1.4-4.2A2 2 0 0 1 8.3 7.5h7.4a2 2 0 0 1 1.9 1.3L19 13"></path><path d="M4 13h16v4H4z"></path><circle cx="7.5" cy="17.5" r="1.3"></circle><circle cx="16.5" cy="17.5" r="1.3"></circle></svg>Taxi</div>
-            <p style="flex:1 1 320px;min-width:220px;margin:0;font-family:var(--font-body);font-size:16px;line-height:1.55;color:var(--text-body)"><a href="https://bolt.eu" target="_blank" rel="noopener" style="color:var(--orange-600);text-decoration:underline;text-underline-offset:2px">Bolt</a> (main) + <a href="https://go.yandex" target="_blank" rel="noopener" style="color:var(--orange-600);text-decoration:underline;text-underline-offset:2px">Yandex Go</a>. Download before you fly.</p>
+            <p style="flex:1 1 320px;min-width:220px;margin:0;font-family:var(--font-body);font-size:16px;line-height:1.55;color:var(--text-body)"><span class="i18 en"><a href="https://bolt.eu" target="_blank" rel="noopener" style="color:var(--orange-600);text-decoration:underline;text-underline-offset:2px">Bolt</a> (main) + <a href="https://go.yandex" target="_blank" rel="noopener" style="color:var(--orange-600);text-decoration:underline;text-underline-offset:2px">Yandex Go</a>. Download before you fly.</span><span class="i18 ru"><a href="https://bolt.eu" target="_blank" rel="noopener" style="color:var(--orange-600);text-decoration:underline;text-underline-offset:2px">Bolt</a> (основное) + <a href="https://go.yandex" target="_blank" rel="noopener" style="color:var(--orange-600);text-decoration:underline;text-underline-offset:2px">Yandex Go</a>. Скачай до вылета.</span></p>
           </div>
           <div style="display:flex;flex-wrap:wrap;gap:6px 28px;align-items:baseline;padding:18px 2px;border-bottom:1px solid var(--border-hairline)">
-            <div style="flex:0 0 180px;display:flex;align-items:center;gap:9px;font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange-600)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><rect x="3" y="6" width="18" height="12" rx="1.5"></rect><circle cx="12" cy="12" r="2.5"></circle><path d="M6 9.5v5M18 9.5v5"></path></svg>Money</div>
-            <p style="flex:1 1 320px;min-width:220px;margin:0;font-family:var(--font-body);font-size:16px;line-height:1.55;color:var(--text-body)">Georgian lari (GEL); cards everywhere, cash for markets &amp; taxis. <span style="color:var(--text-muted)">(Yerevan: Armenian dram)</span></p>
+            <div style="flex:0 0 180px;display:flex;align-items:center;gap:9px;font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange-600)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><rect x="3" y="6" width="18" height="12" rx="1.5"></rect><circle cx="12" cy="12" r="2.5"></circle><path d="M6 9.5v5M18 9.5v5"></path></svg><span class="i18 en">Money</span><span class="i18 ru">Деньги</span></div>
+            <p style="flex:1 1 320px;min-width:220px;margin:0;font-family:var(--font-body);font-size:16px;line-height:1.55;color:var(--text-body)"><span class="i18 en">Georgian lari (GEL); cards everywhere, cash for markets. <span style="color:var(--text-muted)">(Yerevan: Armenian dram)</span></span><span class="i18 ru">Грузинские лари (GEL); карты везде, наличка для рынков. <span style="color:var(--text-muted)">(Ереван: армянские драмы)</span></span></p>
           </div>
           <div style="display:flex;flex-wrap:wrap;gap:6px 28px;align-items:baseline;padding:18px 2px;border-bottom:1px solid var(--border-hairline)">
-            <div style="flex:0 0 180px;display:flex;align-items:center;gap:9px;font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange-600)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><rect x="5" y="3" width="14" height="18" rx="2"></rect><circle cx="12" cy="10" r="2.4"></circle><path d="M8.5 16.5h7"></path></svg>Visa</div>
-            <p style="flex:1 1 320px;min-width:220px;margin:0;font-family:var(--font-body);font-size:16px;line-height:1.55;color:var(--text-body)">EU: none. Other passports: check.</p>
+            <div style="flex:0 0 180px;display:flex;align-items:center;gap:9px;font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange-600)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><rect x="5" y="3" width="14" height="18" rx="2"></rect><circle cx="12" cy="10" r="2.4"></circle><path d="M8.5 16.5h7"></path></svg><span class="i18 en">Visa</span><span class="i18 ru">Виза</span></div>
+            <p style="flex:1 1 320px;min-width:220px;margin:0;font-family:var(--font-body);font-size:16px;line-height:1.55;color:var(--text-body)"><span class="i18 en">EU: none. Other passports: check.</span><span class="i18 ru">ЕС: не нужна. Другие паспорта: проверь.</span></p>
           </div>
           <div style="display:flex;flex-wrap:wrap;gap:6px 28px;align-items:baseline;padding:18px 2px;border-bottom:1px solid var(--border-hairline)">
-            <div style="flex:0 0 180px;display:flex;align-items:center;gap:9px;font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange-600)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="M12 3l7 3v5c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6l7-3z"></path><path d="M12 9v5M9.5 11.5h5"></path></svg>Insurance</div>
-            <p style="flex:1 1 320px;min-width:220px;margin:0;font-family:var(--font-body);font-size:16px;line-height:1.55;color:var(--text-body)">Required from Jan 2026: health + accident insurance to enter Georgia — min 30,000 GEL cover, valid your whole stay. Sort it before you fly; no cover, no boarding.</p>
+            <div style="flex:0 0 180px;display:flex;align-items:center;gap:9px;font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange-600)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="M12 3l7 3v5c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6l7-3z"></path><path d="M12 9v5M9.5 11.5h5"></path></svg><span class="i18 en">Insurance</span><span class="i18 ru">Страховка</span></div>
+            <p style="flex:1 1 320px;min-width:220px;margin:0;font-family:var(--font-body);font-size:16px;line-height:1.55;color:var(--text-body)"><span class="i18 en">Required from Jan 2026: health + accident insurance to enter Georgia — min 30,000 GEL cover, valid your whole stay. Sort it before you fly; no cover, no boarding.</span><span class="i18 ru">С янв 2026 обязательна: мед.+несч. страховка для въезда в Грузию — покрытие от 30 000 GEL на весь срок. Оформи до вылета; без страховки не пустят на рейс.</span></p>
           </div>
           <div style="display:flex;flex-wrap:wrap;gap:6px 28px;align-items:baseline;padding:18px 2px;border-bottom:1px solid var(--border-hairline)">
             <div style="flex:0 0 180px;display:flex;align-items:center;gap:9px;font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange-600)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="M5 19v-2.5"></path><path d="M10 19v-6"></path><path d="M15 19v-9"></path><path d="M20 19V7"></path></svg>SIM</div>
-            <p style="flex:1 1 320px;min-width:220px;margin:0;font-family:var(--font-body);font-size:16px;line-height:1.55;color:var(--text-body)">Magti / Geocell at the airport.</p>
+            <p style="flex:1 1 320px;min-width:220px;margin:0;font-family:var(--font-body);font-size:16px;line-height:1.55;color:var(--text-body)"><span class="i18 en">Magti / Geocell at the airport.</span><span class="i18 ru">Magti / Geocell в аэропорту.</span></p>
           </div>
           <div style="display:flex;flex-wrap:wrap;gap:6px 28px;align-items:baseline;padding:18px 2px">
-            <div style="flex:0 0 180px;display:flex;align-items:center;gap:9px;font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange-600)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="M6 15a4 4 0 0 1 1-7.9A5 5 0 0 1 17.5 8 3.5 3.5 0 0 1 18 15"></path><path d="M9 18.5h.01M13 19.5h.01M16 18.5h.01M11 21h.01M15 21h.01"></path></svg>Weather</div>
-            <p style="flex:1 1 320px;min-width:220px;margin:0;font-family:var(--font-body);font-size:16px;line-height:1.55;color:var(--text-body)">Tbilisi +12–20°C; Kazbegi 0–10°C, maybe snow. Warm layers + swimsuit for the baths.</p>
+            <div style="flex:0 0 180px;display:flex;align-items:center;gap:9px;font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange-600)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="M6 15a4 4 0 0 1 1-7.9A5 5 0 0 1 17.5 8 3.5 3.5 0 0 1 18 15"></path><path d="M9 18.5h.01M13 19.5h.01M16 18.5h.01M11 21h.01M15 21h.01"></path></svg><span class="i18 en">Weather</span><span class="i18 ru">Погода</span></div>
+            <p style="flex:1 1 320px;min-width:220px;margin:0;font-family:var(--font-body);font-size:16px;line-height:1.55;color:var(--text-body)"><span class="i18 en">Tbilisi +12–20°C; Kazbegi 0–10°C, maybe snow. Warm layers + swimsuit for the baths.</span><span class="i18 ru">Тбилиси +12–20°C; Казбеги 0–10°C, возможен снег. Тёплые слои + купальник для бань.</span></p>
           </div>
         </div>
       </sc-if>
@@ -351,8 +363,8 @@
     <div style="position:absolute;inset:0;pointer-events:none;background-image:url('assets/textures/grain.png');background-repeat:repeat;mix-blend-mode:overlay;opacity:0.3"></div>
     <div style="position:relative;zIndex:1;max-width:var(--container);margin:0 auto;padding:clamp(2.5rem,5vw,4.5rem) var(--gutter);display:flex;align-items:center;justify-content:space-between;gap:clamp(20px,4vw,48px);flex-wrap:wrap">
       <div>
-        <h2 style="font-family:var(--font-head);font-weight:900;font-size:clamp(26px,4vw,44px);line-height:1.02;margin:0 0 10px;color:var(--ink-900)">Still here? Then you're coming.</h2>
-        <p style="font-family:var(--font-body);font-size:clamp(15px,1.8vw,18px);line-height:1.5;margin:0;color:var(--ink-900);max-width:50ch">Two minutes: your dates, Kazbegi, Yerevan, and where you want to sleep. It's how we size the vans and grab the train tickets.</p>
+        <h2 style="font-family:var(--font-head);font-weight:900;font-size:clamp(26px,4vw,44px);line-height:1.02;margin:0 0 10px;color:var(--ink-900)"><span class="i18 en">Still here? Then you're coming.</span><span class="i18 ru">Всё ещё тут? Значит, ты с нами.</span></h2>
+        <p style="font-family:var(--font-body);font-size:clamp(15px,1.8vw,18px);line-height:1.5;margin:0;color:var(--ink-900);max-width:50ch"><span class="i18 en">Two minutes: your dates, Kazbegi, Yerevan, and where you want to sleep. It's how we size the vans and grab the train tickets.</span><span class="i18 ru">Две минуты: твои даты, Казбеги, Ереван и где хочешь спать. По ним считаем минивэны и берём билеты на поезд.</span></p>
       </div>
       <a href="{{ rsvpUrl }}" target="_blank" rel="noopener" style="flex:none;display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--font-head);font-weight:800;font-size:18px;padding:17px 34px;color:var(--folk-white);background:var(--ink-900);border:2px solid var(--ink-900);box-shadow:5px 5px 0 0 var(--orange-700);transition:transform 120ms,box-shadow 120ms" style-hover="transform:translate(-2px,-2px);box-shadow:7px 7px 0 0 var(--orange-700)">RSVP <span aria-hidden="true">→</span></a>
     </div>
@@ -363,8 +375,8 @@
     <div style="width:100%;height:30px;background:var(--orange-500);-webkit-mask-image:url('assets/motifs/divider-carpet.png');mask-image:url('assets/motifs/divider-carpet.png');-webkit-mask-repeat:repeat-x;mask-repeat:repeat-x;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:auto 100%;mask-size:auto 100%"></div>
     <div style="max-width:var(--container);margin:0 auto;padding:clamp(2.5rem,4vw,4rem) var(--gutter);display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
       <div>
-        <div style="font-family:var(--font-display);font-size:clamp(32px,4vw,46px);color:var(--folk-white);text-transform:uppercase;line-height:0.9">Gaumarjos</div>
-        <p style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.08em;margin-top:10px">To Shota · to forty · to the road</p>
+        <div style="font-family:var(--font-display);font-size:clamp(32px,4vw,46px);color:var(--folk-white);text-transform:uppercase;line-height:0.9"><span class="i18 en">Gaumarjos</span><span class="i18 ru">Гаумарджос</span></div>
+        <p style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.08em;margin-top:10px"><span class="i18 en">To Shota · to forty · to the road</span><span class="i18 ru">За Шоту · за сорок · за дорогу</span></p>
       </div>
       <div style="display:flex;gap:14px;align-items:flex-end">
         <span style="display:inline-block;width:40px;height:50px;background:var(--orange-400);-webkit-mask-image:url('assets/stamps/supra-toast.png');mask-image:url('assets/stamps/supra-toast.png');-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain"></span>
