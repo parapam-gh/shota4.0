@@ -232,14 +232,14 @@
         You book your own flights — a couple of legs are just worth pinning:
       </p>
 
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(24px,3.5vw,40px);align-items:start">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(24px,3.5vw,40px);align-items:stretch">
 
         <!-- FLIGHT IN — Shota's boarding pass -->
         <div style="display:flex;flex-direction:column;gap:16px">
           <div style="background:var(--surface-card);color:var(--text-body);border:2px solid var(--orange-500);box-shadow:7px 7px 0 0 var(--orange-600)">
           <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 22px;border-bottom:2px dashed var(--ink-900)">
             <div style="font-family:var(--font-head);font-weight:900;font-size:20px;color:var(--text-strong)">Madrid → Tbilisi</div>
-            <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange-600)">Fly in · optional</div>
+            <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange-600)">Flight</div>
           </div>
           <div style="padding:8px 22px 18px">
             <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px solid var(--border-hairline)">
@@ -286,13 +286,9 @@
                 <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Depart → Arrive</span>
                 <span style="font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--text-strong);text-align:right">20:20 → 07:00 · ~10.5h</span>
               </div>
-              <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px solid var(--border-hairline)">
+              <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0">
                 <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Runs</span>
                 <span style="font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--text-strong);text-align:right">Every other day · limited</span>
-              </div>
-              <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0">
-                <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">Bring</span>
-                <span style="font-family:var(--font-mono);font-weight:700;font-size:14px;color:var(--text-strong);text-align:right">Passport · warm layer · water</span>
               </div>
               <div style="margin-top:14px;display:flex;align-items:flex-start;gap:10px;background:var(--folk-ochre);color:var(--ink-900);padding:12px 14px">
                 <span style="font-family:var(--font-mono);font-weight:700;font-size:18px;line-height:1">!</span>
@@ -300,7 +296,7 @@
               </div>
             </div>
           </div>
-          <a href="{{ trainUrl }}" target="_blank" rel="noopener" style="align-self:flex-start;display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--font-head);font-weight:800;font-size:17px;padding:15px 28px;color:var(--on-brand);background:var(--orange-500);border:2px solid var(--orange-500);box-shadow:5px 5px 0 0 var(--folk-white);transition:transform 120ms,box-shadow 120ms,background 120ms" style-hover="background:var(--orange-600);transform:translate(-2px,-2px);box-shadow:7px 7px 0 0 var(--folk-white)">
+          <a href="{{ trainUrl }}" target="_blank" rel="noopener" style="align-self:flex-start;margin-top:auto;display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--font-head);font-weight:800;font-size:17px;padding:15px 28px;color:var(--on-brand);background:var(--orange-500);border:2px solid var(--orange-500);box-shadow:5px 5px 0 0 var(--folk-white);transition:transform 120ms,box-shadow 120ms,background 120ms" style-hover="background:var(--orange-600);transform:translate(-2px,-2px);box-shadow:7px 7px 0 0 var(--folk-white)">
             Book the train <span aria-hidden="true">→</span>
           </a>
         </div>
