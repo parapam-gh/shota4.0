@@ -29,12 +29,8 @@
       [data-hero-fig]{position:absolute;top:92px;right:16px;z-index:2;gap:6px !important}
       [data-hero-fig] [data-walk]{width:80px !important;height:100px !important}
       [data-hero-fig] [data-walk-shadow]{width:60px !important;height:13px !important}
-      [data-days]{display:flex !important;overflow-x:auto;gap:12px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:14px;margin-left:calc(-1*var(--gutter));margin-right:calc(-1*var(--gutter));padding-left:var(--gutter);padding-right:var(--gutter)}
-      [data-days] > div{flex:0 0 46% !important;scroll-snap-align:start}
-      [data-days]::-webkit-scrollbar{height:5px}
-      [data-days]::-webkit-scrollbar-thumb{background:var(--ink-900);border-radius:3px}
-      [data-days]::-webkit-scrollbar-track{background:var(--concrete-300);border-radius:3px;margin:0 var(--gutter)}
-      [data-days-hint]{display:flex !important}
+      [data-days]{display:flex !important;flex-direction:column;gap:12px}
+      [data-cal-head]{display:none !important}
     }
   </style>
 </helmet>
@@ -89,9 +85,17 @@
       <p style="font-family:var(--font-body);font-size:16px;line-height:1.6;color:var(--text-body);margin:0 0 32px">The skeleton is set — these are the days and roughly where we'll be. The details land here later.</p>
 
       <div data-days-hint style="display:none;align-items:center;gap:9px;margin:0 0 14px"><span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange-600)">Swipe · all 11 days</span><span aria-hidden="true" style="display:inline-flex;color:var(--ink-900)"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span></div>
-      <div data-days style="display:grid;grid-template-columns:repeat(auto-fill,minmax(154px,1fr));gap:14px">
+      <div data-days style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:14px">
 
-        <div style="border:2px dashed var(--concrete-300);background:var(--surface-card);padding:16px;display:flex;flex-direction:column;gap:6px;min-height:118px">
+        <div data-cal-head style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);padding:0 2px 4px">Mon</div>
+        <div data-cal-head style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);padding:0 2px 4px">Tue</div>
+        <div data-cal-head style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);padding:0 2px 4px">Wed</div>
+        <div data-cal-head style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);padding:0 2px 4px">Thu</div>
+        <div data-cal-head style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);padding:0 2px 4px">Fri</div>
+        <div data-cal-head style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);padding:0 2px 4px">Sat</div>
+        <div data-cal-head style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);padding:0 2px 4px">Sun</div>
+
+        <div style="grid-column-start:5;border:2px dashed var(--concrete-300);background:var(--surface-card);padding:16px;display:flex;flex-direction:column;gap:6px;min-height:118px">
           <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--folk-blue)">Fri · 24 Oct</span>
           <span style="font-family:var(--font-head);font-weight:800;font-size:18px;color:var(--text-strong)">Tbilisi</span>
           <span style="margin-top:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--concrete-400)">Plan TBD</span>
@@ -147,11 +151,6 @@
           <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--folk-red)">Sun · 2 Nov</span>
           <span style="font-family:var(--font-head);font-weight:800;font-size:18px;color:var(--text-strong)">Yerevan → home</span>
           <span style="margin-top:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--concrete-400)">Plan TBD</span>
-        </div>
-        <div style="border:2px dashed var(--concrete-300);background:var(--surface-card);padding:16px;display:flex;flex-direction:column;gap:6px;min-height:118px">
-          <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-400)">Mon · 3 Nov</span>
-          <span style="font-family:var(--font-head);font-weight:800;font-size:18px;color:var(--text-strong)">Home</span>
-          <span style="margin-top:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--concrete-400)">Out of EVN</span>
         </div>
 
       </div>
