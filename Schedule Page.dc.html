@@ -31,7 +31,13 @@
       [data-hero-fig] [data-walk-shadow]{width:60px !important;height:13px !important}
       [data-days]{display:flex !important;flex-direction:column;gap:12px}
       [data-cal-head]{display:none !important}
+      [data-o="1"]{order:1 !important}[data-o="2"]{order:2 !important}[data-o="3"]{order:3 !important}[data-o="4"]{order:4 !important}[data-o="5"]{order:5 !important}[data-o="6"]{order:6 !important}[data-o="7"]{order:7 !important}[data-o="8"]{order:8 !important}[data-o="9"]{order:9 !important}[data-o="10"]{order:10 !important}[data-o="11"]{order:11 !important}[data-o="12"]{order:12 !important}[data-o="13"]{order:13 !important}[data-o="14"]{order:14 !important}[data-o="15"]{order:15 !important}[data-o="16"]{order:16 !important}
+      [data-caret]{left:22px !important}
     }
+    @keyframes panelIn{from{opacity:0;clip-path:inset(-24px -24px 100% -24px)}to{opacity:1;clip-path:inset(-24px -24px -24px -24px)}}
+    @media (prefers-reduced-motion: reduce){[data-panel]{animation:none!important}}
+    [data-panel] a:focus-visible{outline:3px solid var(--folk-blue);outline-offset:2px}
+    [data-day-btn]:focus-visible{outline:3px solid var(--folk-blue);outline-offset:3px}
     .i18.ru{display:none}
     html[data-lang="ru"] .i18.en{display:none}
     html[data-lang="ru"] .i18.ru{display:inline}
@@ -74,10 +80,10 @@
         </div>
         <h1 style="font-family:var(--font-display);font-weight:400;text-transform:uppercase;font-size:clamp(3rem,8vw,7rem);line-height:0.9;letter-spacing:0.01em;margin:0 0 22px;color:var(--folk-white);text-shadow:5px 5px 0 var(--orange-600)"><span class="i18 en">Day by</span><span class="i18 ru">День за</span><br><span class="i18 en">day</span><span class="i18 ru">днём</span></h1>
         <p style="font-family:var(--font-body);font-size:clamp(17px,2.1vw,21px);line-height:1.5;font-weight:500;max-width:38ch;margin:0 0 26px;color:var(--autumn-cream)">
-          <span class="i18 en">Closer to the trip, this page fills in — where we sleep, where we eat, when each supra starts, the hour-by-hour of the fortieth. We're still planning it. Check back as October nears.</span><span class="i18 ru">Ближе к поездке страница заполнится — где останавливаемся, где едим, когда начинается каждая супра (застолье), почасовка юбилея. Мы ещё планируем. Загляни ближе к октябрю.</span>
+          <span class="i18 en">Day by day — where we go, where we eat and when we meet. Exact times only where the whole group needs to be together.</span><span class="i18 ru">По дням — куда едем, где едим и когда встречаемся. Точное время — только там, где нужно собраться всей группой.</span>
         </p>
         <div style="display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-900);background:var(--folk-ochre);padding:9px 14px">
-          <span style="display:inline-block;width:9px;height:9px;border-radius:999px;background:var(--ink-900)"></span> <span class="i18 en">Still preparing</span><span class="i18 ru">Ещё готовим</span>
+          <span style="display:inline-block;width:9px;height:9px;border-radius:999px;background:var(--ink-900)"></span> <span class="i18 en">Plan is set</span><span class="i18 ru">План готов</span>
         </div>
       </div>
       <div data-hero-fig="" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px">
@@ -92,11 +98,10 @@
   <!-- ===== DAY SKELETON ===== -->
   <section style="flex:1;background:var(--surface-page)">
     <div style="max-width:var(--container);margin:0 auto;padding:clamp(3rem,6vw,5rem) var(--gutter)">
-      <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-muted)"><span class="i18 en">The shape of it</span><span class="i18 ru">В общих чертах</span></span>
-      <h2 style="font-family:var(--font-head);font-weight:900;font-size:clamp(28px,4.6vw,48px);line-height:0.98;margin:8px 0 8px;color:var(--text-strong)"><span class="i18 en">What we know so far</span><span class="i18 ru">Что уже известно</span></h2>
-      <p style="font-family:var(--font-body);font-size:16px;line-height:1.6;color:var(--text-body);margin:0 0 32px"><span class="i18 en">The skeleton is set — these are the days and roughly where we'll be. The details land here later.</span><span class="i18 ru">Каркас готов — вот дни и примерно где мы будем. Детали появятся здесь позже.</span></p>
+      <h2 style="font-family:var(--font-head);font-weight:900;font-size:clamp(28px,4.6vw,48px);line-height:0.98;margin:8px 0 8px;color:var(--text-strong)"><span class="i18 en">The plan</span><span class="i18 ru">Расписание</span></h2>
+      <p style="font-family:var(--font-body);font-size:16px;line-height:1.6;color:var(--text-body);margin:0 0 32px"><span class="i18 en">Here's the plan. Tap a day to see the details.</span><span class="i18 ru">Вот план. Нажми на день, чтобы увидеть подробности.</span></p>
 
-      <div data-days style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:14px">
+      <div data-days onKeyDown="{{ onEsc }}" style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:14px">
 
         <div data-cal-head style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);padding:0 2px 4px"><span class="i18 en">Mon</span><span class="i18 ru">Пн</span></div>
         <div data-cal-head style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);padding:0 2px 4px"><span class="i18 en">Tue</span><span class="i18 ru">Вт</span></div>
@@ -106,53 +111,263 @@
         <div data-cal-head style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);padding:0 2px 4px"><span class="i18 en">Sat</span><span class="i18 ru">Сб</span></div>
         <div data-cal-head style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);padding:0 2px 4px"><span class="i18 en">Sun</span><span class="i18 ru">Вс</span></div>
 
-        <div style="grid-column-start:7;border:2px dashed var(--concrete-300);background:var(--surface-card);padding:16px;display:flex;flex-direction:column;gap:6px;min-height:118px">
+        <button id="btn-25" type="button" data-day-btn aria-expanded="{{ d25.open }}" aria-controls="day-25" onClick="{{ d25.toggle }}" data-o="1" style="appearance:none;-webkit-appearance:none;font:inherit;text-align:left;cursor:pointer;width:100%;margin:0;order:1;grid-column-start:7;border:2px dashed var(--concrete-300);background:var(--surface-card);padding:16px;display:flex;flex-direction:column;gap:6px;min-height:118px;transition:border-color 120ms,box-shadow 120ms;outline-offset:-2px;outline:{{ d25.ol }};box-shadow:{{ d25.sh }}" style-hover="border-color:var(--orange-500)">
           <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--folk-blue)"><span class="i18 en">Sun · 25 Oct</span><span class="i18 ru">Вс · 25 окт</span></span>
           <span style="font-family:var(--font-head);font-weight:800;font-size:18px;color:var(--text-strong)"><span class="i18 en">Tbilisi</span><span class="i18 ru">Тбилиси</span></span>
-          <span style="margin-top:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--concrete-400)"><span class="i18 en">Plan TBD</span><span class="i18 ru">Уточняется</span></span>
-        </div>
-        <div style="border:2px dashed var(--concrete-300);background:var(--surface-card);padding:16px;display:flex;flex-direction:column;gap:6px;min-height:118px">
+          <span style="margin-top:auto;display:flex;align-items:flex-end;justify-content:space-between;gap:8px;width:100%"><span style="min-width:0;overflow-wrap:anywhere;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);line-height:1.4"><span class="i18 en">Getting to know Tbilisi</span><span class="i18 ru">Знакомство с Тбилиси</span></span><span aria-hidden="true" style="flex:none;font-family:var(--font-mono);font-size:18px;font-weight:700;line-height:1;color:var(--orange-500);transition:transform 160ms var(--ease-block);transform:{{ d25.rot }}">+</span></span>
+        </button>
+        <sc-if value="{{ d25.open }}" hint-placeholder-val="{{ false }}">
+          <div id="day-25" role="region" aria-labelledby="btn-25" data-panel data-o="2" style="order:2;grid-column:1/-1;position:relative;--c:7;border:2px solid var(--ink-900);background:var(--surface-card);box-shadow:5px 5px 0 0 var(--ink-900);padding:clamp(18px,3vw,28px);animation:panelIn 220ms var(--ease-block) both">
+            <span data-caret aria-hidden="true" style="position:absolute;top:-11px;left:calc((var(--c) - 1) * (100% + 18px) / 7 + (100% - 80px) / 14 - 11px);width:18px;height:18px;background:var(--surface-card);border-top:2px solid var(--ink-900);border-left:2px solid var(--ink-900);transform:rotate(45deg)"></span>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px clamp(20px,3vw,36px)">
+              <div>
+                <div style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-strong);padding-bottom:8px;border-bottom:2px solid var(--ink-900)"><span class="i18 en">Morning</span><span class="i18 ru">Утро</span></div>
+                <ul style="list-style:none;margin:0;padding:0">
+                  <li style="display:flex;gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px dashed var(--concrete-300)"><span style="flex:none;font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;line-height:1.3;padding:2px 7px;border:1px dashed var(--concrete-400);border-radius:var(--radius-pill);color:var(--text-muted)"><span class="i18 en">Free</span><span class="i18 ru">Свободно</span></span><span style="font-family:var(--font-body);font-size:15px;line-height:1.5;color:var(--text-muted);text-wrap:pretty"><span class="i18 en">Free morning</span><span class="i18 ru">Утро свободное</span></span></li>
+                </ul>
+              </div>
+              <div>
+                <div style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-strong);padding-bottom:8px;border-bottom:2px solid var(--ink-900)"><span class="i18 en">Day</span><span class="i18 ru">День</span></div>
+                <ul style="list-style:none;margin:0;padding:0">
+                  <li style="padding:10px 0;border-bottom:1px solid var(--border-hairline);font-family:var(--font-body);font-size:15px;line-height:1.5;color:var(--text-body);text-wrap:pretty"><span class="i18 en">Lunch at <a href="https://maps.google.com/?cid=12688254749107582403" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--orange-500);text-decoration-thickness:1.5px;text-underline-offset:3px" style-hover="color:var(--orange-600)">Pasanauri<span aria-hidden="true" style="font-size:0.8em;margin-left:2px;color:var(--orange-600)">↗</span></a></span><span class="i18 ru">Обед в <a href="https://maps.google.com/?cid=12688254749107582403" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--orange-500);text-decoration-thickness:1.5px;text-underline-offset:3px" style-hover="color:var(--orange-600)">Pasanauri<span aria-hidden="true" style="font-size:0.8em;margin-left:2px;color:var(--orange-600)">↗</span></a></span></li>
+                  <li style="padding:10px 0;border-bottom:1px solid var(--border-hairline);font-family:var(--font-body);font-size:15px;line-height:1.5;color:var(--text-body);text-wrap:pretty"><span class="i18 en">City tour: Old Town → cable car to Mother of Georgia → Narikala at sunset</span><span class="i18 ru">Обзорная: Старый город → канатка к Матери Грузии → Нарикала на закате</span></li>
+                </ul>
+              </div>
+              <div>
+                <div style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-strong);padding-bottom:8px;border-bottom:2px solid var(--ink-900)"><span class="i18 en">Evening</span><span class="i18 ru">Вечер</span></div>
+                <ul style="list-style:none;margin:0;padding:0">
+                  <li style="display:flex;gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px dashed var(--concrete-300)"><span style="flex:none;font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;line-height:1.3;padding:2px 7px;border:1px dashed var(--concrete-400);border-radius:var(--radius-pill);color:var(--text-muted)"><span class="i18 en">Free</span><span class="i18 ru">Свободно</span></span><span style="font-family:var(--font-body);font-size:15px;line-height:1.5;color:var(--text-muted);text-wrap:pretty"><span class="i18 en">Dinner on your own</span><span class="i18 ru">Ужин свободный</span></span></li>
+                  <li style="padding:10px 0;border-bottom:1px solid var(--border-hairline);font-family:var(--font-body);font-size:15px;line-height:1.5;color:var(--text-body);text-wrap:pretty"><span class="i18 en">Late drinks at <a href="https://maps.google.com/?cid=16763567460033349474" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--orange-500);text-decoration-thickness:1.5px;text-underline-offset:3px" style-hover="color:var(--orange-600)">Snobs<span aria-hidden="true" style="font-size:0.8em;margin-left:2px;color:var(--orange-600)">↗</span></a></span><span class="i18 ru">Поздно вечером бар <a href="https://maps.google.com/?cid=16763567460033349474" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--orange-500);text-decoration-thickness:1.5px;text-underline-offset:3px" style-hover="color:var(--orange-600)">Snobs<span aria-hidden="true" style="font-size:0.8em;margin-left:2px;color:var(--orange-600)">↗</span></a></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </sc-if>
+        <button id="btn-26" type="button" data-day-btn aria-expanded="{{ d26.open }}" aria-controls="day-26" onClick="{{ d26.toggle }}" data-o="3" style="appearance:none;-webkit-appearance:none;font:inherit;text-align:left;cursor:pointer;width:100%;margin:0;order:3;border:2px dashed var(--concrete-300);background:var(--surface-card);padding:16px;display:flex;flex-direction:column;gap:6px;min-height:118px;transition:border-color 120ms,box-shadow 120ms;outline-offset:-2px;outline:{{ d26.ol }};box-shadow:{{ d26.sh }}" style-hover="border-color:var(--orange-500)">
           <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--folk-blue)"><span class="i18 en">Mon · 26 Oct</span><span class="i18 ru">Пн · 26 окт</span></span>
           <span style="font-family:var(--font-head);font-weight:800;font-size:18px;color:var(--text-strong)"><span class="i18 en">Tbilisi</span><span class="i18 ru">Тбилиси</span></span>
-          <span style="margin-top:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--concrete-400)"><span class="i18 en">Plan TBD</span><span class="i18 ru">Уточняется</span></span>
-        </div>
-        <div style="border:2px dashed var(--concrete-300);background:var(--surface-card);padding:16px;display:flex;flex-direction:column;gap:6px;min-height:118px">
+          <span style="margin-top:auto;display:flex;align-items:flex-end;justify-content:space-between;gap:8px;width:100%"><span style="min-width:0;overflow-wrap:anywhere;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);line-height:1.4"><span class="i18 en">Funicular &amp; wine bars</span><span class="i18 ru">Фуникулёр и винные бары</span></span><span aria-hidden="true" style="flex:none;font-family:var(--font-mono);font-size:18px;font-weight:700;line-height:1;color:var(--orange-500);transition:transform 160ms var(--ease-block);transform:{{ d26.rot }}">+</span></span>
+        </button>
+        <sc-if value="{{ d26.open }}" hint-placeholder-val="{{ false }}">
+          <div id="day-26" role="region" aria-labelledby="btn-26" data-panel data-o="4" style="order:10;grid-column:1/-1;position:relative;--c:1;border:2px solid var(--ink-900);background:var(--surface-card);box-shadow:5px 5px 0 0 var(--ink-900);padding:clamp(18px,3vw,28px);animation:panelIn 220ms var(--ease-block) both">
+            <span data-caret aria-hidden="true" style="position:absolute;top:-11px;left:calc((var(--c) - 1) * (100% + 18px) / 7 + (100% - 80px) / 14 - 11px);width:18px;height:18px;background:var(--surface-card);border-top:2px solid var(--ink-900);border-left:2px solid var(--ink-900);transform:rotate(45deg)"></span>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px clamp(20px,3vw,36px)">
+              <div>
+                <div style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-strong);padding-bottom:8px;border-bottom:2px solid var(--ink-900)"><span class="i18 en">Morning</span><span class="i18 ru">Утро</span></div>
+                <ul style="list-style:none;margin:0;padding:0">
+                  <li style="display:flex;gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px dashed var(--concrete-300)"><span style="flex:none;font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;line-height:1.3;padding:2px 7px;border:1px dashed var(--concrete-400);border-radius:var(--radius-pill);color:var(--text-muted)"><span class="i18 en">Free</span><span class="i18 ru">Свободно</span></span><span style="font-family:var(--font-body);font-size:15px;line-height:1.5;color:var(--text-muted);text-wrap:pretty"><span class="i18 en">Free morning</span><span class="i18 ru">Утро свободное</span></span></li>
+                </ul>
+              </div>
+              <div>
+                <div style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-strong);padding-bottom:8px;border-bottom:2px solid var(--ink-900)"><span class="i18 en">Day</span><span class="i18 ru">День</span></div>
+                <ul style="list-style:none;margin:0;padding:0">
+                  <li style="display:flex;gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--border-hairline)"><span style="flex:none;font-family:var(--font-mono);font-size:13px;font-weight:700;letter-spacing:0.04em;line-height:1.3;padding:3px 7px;background:var(--orange-500);color:var(--folk-white)">12:30</span><span style="font-family:var(--font-body);font-size:15px;line-height:1.5;font-weight:700;color:var(--text-strong);text-wrap:pretty"><span class="i18 en">meet at the <a href="https://maps.google.com/?cid=17046505399950154177" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--orange-500);text-decoration-thickness:1.5px;text-underline-offset:3px" style-hover="color:var(--orange-600)">lower funicular station<span aria-hidden="true" style="font-size:0.8em;margin-left:2px;color:var(--orange-600)">↗</span></a></span><span class="i18 ru">сбор у <a href="https://maps.google.com/?cid=17046505399950154177" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--orange-500);text-decoration-thickness:1.5px;text-underline-offset:3px" style-hover="color:var(--orange-600)">нижней станции фуникулёра<span aria-hidden="true" style="font-size:0.8em;margin-left:2px;color:var(--orange-600)">↗</span></a></span></span></li>
+                  <li style="padding:10px 0;border-bottom:1px solid var(--border-hairline);font-family:var(--font-body);font-size:15px;line-height:1.5;color:var(--text-body);text-wrap:pretty"><span class="i18 en">Lunch at <a href="https://maps.google.com/?cid=2805356110281042417" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--orange-500);text-decoration-thickness:1.5px;text-underline-offset:3px" style-hover="color:var(--orange-600)">Puri Guliani<span aria-hidden="true" style="font-size:0.8em;margin-left:2px;color:var(--orange-600)">↗</span></a> at the top, with a view over the city</span><span class="i18 ru">Обед наверху в <a href="https://maps.google.com/?cid=2805356110281042417" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--orange-500);text-decoration-thickness:1.5px;text-underline-offset:3px" style-hover="color:var(--orange-600)">Puri Guliani<span aria-hidden="true" style="font-size:0.8em;margin-left:2px;color:var(--orange-600)">↗</span></a> с видом на город</span></li>
+                  <li style="padding:10px 0;border-bottom:1px solid var(--border-hairline);font-family:var(--font-body);font-size:15px;line-height:1.5;color:var(--text-body);text-wrap:pretty"><span class="i18 en">Walk around Mtatsminda and head down</span><span class="i18 ru">Прогулка по Мтацминде и спуск</span></li>
+                </ul>
+              </div>
+              <div>
+                <div style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-strong);padding-bottom:8px;border-bottom:2px solid var(--ink-900)"><span class="i18 en">Evening</span><span class="i18 ru">Вечер</span></div>
+                <ul style="list-style:none;margin:0;padding:0">
+                  <li style="padding:10px 0;border-bottom:1px solid var(--border-hairline);font-family:var(--font-body);font-size:15px;line-height:1.5;color:var(--text-body);text-wrap:pretty"><span class="i18 en">Wine bars, snacks, strolling</span><span class="i18 ru">Винные бары, закуски, прогулки</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </sc-if>
+        <button id="btn-27" type="button" data-day-btn aria-expanded="{{ d27.open }}" aria-controls="day-27" onClick="{{ d27.toggle }}" data-o="5" style="appearance:none;-webkit-appearance:none;font:inherit;text-align:left;cursor:pointer;width:100%;margin:0;order:4;border:2px dashed var(--concrete-300);background:var(--surface-card);padding:16px;display:flex;flex-direction:column;gap:6px;min-height:118px;transition:border-color 120ms,box-shadow 120ms;outline-offset:-2px;outline:{{ d27.ol }};box-shadow:{{ d27.sh }}" style-hover="border-color:var(--orange-500)">
           <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--folk-ochre)"><span class="i18 en">Tue · 27 Oct</span><span class="i18 ru">Вт · 27 окт</span></span>
           <span style="font-family:var(--font-head);font-weight:800;font-size:18px;color:var(--text-strong)"><span class="i18 en">Tbilisi → Kazbegi</span><span class="i18 ru">Тбилиси → Казбеги</span></span>
-          <span style="margin-top:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--concrete-400)"><span class="i18 en">Plan TBD</span><span class="i18 ru">Уточняется</span></span>
-        </div>
-        <div style="border:2px dashed var(--concrete-300);background:var(--surface-card);padding:16px;display:flex;flex-direction:column;gap:6px;min-height:118px">
+          <span style="margin-top:auto;display:flex;align-items:flex-end;justify-content:space-between;gap:8px;width:100%"><span style="min-width:0;overflow-wrap:anywhere;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);line-height:1.4"><span class="i18 en">To the mountains</span><span class="i18 ru">Едем в горы</span></span><span aria-hidden="true" style="flex:none;font-family:var(--font-mono);font-size:18px;font-weight:700;line-height:1;color:var(--orange-500);transition:transform 160ms var(--ease-block);transform:{{ d27.rot }}">+</span></span>
+        </button>
+        <sc-if value="{{ d27.open }}" hint-placeholder-val="{{ false }}">
+          <div id="day-27" role="region" aria-labelledby="btn-27" data-panel data-o="6" style="order:10;grid-column:1/-1;position:relative;--c:2;border:2px solid var(--ink-900);background:var(--surface-card);box-shadow:5px 5px 0 0 var(--ink-900);padding:clamp(18px,3vw,28px);animation:panelIn 220ms var(--ease-block) both">
+            <span data-caret aria-hidden="true" style="position:absolute;top:-11px;left:calc((var(--c) - 1) * (100% + 18px) / 7 + (100% - 80px) / 14 - 11px);width:18px;height:18px;background:var(--surface-card);border-top:2px solid var(--ink-900);border-left:2px solid var(--ink-900);transform:rotate(45deg)"></span>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px clamp(20px,3vw,36px)">
+              <div>
+                <div style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-strong);padding-bottom:8px;border-bottom:2px solid var(--ink-900)"><span class="i18 en">Morning</span><span class="i18 ru">Утро</span></div>
+                <ul style="list-style:none;margin:0;padding:0">
+                  <li style="display:flex;gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--border-hairline)"><span style="flex:none;font-family:var(--font-mono);font-size:13px;font-weight:700;letter-spacing:0.04em;line-height:1.3;padding:3px 7px;background:var(--orange-500);color:var(--folk-white)">10:30</span><span style="font-family:var(--font-body);font-size:15px;line-height:1.5;font-weight:700;color:var(--text-strong);text-wrap:pretty"><span class="i18 en">departure to the mountains (meeting point TBA)</span><span class="i18 ru">выезд в горы (точку сбора сообщим)</span></span></li>
+                </ul>
+              </div>
+              <div>
+                <div style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-strong);padding-bottom:8px;border-bottom:2px solid var(--ink-900)"><span class="i18 en">Day</span><span class="i18 ru">День</span></div>
+                <ul style="list-style:none;margin:0;padding:0">
+                  <li style="padding:10px 0;border-bottom:1px solid var(--border-hairline);font-family:var(--font-body);font-size:15px;line-height:1.5;color:var(--text-body);text-wrap:pretty"><span class="i18 en">On the way: Chronicles of Georgia, Zhinvali Reservoir, Ananuri Fortress, Friendship Monument</span><span class="i18 ru">По дороге: Хроника Грузии, Жинвальское водохранилище, крепость Ананури, Арка дружбы народов</span></li>
+                  <li style="padding:10px 0;border-bottom:1px solid var(--border-hairline);font-family:var(--font-body);font-size:15px;line-height:1.5;color:var(--text-body);text-wrap:pretty"><span class="i18 en">Lunch in Pasanauri village</span><span class="i18 ru">Обед в Пасанаури</span></li>
+                </ul>
+              </div>
+              <div>
+                <div style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-strong);padding-bottom:8px;border-bottom:2px solid var(--ink-900)"><span class="i18 en">Evening</span><span class="i18 ru">Вечер</span></div>
+                <ul style="list-style:none;margin:0;padding:0">
+                  <li style="padding:10px 0;border-bottom:1px solid var(--border-hairline);font-family:var(--font-body);font-size:15px;line-height:1.5;color:var(--text-body);text-wrap:pretty"><span class="i18 en">Check-in in <a href="https://maps.google.com/?cid=3989614361985718486" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--orange-500);text-decoration-thickness:1.5px;text-underline-offset:3px" style-hover="color:var(--orange-600)">Kazbegi<span aria-hidden="true" style="font-size:0.8em;margin-left:2px;color:var(--orange-600)">↗</span></a></span><span class="i18 ru">Заселение в <a href="https://maps.google.com/?cid=3989614361985718486" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--orange-500);text-decoration-thickness:1.5px;text-underline-offset:3px" style-hover="color:var(--orange-600)">Казбеги<span aria-hidden="true" style="font-size:0.8em;margin-left:2px;color:var(--orange-600)">↗</span></a></span></li>
+                  <li style="padding:10px 0;border-bottom:1px solid var(--border-hairline);font-family:var(--font-body);font-size:15px;line-height:1.5;color:var(--text-body);text-wrap:pretty"><span class="i18 en">Dinner at <a href="https://maps.google.com/?cid=3989614361985718486" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--orange-500);text-decoration-thickness:1.5px;text-underline-offset:3px" style-hover="color:var(--orange-600)">the hotel<span aria-hidden="true" style="font-size:0.8em;margin-left:2px;color:var(--orange-600)">↗</span></a></span><span class="i18 ru">Ужин <a href="https://maps.google.com/?cid=3989614361985718486" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--orange-500);text-decoration-thickness:1.5px;text-underline-offset:3px" style-hover="color:var(--orange-600)">в отеле<span aria-hidden="true" style="font-size:0.8em;margin-left:2px;color:var(--orange-600)">↗</span></a></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </sc-if>
+        <button id="btn-28" type="button" data-day-btn aria-expanded="{{ d28.open }}" aria-controls="day-28" onClick="{{ d28.toggle }}" data-o="7" style="appearance:none;-webkit-appearance:none;font:inherit;text-align:left;cursor:pointer;width:100%;margin:0;order:5;border:2px dashed var(--concrete-300);background:var(--surface-card);padding:16px;display:flex;flex-direction:column;gap:6px;min-height:118px;transition:border-color 120ms,box-shadow 120ms;outline-offset:-2px;outline:{{ d28.ol }};box-shadow:{{ d28.sh }}" style-hover="border-color:var(--orange-500)">
           <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--folk-ochre)"><span class="i18 en">Wed · 28 Oct</span><span class="i18 ru">Ср · 28 окт</span></span>
           <span style="font-family:var(--font-head);font-weight:800;font-size:18px;color:var(--text-strong)"><span class="i18 en">Kazbegi → Tbilisi</span><span class="i18 ru">Казбеги → Тбилиси</span></span>
-          <span style="margin-top:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--concrete-400)"><span class="i18 en">Plan TBD</span><span class="i18 ru">Уточняется</span></span>
-        </div>
-        <div style="border:2px dashed var(--concrete-300);background:var(--surface-card);padding:16px;display:flex;flex-direction:column;gap:6px;min-height:118px">
+          <span style="margin-top:auto;display:flex;align-items:flex-end;justify-content:space-between;gap:8px;width:100%"><span style="min-width:0;overflow-wrap:anywhere;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);line-height:1.4"><span class="i18 en">Mountains &amp; churches</span><span class="i18 ru">Горы и церкви</span></span><span aria-hidden="true" style="flex:none;font-family:var(--font-mono);font-size:18px;font-weight:700;line-height:1;color:var(--orange-500);transition:transform 160ms var(--ease-block);transform:{{ d28.rot }}">+</span></span>
+        </button>
+        <sc-if value="{{ d28.open }}" hint-placeholder-val="{{ false }}">
+          <div id="day-28" role="region" aria-labelledby="btn-28" data-panel data-o="8" style="order:10;grid-column:1/-1;position:relative;--c:3;border:2px solid var(--ink-900);background:var(--surface-card);box-shadow:5px 5px 0 0 var(--ink-900);padding:clamp(18px,3vw,28px);animation:panelIn 220ms var(--ease-block) both">
+            <span data-caret aria-hidden="true" style="position:absolute;top:-11px;left:calc((var(--c) - 1) * (100% + 18px) / 7 + (100% - 80px) / 14 - 11px);width:18px;height:18px;background:var(--surface-card);border-top:2px solid var(--ink-900);border-left:2px solid var(--ink-900);transform:rotate(45deg)"></span>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px clamp(20px,3vw,36px)">
+              <div>
+                <div style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-strong);padding-bottom:8px;border-bottom:2px solid var(--ink-900)"><span class="i18 en">Morning</span><span class="i18 ru">Утро</span></div>
+                <ul style="list-style:none;margin:0;padding:0">
+                  <li style="padding:10px 0;border-bottom:1px solid var(--border-hairline);font-family:var(--font-body);font-size:15px;line-height:1.5;color:var(--text-body);text-wrap:pretty"><span class="i18 en">Breakfast and check-out</span><span class="i18 ru">Завтрак и выезд из отеля</span></li>
+                </ul>
+              </div>
+              <div>
+                <div style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-strong);padding-bottom:8px;border-bottom:2px solid var(--ink-900)"><span class="i18 en">Day</span><span class="i18 ru">День</span></div>
+                <ul style="list-style:none;margin:0;padding:0">
+                  <li style="padding:10px 0;border-bottom:1px solid var(--border-hairline);font-family:var(--font-body);font-size:15px;line-height:1.5;color:var(--text-body);text-wrap:pretty"><span class="i18 en">Lunch in Kazbegi → Gergeti Trinity Church</span><span class="i18 ru">Обед в Казбеги → церковь Гергети</span></li>
+                </ul>
+              </div>
+              <div>
+                <div style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-strong);padding-bottom:8px;border-bottom:2px solid var(--ink-900)"><span class="i18 en">Evening</span><span class="i18 ru">Вечер</span></div>
+                <ul style="list-style:none;margin:0;padding:0">
+                  <li style="padding:10px 0;border-bottom:1px solid var(--border-hairline);font-family:var(--font-body);font-size:15px;line-height:1.5;color:var(--text-body);text-wrap:pretty"><span class="i18 en">Mtskheta — Jvari at sunset, Svetitskhoveli</span><span class="i18 ru">Мцхета — Джвари на закате, Светицховели</span></li>
+                  <li style="padding:10px 0;border-bottom:1px solid var(--border-hairline);font-family:var(--font-body);font-size:15px;line-height:1.5;color:var(--text-body);text-wrap:pretty"><span class="i18 en">Back to Tbilisi</span><span class="i18 ru">Возвращаемся в Тбилиси</span></li>
+                  <li style="display:flex;gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px dashed var(--concrete-300)"><span style="flex:none;font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;line-height:1.3;padding:2px 7px;border:1px dashed var(--concrete-400);border-radius:var(--radius-pill);color:var(--text-muted)"><span class="i18 en">Free</span><span class="i18 ru">Свободно</span></span><span style="font-family:var(--font-body);font-size:15px;line-height:1.5;color:var(--text-muted);text-wrap:pretty"><span class="i18 en">Dinner on your own</span><span class="i18 ru">Ужин свободный</span></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </sc-if>
+        <button id="btn-29" type="button" data-day-btn aria-expanded="{{ d29.open }}" aria-controls="day-29" onClick="{{ d29.toggle }}" data-o="9" style="appearance:none;-webkit-appearance:none;font:inherit;text-align:left;cursor:pointer;width:100%;margin:0;order:6;border:2px dashed var(--concrete-300);background:var(--surface-card);padding:16px;display:flex;flex-direction:column;gap:6px;min-height:118px;transition:border-color 120ms,box-shadow 120ms;outline-offset:-2px;outline:{{ d29.ol }};box-shadow:{{ d29.sh }}" style-hover="border-color:var(--orange-500)">
           <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--folk-blue)"><span class="i18 en">Thu · 29 Oct</span><span class="i18 ru">Чт · 29 окт</span></span>
           <span style="font-family:var(--font-head);font-weight:800;font-size:18px;color:var(--text-strong)"><span class="i18 en">Tbilisi</span><span class="i18 ru">Тбилиси</span></span>
-          <span style="margin-top:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--concrete-400)"><span class="i18 en">Plan TBD</span><span class="i18 ru">Уточняется</span></span>
-        </div>
-
-        <!-- BIRTHDAY -->
-        <div style="border:2px solid var(--ink-900);background:var(--orange-500);box-shadow:5px 5px 0 0 var(--ink-900);padding:16px;display:flex;flex-direction:column;gap:6px;min-height:118px;position:relative;overflow:hidden">
+          <span style="margin-top:auto;display:flex;align-items:flex-end;justify-content:space-between;gap:8px;width:100%"><span style="min-width:0;overflow-wrap:anywhere;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);line-height:1.4"><span class="i18 en">Wandering around</span><span class="i18 ru">Шароебимся</span></span><span aria-hidden="true" style="flex:none;font-family:var(--font-mono);font-size:18px;font-weight:700;line-height:1;color:var(--orange-500);transition:transform 160ms var(--ease-block);transform:{{ d29.rot }}">+</span></span>
+        </button>
+        <sc-if value="{{ d29.open }}" hint-placeholder-val="{{ false }}">
+          <div id="day-29" role="region" aria-labelledby="btn-29" data-panel data-o="10" style="order:10;grid-column:1/-1;position:relative;--c:4;border:2px solid var(--ink-900);background:var(--surface-card);box-shadow:5px 5px 0 0 var(--ink-900);padding:clamp(18px,3vw,28px);animation:panelIn 220ms var(--ease-block) both">
+            <span data-caret aria-hidden="true" style="position:absolute;top:-11px;left:calc((var(--c) - 1) * (100% + 18px) / 7 + (100% - 80px) / 14 - 11px);width:18px;height:18px;background:var(--surface-card);border-top:2px solid var(--ink-900);border-left:2px solid var(--ink-900);transform:rotate(45deg)"></span>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px clamp(20px,3vw,36px)">
+              <div>
+                <div style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-strong);padding-bottom:8px;border-bottom:2px solid var(--ink-900)"><span class="i18 en">Morning</span><span class="i18 ru">Утро</span></div>
+                <ul style="list-style:none;margin:0;padding:0">
+                  <li style="padding:10px 0;border-bottom:1px solid var(--border-hairline);font-family:var(--font-body);font-size:15px;line-height:1.5;color:var(--text-body);text-wrap:pretty"><span class="i18 en">Dry Bridge flea market</span><span class="i18 ru">Блошиный рынок «Сухой мост»</span></li>
+                </ul>
+              </div>
+              <div>
+                <div style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-strong);padding-bottom:8px;border-bottom:2px solid var(--ink-900)"><span class="i18 en">Day</span><span class="i18 ru">День</span></div>
+                <ul style="list-style:none;margin:0;padding:0">
+                  <li style="padding:10px 0;border-bottom:1px solid var(--border-hairline);font-family:var(--font-body);font-size:15px;line-height:1.5;color:var(--text-body);text-wrap:pretty"><span class="i18 en">Lunch at <a href="https://maps.google.com/?cid=17594368915314407962" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--orange-500);text-decoration-thickness:1.5px;text-underline-offset:3px" style-hover="color:var(--orange-600)">Fabrika<span aria-hidden="true" style="font-size:0.8em;margin-left:2px;color:var(--orange-600)">↗</span></a></span><span class="i18 ru">Обед на <a href="https://maps.google.com/?cid=17594368915314407962" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--orange-500);text-decoration-thickness:1.5px;text-underline-offset:3px" style-hover="color:var(--orange-600)">Fabrika<span aria-hidden="true" style="font-size:0.8em;margin-left:2px;color:var(--orange-600)">↗</span></a></span></li>
+                  <li style="display:flex;gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px dashed var(--concrete-300)"><span style="flex:none;font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;line-height:1.3;padding:2px 7px;border:1px dashed var(--concrete-400);border-radius:var(--radius-pill);color:var(--text-muted)"><span class="i18 en">Free</span><span class="i18 ru">Свободно</span></span><span style="font-family:var(--font-body);font-size:15px;line-height:1.5;color:var(--text-muted);text-wrap:pretty"><span class="i18 en">Free afternoon</span><span class="i18 ru">Дальше свободно</span></span></li>
+                </ul>
+              </div>
+              <div>
+                <div style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-strong);padding-bottom:8px;border-bottom:2px solid var(--ink-900)"><span class="i18 en">Evening</span><span class="i18 ru">Вечер</span></div>
+                <ul style="list-style:none;margin:0;padding:0">
+                  <li style="display:flex;gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px dashed var(--concrete-300)"><span style="flex:none;font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;line-height:1.3;padding:2px 7px;border:1px dashed var(--concrete-400);border-radius:var(--radius-pill);color:var(--text-muted)"><span class="i18 en">Free</span><span class="i18 ru">Свободно</span></span><span style="font-family:var(--font-body);font-size:15px;line-height:1.5;color:var(--text-muted);text-wrap:pretty"><span class="i18 en">Free evening</span><span class="i18 ru">Вечер свободный</span></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </sc-if>
+        <button id="btn-30" type="button" data-day-btn aria-expanded="{{ d30.open }}" aria-controls="day-30" onClick="{{ d30.toggle }}" data-o="11" style="appearance:none;-webkit-appearance:none;font:inherit;text-align:left;cursor:pointer;width:100%;margin:0;order:7;border:2px solid var(--ink-900);background:var(--orange-500);padding:16px;display:flex;flex-direction:column;gap:6px;min-height:118px;position:relative;overflow:hidden;transition:transform 120ms var(--ease-block),box-shadow 120ms var(--ease-block);box-shadow:{{ d30.sh }};transform:{{ d30.tr }}">
           <div style="position:absolute;inset:0;pointer-events:none;background-image:url('assets/textures/grain.png');background-repeat:repeat;mix-blend-mode:overlay;opacity:0.5"></div>
-          <div style="position:relative;display:flex;align-items:center;justify-content:space-between;gap:6px">
+          <div style="position:relative;display:flex;align-items:center;justify-content:space-between;gap:6px;width:100%">
             <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-900)"><span class="i18 en">Fri · 30 Oct</span><span class="i18 ru">Пт · 30 окт</span></span>
             <span data-flip="" style="position:relative;display:inline-block;width:22px;height:28px;vertical-align:middle"><span style="position:absolute;inset:0;background:var(--ink-900);-webkit-mask-image:url('assets/stamps/supra-toast.png');mask-image:url('assets/stamps/supra-toast.png');-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;opacity:1;animation:flipFront 2s linear infinite"></span><span style="position:absolute;inset:0;background:var(--ink-900);-webkit-mask-image:url('assets/stamps/supra-toast.png');mask-image:url('assets/stamps/supra-toast.png');-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;transform:scaleX(-1);opacity:0;animation:flipBack 2s linear infinite"></span></span>
           </div>
           <span style="position:relative;font-family:var(--font-head);font-weight:900;font-size:19px;color:var(--folk-white)"><span class="i18 en">Shota's night</span><span class="i18 ru">Вечер Шоты</span></span>
-          <span style="position:relative;margin-top:auto;font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-900)"><span class="i18 en">★ The fixed point</span><span class="i18 ru">★ Обязательная часть программы</span></span>
-        </div>
-
-        <div style="border:2px dashed var(--concrete-300);background:var(--surface-card);padding:16px;display:flex;flex-direction:column;gap:6px;min-height:118px">
+          <span style="position:relative;margin-top:auto;display:flex;align-items:flex-end;justify-content:space-between;gap:8px;width:100%"><span style="min-width:0;overflow-wrap:anywhere;font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-900);line-height:1.4"><span class="i18 en">Bath &amp; the big feast</span><span class="i18 ru">Баня и попойка</span></span><span aria-hidden="true" style="flex:none;font-family:var(--font-mono);font-size:18px;font-weight:700;line-height:1;color:var(--ink-900);transition:transform 160ms var(--ease-block);transform:{{ d30.rot }}">+</span></span>
+        </button>
+        <sc-if value="{{ d30.open }}" hint-placeholder-val="{{ false }}">
+          <div id="day-30" role="region" aria-labelledby="btn-30" data-panel data-o="12" style="order:10;grid-column:1/-1;position:relative;--c:5;border:2px solid var(--ink-900);background:var(--surface-card);box-shadow:5px 5px 0 0 var(--orange-500);padding:clamp(18px,3vw,28px);animation:panelIn 220ms var(--ease-block) both">
+            <span data-caret aria-hidden="true" style="position:absolute;top:-11px;left:calc((var(--c) - 1) * (100% + 18px) / 7 + (100% - 80px) / 14 - 11px);width:18px;height:18px;background:var(--surface-card);border-top:2px solid var(--ink-900);border-left:2px solid var(--ink-900);transform:rotate(45deg)"></span>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px clamp(20px,3vw,36px)">
+              <div>
+                <div style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-strong);padding-bottom:8px;border-bottom:2px solid var(--ink-900)"><span class="i18 en">Morning</span><span class="i18 ru">Утро</span></div>
+                <ul style="list-style:none;margin:0;padding:0">
+                  <li style="display:flex;gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--border-hairline)"><span style="flex:none;font-family:var(--font-mono);font-size:13px;font-weight:700;letter-spacing:0.04em;line-height:1.3;padding:3px 7px;background:var(--orange-500);color:var(--folk-white)">11:00</span><span style="font-family:var(--font-body);font-size:15px;line-height:1.5;font-weight:700;color:var(--text-strong);text-wrap:pretty"><span class="i18 en"><a href="https://maps.google.com/?cid=12446867091872320383" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--orange-500);text-decoration-thickness:1.5px;text-underline-offset:3px" style-hover="color:var(--orange-600)">Orbeliani sulphur baths<span aria-hidden="true" style="font-size:0.8em;margin-left:2px;color:var(--orange-600)">↗</span></a></span><span class="i18 ru"><a href="https://maps.google.com/?cid=12446867091872320383" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--orange-500);text-decoration-thickness:1.5px;text-underline-offset:3px" style-hover="color:var(--orange-600)">серная баня Орбелиани<span aria-hidden="true" style="font-size:0.8em;margin-left:2px;color:var(--orange-600)">↗</span></a></span></span></li>
+                </ul>
+              </div>
+              <div>
+                <div style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-strong);padding-bottom:8px;border-bottom:2px solid var(--ink-900)"><span class="i18 en">Day</span><span class="i18 ru">День</span></div>
+                <ul style="list-style:none;margin:0;padding:0">
+                  <li style="padding:10px 0;border-bottom:1px solid var(--border-hairline);font-family:var(--font-body);font-size:15px;line-height:1.5;color:var(--text-body);text-wrap:pretty"><span class="i18 en">Lunch at <a href="https://maps.google.com/?cid=11164547639585972447" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--orange-500);text-decoration-thickness:1.5px;text-underline-offset:3px" style-hover="color:var(--orange-600)">Maspindzelo<span aria-hidden="true" style="font-size:0.8em;margin-left:2px;color:var(--orange-600)">↗</span></a></span><span class="i18 ru">Обед в <a href="https://maps.google.com/?cid=11164547639585972447" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--orange-500);text-decoration-thickness:1.5px;text-underline-offset:3px" style-hover="color:var(--orange-600)">Maspindzelo<span aria-hidden="true" style="font-size:0.8em;margin-left:2px;color:var(--orange-600)">↗</span></a></span></li>
+                  <li style="display:flex;gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px dashed var(--concrete-300)"><span style="flex:none;font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;line-height:1.3;padding:2px 7px;border:1px dashed var(--concrete-400);border-radius:var(--radius-pill);color:var(--text-muted)"><span class="i18 en">Free</span><span class="i18 ru">Свободно</span></span><span style="font-family:var(--font-body);font-size:15px;line-height:1.5;color:var(--text-muted);text-wrap:pretty"><span class="i18 en">Rest and change</span><span class="i18 ru">Отдых, переодеться</span></span></li>
+                </ul>
+              </div>
+              <div>
+                <div style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-strong);padding-bottom:8px;border-bottom:2px solid var(--ink-900)"><span class="i18 en">Evening</span><span class="i18 ru">Вечер</span></div>
+                <ul style="list-style:none;margin:0;padding:0">
+                  <li style="display:flex;gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--border-hairline)"><span style="flex:none;font-family:var(--font-mono);font-size:13px;font-weight:700;letter-spacing:0.04em;line-height:1.3;padding:3px 7px;background:var(--orange-500);color:var(--folk-white)">19:30</span><span style="font-family:var(--font-body);font-size:15px;line-height:1.5;font-weight:700;color:var(--text-strong);text-wrap:pretty"><span class="i18 en">birthday dinner at <a href="https://maps.google.com/?cid=4893030621056386169" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--orange-500);text-decoration-thickness:1.5px;text-underline-offset:3px" style-hover="color:var(--orange-600)">Ethno Tsiskvili<span aria-hidden="true" style="font-size:0.8em;margin-left:2px;color:var(--orange-600)">↗</span></a> — allow 30+ min to get there</span><span class="i18 ru">праздничный ужин в <a href="https://maps.google.com/?cid=4893030621056386169" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--orange-500);text-decoration-thickness:1.5px;text-underline-offset:3px" style-hover="color:var(--orange-600)">Ethno Tsiskvili<span aria-hidden="true" style="font-size:0.8em;margin-left:2px;color:var(--orange-600)">↗</span></a> — добираться 30+ минут</span></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </sc-if>
+        <button id="btn-31" type="button" data-day-btn aria-expanded="{{ d31.open }}" aria-controls="day-31" onClick="{{ d31.toggle }}" data-o="13" style="appearance:none;-webkit-appearance:none;font:inherit;text-align:left;cursor:pointer;width:100%;margin:0;order:8;border:2px dashed var(--concrete-300);background:var(--surface-card);padding:16px;display:flex;flex-direction:column;gap:6px;min-height:118px;transition:border-color 120ms,box-shadow 120ms;outline-offset:-2px;outline:{{ d31.ol }};box-shadow:{{ d31.sh }}" style-hover="border-color:var(--orange-500)">
           <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--folk-blue)"><span class="i18 en">Sat · 31 Oct</span><span class="i18 ru">Сб · 31 окт</span></span>
-          <span style="font-family:var(--font-head);font-weight:800;font-size:18px;color:var(--text-strong)"><span class="i18 en">Tbilisi → night train</span><span class="i18 ru">Тбилиси → ночной поезд</span></span>
-          <span style="margin-top:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--concrete-400)"><span class="i18 en">Plan TBD</span><span class="i18 ru">Уточняется</span></span>
-        </div>
-        <div style="border:2px dashed var(--concrete-300);background:var(--surface-card);padding:16px;display:flex;flex-direction:column;gap:6px;min-height:118px">
+          <span style="font-family:var(--font-head);font-weight:800;font-size:18px;color:var(--text-strong)"><span class="i18 en">Tbilisi → Yerevan</span><span class="i18 ru">Тбилиси → Ереван</span></span>
+          <span style="margin-top:auto;display:flex;align-items:flex-end;justify-content:space-between;gap:8px;width:100%"><span style="min-width:0;overflow-wrap:anywhere;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);line-height:1.4"><span class="i18 en">By van to Yerevan</span><span class="i18 ru">На вэнах в Ереван</span></span><span aria-hidden="true" style="flex:none;font-family:var(--font-mono);font-size:18px;font-weight:700;line-height:1;color:var(--orange-500);transition:transform 160ms var(--ease-block);transform:{{ d31.rot }}">+</span></span>
+        </button>
+        <sc-if value="{{ d31.open }}" hint-placeholder-val="{{ false }}">
+          <div id="day-31" role="region" aria-labelledby="btn-31" data-panel data-o="14" style="order:10;grid-column:1/-1;position:relative;--c:6;border:2px solid var(--ink-900);background:var(--surface-card);box-shadow:5px 5px 0 0 var(--ink-900);padding:clamp(18px,3vw,28px);animation:panelIn 220ms var(--ease-block) both">
+            <span data-caret aria-hidden="true" style="position:absolute;top:-11px;left:calc((var(--c) - 1) * (100% + 18px) / 7 + (100% - 80px) / 14 - 11px);width:18px;height:18px;background:var(--surface-card);border-top:2px solid var(--ink-900);border-left:2px solid var(--ink-900);transform:rotate(45deg)"></span>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px clamp(20px,3vw,36px)">
+              <div>
+                <div style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-strong);padding-bottom:8px;border-bottom:2px solid var(--ink-900)"><span class="i18 en">Morning</span><span class="i18 ru">Утро</span></div>
+                <ul style="list-style:none;margin:0;padding:0">
+                  <li style="display:flex;gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px dashed var(--concrete-300)"><span style="flex:none;font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;line-height:1.3;padding:2px 7px;border:1px dashed var(--concrete-400);border-radius:var(--radius-pill);color:var(--text-muted)"><span class="i18 en">Free</span><span class="i18 ru">Свободно</span></span><span style="font-family:var(--font-body);font-size:15px;line-height:1.5;color:var(--text-muted);text-wrap:pretty"><span class="i18 en">Free morning, check out of hotels</span><span class="i18 ru">Утро свободное, выезд из отелей</span></span></li>
+                </ul>
+              </div>
+              <div>
+                <div style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-strong);padding-bottom:8px;border-bottom:2px solid var(--ink-900)"><span class="i18 en">Day</span><span class="i18 ru">День</span></div>
+                <ul style="list-style:none;margin:0;padding:0">
+                  <li style="display:flex;gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--border-hairline)"><span style="flex:none;font-family:var(--font-mono);font-size:13px;font-weight:700;letter-spacing:0.04em;line-height:1.3;padding:3px 7px;background:var(--orange-500);color:var(--folk-white)">~13:00</span><span style="font-family:var(--font-body);font-size:15px;line-height:1.5;font-weight:700;color:var(--text-strong);text-wrap:pretty"><span class="i18 en">vans to Yerevan (meeting point TBA)</span><span class="i18 ru">выезд на вэнах в Ереван (точку сбора сообщим)</span></span></li>
+                  <li style="padding:10px 0;border-bottom:1px solid var(--border-hairline);font-family:var(--font-body);font-size:15px;line-height:1.5;color:var(--text-body);text-wrap:pretty"><span class="i18 en">About 5–6 h on the road, with the border crossing</span><span class="i18 ru">В пути ~5–6 ч вместе с границей</span></li>
+                </ul>
+              </div>
+              <div>
+                <div style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-strong);padding-bottom:8px;border-bottom:2px solid var(--ink-900)"><span class="i18 en">Evening</span><span class="i18 ru">Вечер</span></div>
+                <ul style="list-style:none;margin:0;padding:0">
+                  <li style="padding:10px 0;border-bottom:1px solid var(--border-hairline);font-family:var(--font-body);font-size:15px;line-height:1.5;color:var(--text-body);text-wrap:pretty"><span class="i18 en">Check-in in Yerevan</span><span class="i18 ru">Заселение в Ереване</span></li>
+                  <li style="display:flex;gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px dashed var(--concrete-300)"><span style="flex:none;font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;line-height:1.3;padding:2px 7px;border:1px dashed var(--concrete-400);border-radius:var(--radius-pill);color:var(--text-muted)"><span class="i18 en">Free</span><span class="i18 ru">Свободно</span></span><span style="font-family:var(--font-body);font-size:15px;line-height:1.5;color:var(--text-muted);text-wrap:pretty"><span class="i18 en">Dinner on your own</span><span class="i18 ru">Ужин свободный</span></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </sc-if>
+        <button id="btn-01" type="button" data-day-btn aria-expanded="{{ d01.open }}" aria-controls="day-01" onClick="{{ d01.toggle }}" data-o="15" style="appearance:none;-webkit-appearance:none;font:inherit;text-align:left;cursor:pointer;width:100%;margin:0;order:9;border:2px dashed var(--concrete-300);background:var(--surface-card);padding:16px;display:flex;flex-direction:column;gap:6px;min-height:118px;transition:border-color 120ms,box-shadow 120ms;outline-offset:-2px;outline:{{ d01.ol }};box-shadow:{{ d01.sh }}" style-hover="border-color:var(--orange-500)">
           <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--folk-red)"><span class="i18 en">Sun · 1 Nov</span><span class="i18 ru">Вс · 1 ноя</span></span>
           <span style="font-family:var(--font-head);font-weight:800;font-size:18px;color:var(--text-strong)"><span class="i18 en">Yerevan</span><span class="i18 ru">Ереван</span></span>
-          <span style="margin-top:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--concrete-400)"><span class="i18 en">Plan TBD</span><span class="i18 ru">Уточняется</span></span>
-        </div>
+          <span style="margin-top:auto;display:flex;align-items:flex-end;justify-content:space-between;gap:8px;width:100%"><span style="min-width:0;overflow-wrap:anywhere;font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);line-height:1.4"><span class="i18 en">Getting to know Yerevan</span><span class="i18 ru">Знакомство с Ереваном</span></span><span aria-hidden="true" style="flex:none;font-family:var(--font-mono);font-size:18px;font-weight:700;line-height:1;color:var(--orange-500);transition:transform 160ms var(--ease-block);transform:{{ d01.rot }}">+</span></span>
+        </button>
+        <sc-if value="{{ d01.open }}" hint-placeholder-val="{{ false }}">
+          <div id="day-01" role="region" aria-labelledby="btn-01" data-panel data-o="16" style="order:10;grid-column:1/-1;position:relative;--c:7;border:2px solid var(--ink-900);background:var(--surface-card);box-shadow:5px 5px 0 0 var(--ink-900);padding:clamp(18px,3vw,28px);animation:panelIn 220ms var(--ease-block) both">
+            <span data-caret aria-hidden="true" style="position:absolute;top:-11px;left:calc((var(--c) - 1) * (100% + 18px) / 7 + (100% - 80px) / 14 - 11px);width:18px;height:18px;background:var(--surface-card);border-top:2px solid var(--ink-900);border-left:2px solid var(--ink-900);transform:rotate(45deg)"></span>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px clamp(20px,3vw,36px)">
+              <div>
+                <div style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-strong);padding-bottom:8px;border-bottom:2px solid var(--ink-900)"><span class="i18 en">Morning</span><span class="i18 ru">Утро</span></div>
+                <ul style="list-style:none;margin:0;padding:0">
+                  <li style="display:flex;gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px dashed var(--concrete-300)"><span style="flex:none;font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;line-height:1.3;padding:2px 7px;border:1px dashed var(--concrete-400);border-radius:var(--radius-pill);color:var(--text-muted)"><span class="i18 en">Free</span><span class="i18 ru">Свободно</span></span><span style="font-family:var(--font-body);font-size:15px;line-height:1.5;color:var(--text-muted);text-wrap:pretty"><span class="i18 en">Free morning</span><span class="i18 ru">Утро свободное</span></span></li>
+                </ul>
+              </div>
+              <div>
+                <div style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-strong);padding-bottom:8px;border-bottom:2px solid var(--ink-900)"><span class="i18 en">Day</span><span class="i18 ru">День</span></div>
+                <ul style="list-style:none;margin:0;padding:0">
+                  <li style="padding:10px 0;border-bottom:1px solid var(--border-hairline);font-family:var(--font-body);font-size:15px;line-height:1.5;color:var(--text-body);text-wrap:pretty"><span class="i18 en">Lunch at <a href="https://maps.google.com/?cid=17905162120822390188" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--orange-500);text-decoration-thickness:1.5px;text-underline-offset:3px" style-hover="color:var(--orange-600)">Lavash<span aria-hidden="true" style="font-size:0.8em;margin-left:2px;color:var(--orange-600)">↗</span></a></span><span class="i18 ru">Обед в <a href="https://maps.google.com/?cid=17905162120822390188" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--orange-500);text-decoration-thickness:1.5px;text-underline-offset:3px" style-hover="color:var(--orange-600)">Lavash<span aria-hidden="true" style="font-size:0.8em;margin-left:2px;color:var(--orange-600)">↗</span></a></span></li>
+                  <li style="padding:10px 0;border-bottom:1px solid var(--border-hairline);font-family:var(--font-body);font-size:15px;line-height:1.5;color:var(--text-body);text-wrap:pretty"><span class="i18 en">Cascade, Republic Square and the centre</span><span class="i18 ru">Каскад, площадь Республики и центр</span></li>
+                </ul>
+              </div>
+              <div>
+                <div style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-strong);padding-bottom:8px;border-bottom:2px solid var(--ink-900)"><span class="i18 en">Evening</span><span class="i18 ru">Вечер</span></div>
+                <ul style="list-style:none;margin:0;padding:0">
+                  <li style="padding:10px 0;border-bottom:1px solid var(--border-hairline);font-family:var(--font-body);font-size:15px;line-height:1.5;color:var(--text-body);text-wrap:pretty"><span class="i18 en">Dinner at <a href="https://maps.google.com/?cid=5004375529947127824" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--orange-500);text-decoration-thickness:1.5px;text-underline-offset:3px" style-hover="color:var(--orange-600)">Sherep<span aria-hidden="true" style="font-size:0.8em;margin-left:2px;color:var(--orange-600)">↗</span></a></span><span class="i18 ru">Ужин в <a href="https://maps.google.com/?cid=5004375529947127824" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--orange-500);text-decoration-thickness:1.5px;text-underline-offset:3px" style-hover="color:var(--orange-600)">Sherep<span aria-hidden="true" style="font-size:0.8em;margin-left:2px;color:var(--orange-600)">↗</span></a></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </sc-if>
 
       </div>
 
@@ -182,5 +397,44 @@
 
 </div>
 </x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { open: null };
+  reveal(k) {
+    requestAnimationFrame(() => {
+      const el = document.getElementById('day-' + k);
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      const vh = window.innerHeight;
+      if (r.bottom <= vh - 16) return;
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const dy = Math.min(r.bottom - vh + 24, r.top - 96);
+      if (dy > 0) window.scrollBy({ top: dy, behavior: reduce ? 'auto' : 'smooth' });
+    });
+  }
+  renderVals() {
+    const cur = this.state.open;
+    const v = {
+      onEsc: (e) => {
+        if (e.key !== 'Escape' || !cur) return;
+        e.preventDefault();
+        this.setState({ open: null }, () => { const b = document.getElementById('btn-' + cur); b && b.focus(); });
+      }
+    };
+    ['25','26','27','28','29','30','31','01'].forEach(k => {
+      const o = cur === k;
+      v['d' + k] = {
+        open: o,
+        rot: o ? 'rotate(45deg)' : 'none',
+        ol: o ? '2px solid var(--ink-900)' : '0 solid transparent',
+        sh: k === '30' ? (o ? '7px 7px 0 0 var(--ink-900)' : '5px 5px 0 0 var(--ink-900)') : (o ? '5px 5px 0 0 var(--ink-900)' : 'none'),
+        tr: o ? 'translate(-2px,-2px)' : 'none',
+        toggle: () => this.setState(s => ({ open: s.open === k ? null : k }), () => { if (this.state.open === k) this.reveal(k); })
+      };
+    });
+    return v;
+  }
+}
+</script>
 </body>
 </html>

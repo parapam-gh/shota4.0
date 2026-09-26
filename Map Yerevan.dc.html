@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/shota-4-0-design-system-84b24eed-f1bb-49ca-a30c-354a525c29e6/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/shota-4-0-design-system-84b24eed-f1bb-49ca-a30c-354a525c29e6/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/shota-4-0-design-system-84b24eed-f1bb-49ca-a30c-354a525c29e6/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/shota-4-0-design-system-84b24eed-f1bb-49ca-a30c-354a525c29e6/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/shota-4-0-design-system-84b24eed-f1bb-49ca-a30c-354a525c29e6/styles.css">
+  <script src="_ds/shota-4-0-design-system-84b24eed-f1bb-49ca-a30c-354a525c29e6/_ds_bundle.js"></script>
+  <style>
+    *{box-sizing:border-box}
+    html,body{margin:0}
+    body{font-family:var(--font-body);background:var(--surface-page);color:var(--text-body)}
+    ::selection{background:var(--orange-500);color:var(--folk-white)}
+    a{color:inherit}
+    [data-pin]:focus-visible{outline:3px solid var(--folk-blue);outline-offset:2px}
+    [data-back]:focus-visible{outline:3px solid var(--folk-blue);outline-offset:3px}
+    .i18.ru{display:none}
+    html[data-lang="ru"] .i18.en{display:none}
+    html[data-lang="ru"] .i18.ru{display:inline}
+    [data-lang-switch]{display:inline-flex;flex:none;border:2px solid var(--orange-500)}
+    [data-lang-btn]{font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:6px 9px;background:transparent;color:var(--on-ink-muted);border:0;cursor:pointer;line-height:1}
+    html[data-lang="en"] [data-lang-btn="en"],html[data-lang="ru"] [data-lang-btn="ru"]{background:var(--orange-500);color:var(--on-brand)}
+  </style>
+  <script>
+  (function(){var d=document.documentElement;try{d.setAttribute('data-lang',localStorage.getItem('shota-lang')||'en')}catch(e){d.setAttribute('data-lang','en')}
+  document.addEventListener('click',function(e){var t=e.target.closest?e.target.closest('[data-lang-btn]'):null;if(!t)return;e.preventDefault();var l=t.getAttribute('data-lang-btn');d.setAttribute('data-lang',l);try{localStorage.setItem('shota-lang',l)}catch(_){}})
+  })();
+  </script>
+</helmet>
+
+<div style="min-height:100vh;background:var(--surface-page);display:flex;flex-direction:column">
+
+  <header style="position:sticky;top:0;z-index:30;background:var(--ink-900);color:var(--on-ink);border-bottom:2px solid var(--orange-500)">
+    <div style="max-width:var(--container);margin:0 auto;padding:13px var(--gutter);display:flex;align-items:center;justify-content:space-between;gap:16px">
+      <a href="Route Page.dc.html" style="display:flex;align-items:baseline;gap:10px;flex:none;white-space:nowrap;text-decoration:none;font-family:var(--font-display);font-size:22px;letter-spacing:0.02em;text-transform:uppercase;color:var(--folk-white);transition:opacity 120ms" style-hover="opacity:0.8">
+        Shota 4.0
+        <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.14em;color:var(--orange-400);white-space:nowrap">GE · AM</span>
+      </a>
+      <nav style="display:flex;gap:8px;align-items:center">
+        <a href="Route Page.dc.html" style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--folk-white);text-decoration:none;padding:7px 13px;border:2px solid var(--orange-500);background:var(--orange-500);transition:background 120ms,transform 120ms,box-shadow 120ms" style-hover="background:var(--orange-600);transform:translate(-2px,-2px);box-shadow:3px 3px 0 0 var(--orange-700)"><span class="i18 en">Route</span><span class="i18 ru">Маршрут</span></a>
+        <a href="Schedule Page.dc.html" style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--on-ink-muted);text-decoration:none;padding:7px 13px;border:2px solid var(--ink-600);transition:color 120ms,border-color 120ms,transform 120ms,box-shadow 120ms" style-hover="color:var(--folk-white);border-color:var(--orange-500);transform:translate(-2px,-2px);box-shadow:3px 3px 0 0 var(--orange-500)"><span class="i18 en">Schedule</span><span class="i18 ru">Расписание</span></a>
+        <span data-lang-switch role="group" aria-label="Language"><button type="button" data-lang-btn="en">EN</button><button type="button" data-lang-btn="ru">RU</button></span>
+      </nav>
+    </div>
+  </header>
+
+  <main style="flex:1;padding:clamp(20px,3vw,36px) var(--gutter) clamp(3rem,6vw,5rem)">
+    <div style="max-width:var(--container);margin:0 auto 20px;display:flex;flex-direction:column;align-items:flex-start;gap:18px">
+      <a data-back href="Route Page.dc.html#stay" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--font-head);font-weight:800;font-size:15px;padding:11px 20px;color:var(--ink-900);background:var(--surface-card);border:2px solid var(--ink-900);box-shadow:5px 5px 0 0 var(--ink-900);transition:transform 120ms,box-shadow 120ms,background 120ms" style-hover="background:var(--concrete-50);transform:translate(-2px,-2px);box-shadow:7px 7px 0 0 var(--ink-900)"><span aria-hidden="true">←</span> <span class="i18 en">Back to the route</span><span class="i18 ru">Назад к маршруту</span></a>
+      <h1 style="font-family:var(--font-head);font-weight:900;font-size:clamp(28px,4.6vw,48px);line-height:0.98;margin:0;color:var(--text-strong)"><span class="i18 en">Where to stay in Yerevan</span><span class="i18 ru">Где жить в Ереване</span></h1>
+    </div>
+
+    <figure style="margin:0 auto;max-width:3178px;position:relative;border-radius:14px;overflow:hidden;box-shadow:0 18px 40px -16px rgba(30,27,24,0.45)">
+      <img src="assets/maps/yerevan-where-to-stay.png" width="3178" height="2912" alt="Map of Yerevan: Kentron inside the Ring to book, above the Cascade and Kond to avoid" style="display:block;width:100%;height:auto">
+    </figure>
+
+    <div style="max-width:var(--container);margin:18px auto 0;display:flex;flex-wrap:wrap;gap:10px 28px;font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">
+      <span><span class="i18 en">On a phone: pinch to zoom</span><span class="i18 ru">На телефоне: увеличивай двумя пальцами</span></span>
+    </div>
+  </main>
+
+  <footer style="position:relative;background:var(--ink-900);color:var(--on-ink-muted);overflow:hidden">
+    <div style="width:100%;height:30px;background:var(--orange-500);-webkit-mask-image:url('assets/motifs/divider-carpet.png');mask-image:url('assets/motifs/divider-carpet.png');-webkit-mask-repeat:repeat-x;mask-repeat:repeat-x;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:auto 100%;mask-size:auto 100%"></div>
+    <div style="max-width:var(--container);margin:0 auto;padding:clamp(2.5rem,4vw,4rem) var(--gutter);display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
+      <div>
+        <div style="font-family:var(--font-display);font-size:clamp(32px,4vw,46px);color:var(--folk-white);text-transform:uppercase;line-height:0.9"><span class="i18 en">Gaumarjos</span><span class="i18 ru">Гаумарджос</span></div>
+        <p style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.08em;margin-top:10px"><span class="i18 en">To Shota · to forty · to the road</span><span class="i18 ru">За Шоту · за сорок · за дорогу</span></p>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-end">
+        <span style="display:inline-block;width:40px;height:50px;background:var(--orange-400);-webkit-mask-image:url('assets/stamps/supra-toast.png');mask-image:url('assets/stamps/supra-toast.png');-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain"></span>
+        <span style="display:inline-block;width:40px;height:50px;background:var(--on-ink-muted);-webkit-mask-image:url('assets/stamps/deer.png');mask-image:url('assets/stamps/deer.png');-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain"></span>
+        <span style="display:inline-block;width:40px;height:50px;background:var(--orange-400);-webkit-mask-image:url('assets/stamps/supra-man-jug.png');mask-image:url('assets/stamps/supra-man-jug.png');-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain"></span>
+      </div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+</body>
+</html>
