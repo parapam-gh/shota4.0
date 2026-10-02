@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script data-site-version>(function(){var V="2026-10-02-1";window.SITE_V=V;try{fetch("version.txt?_="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.text():""}).then(function(t){t=(t||"").trim();if(!t||t===V)return;var k="shota-reloaded-for";try{if(sessionStorage.getItem(k)===t)return;sessionStorage.setItem(k,t)}catch(e){}var u=new URL(location.href);u.searchParams.set("v",t);location.replace(u.toString())}).catch(function(){})}catch(e){}})();</script>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -575,7 +576,7 @@ class Component extends DCLogic {
   })();
   state = { open: this.todayKey, ft: [], city: 'tbilisi', cat: 'see', prios: {}, bad: {} };
   componentDidMount() {
-    fetch('free_time_places.json').then(r => r.json()).then(d => { this.ftMeta = d.meta; this.setState({ ft: d.places }); }).catch(() => {});
+    fetch('free_time_places.json?v=' + (window.SITE_V || ''), { cache: 'no-cache' }).then(r => r.json()).then(d => { this.ftMeta = d.meta; this.setState({ ft: d.places }); }).catch(() => {});
   }
   goDay(k) {
     this.setState({ open: k }, () => {
@@ -601,7 +602,7 @@ class Component extends DCLogic {
       const day = gm ? (gm[2] === 'Nov' ? gm[1].padStart(2, '0') : gm[1]) : null;
       const pr = m.priority[p.priority];
       return {
-        ...p, hasMedia: p.category === 'see', noMedia: p.category !== 'see', noMediaGroup: p.category !== 'see' && !!p.group_plan, cgap: p.category === 'see' ? '12px' : '8px', cpad: p.category === 'see' ? '12px' : '14px 12px 10px', fpad: '0 4px', hasPhoto: has, noPhoto: !has, pos: p.id === 'mother-of-georgia' ? 'center 0%' : 'center', photo: p.id === 'mother-of-georgia' && p.photo ? p.photo.replace(/=w900-h900-p-k-no$/, '=w1200') : p.photo, alt: p.name.en, stamp: stamps[p.category],
+        ...p, hasMedia: p.category === 'see', noMedia: p.category !== 'see', noMediaGroup: p.category !== 'see' && !!p.group_plan, cgap: p.category === 'see' ? '12px' : '8px', cpad: p.category === 'see' ? '12px' : '14px 12px 10px', fpad: '0 4px', hasPhoto: has, noPhoto: !has, pos: p.id === 'mother-of-georgia' ? 'center 0%' : 'center', photo: (u => { if (!u) return u; if (p.id === 'mother-of-georgia') u = u.replace(/=w900-h900-p-k-no$/, '=w1200'); return /^https?:/.test(u) ? u : u + '?v=' + (window.SITE_V || ''); })(p.photo), alt: p.name.en, stamp: stamps[p.category],
         onErr: () => this.setState(st => ({ bad: { ...st.bad, [p.id]: true } })),
         catEn: m.categories[p.category].en, catRu: m.categories[p.category].ru,
         stars: { must: '★★★', worth: '★★', if_time: '★' }[p.priority], mark: txt(pr.mark), prioEn: pr.en, prioRu: pr.ru, prioColor: p.priority === 'if_time' ? 'var(--text-muted)' : 'var(--orange-600)',
