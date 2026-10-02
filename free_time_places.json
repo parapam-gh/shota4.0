@@ -1,0 +1,1161 @@
+{
+  "meta": {
+    "categories": {
+      "see": {
+        "en": "See",
+        "ru": "Посмотреть"
+      },
+      "eat": {
+        "en": "Eat",
+        "ru": "Поесть"
+      },
+      "drink": {
+        "en": "Drink",
+        "ru": "Выпить"
+      }
+    },
+    "cities": {
+      "tbilisi": {
+        "en": "Tbilisi",
+        "ru": "Тбилиси"
+      },
+      "yerevan": {
+        "en": "Yerevan",
+        "ru": "Ереван"
+      }
+    },
+    "priority": {
+      "must": {
+        "en": "must",
+        "ru": "важно",
+        "mark": "⭐"
+      },
+      "worth": {
+        "en": "worth it",
+        "ru": "стоит",
+        "mark": "★"
+      },
+      "if_time": {
+        "en": "if time",
+        "ru": "если время",
+        "mark": "☆"
+      }
+    },
+    "when": {
+      "morning": {
+        "en": "morning",
+        "ru": "утро"
+      },
+      "day": {
+        "en": "day",
+        "ru": "день"
+      },
+      "sunset": {
+        "en": "sunset",
+        "ru": "закат"
+      },
+      "evening": {
+        "en": "evening",
+        "ru": "вечер"
+      },
+      "late": {
+        "en": "late night",
+        "ru": "поздно"
+      }
+    },
+    "notes": [
+      "link.url for type 'map' is a Google Maps place link (opens the place card); type 'tickets' links to the ticket site.",
+      "photo: local file in assets/photos/ for 'see' places; 'eat' and 'drink' cards have no photo by design (null)."
+    ]
+  },
+  "places": [
+    {
+      "id": "old-town",
+      "city": "tbilisi",
+      "category": "see",
+      "name": {
+        "en": "Old Town (Kala)",
+        "ru": "Старый город (Кала)"
+      },
+      "blurb": {
+        "en": "Carved balconies, crooked lanes, hidden courtyards — the heart of every walk.",
+        "ru": "Резные балконы, кривые улочки, дворики — сердце любой прогулки."
+      },
+      "priority": "must",
+      "when": [
+        "morning",
+        "day"
+      ],
+      "duration": {
+        "en": "2–3h",
+        "ru": "2–3 ч"
+      },
+      "link": {
+        "type": "map",
+        "url": "https://maps.google.com/?cid=18240416655885723089"
+      },
+      "photo": "assets/photos/old-town.jpg"
+    },
+    {
+      "id": "mother-of-georgia",
+      "city": "tbilisi",
+      "category": "see",
+      "name": {
+        "en": "Cable car + Mother of Georgia",
+        "ru": "Канатка + Мать Грузия"
+      },
+      "blurb": {
+        "en": "Cable car up from Rike Park. Sword for enemies, a bowl of wine for guests.",
+        "ru": "Канатка из парка Рике. Меч — для врагов, чаша вина — для гостей."
+      },
+      "priority": "must",
+      "when": [
+        "day",
+        "sunset"
+      ],
+      "duration": {
+        "en": "1h",
+        "ru": "1 ч"
+      },
+      "group_plan": {
+        "en": "Together on 25 Oct",
+        "ru": "Вместе 25.10"
+      },
+      "link": {
+        "type": "map",
+        "url": "https://maps.google.com/?cid=7213004104761471778"
+      },
+      "photo": "assets/photos/mother-of-georgia.jpg"
+    },
+    {
+      "id": "narikala",
+      "city": "tbilisi",
+      "category": "see",
+      "name": {
+        "en": "Narikala Fortress",
+        "ru": "Крепость Нарикала"
+      },
+      "blurb": {
+        "en": "Fortress over the old town — the best sunset view in the city.",
+        "ru": "Крепость над старым городом — лучший закат в Тбилиси."
+      },
+      "priority": "must",
+      "when": [
+        "sunset"
+      ],
+      "duration": {
+        "en": "1h",
+        "ru": "1 ч"
+      },
+      "group_plan": {
+        "en": "Together on 25 Oct",
+        "ru": "Вместе 25.10"
+      },
+      "link": {
+        "type": "map",
+        "url": "https://maps.google.com/?cid=91247041833562317"
+      },
+      "photo": "assets/photos/narikala.jpg"
+    },
+    {
+      "id": "mtatsminda",
+      "city": "tbilisi",
+      "category": "see",
+      "name": {
+        "en": "Mtatsminda Park + funicular",
+        "ru": "Мтацминда + фуникулёр"
+      },
+      "blurb": {
+        "en": "Funicular up the mountain: the whole city below you, plus the famous ponchiki.",
+        "ru": "На фуникулёре на гору: весь город внизу и знаменитые пончики."
+      },
+      "priority": "worth",
+      "when": [
+        "day",
+        "sunset"
+      ],
+      "duration": {
+        "en": "2h",
+        "ru": "2 ч"
+      },
+      "group_plan": {
+        "en": "Together on 26 Oct",
+        "ru": "Вместе 26.10"
+      },
+      "link": {
+        "type": "map",
+        "url": "https://maps.google.com/?cid=10001556674972813395"
+      },
+      "photo": "assets/photos/mtatsminda.jpg"
+    },
+    {
+      "id": "abanotubani",
+      "city": "tbilisi",
+      "category": "see",
+      "name": {
+        "en": "Abanotubani",
+        "ru": "Абанотубани"
+      },
+      "blurb": {
+        "en": "Brick domes of the sulphur baths — the warm springs Tbilisi is named after.",
+        "ru": "Кирпичные купола серных бань — тёплые источники, давшие имя Тбилиси."
+      },
+      "priority": "must",
+      "when": [
+        "day",
+        "evening"
+      ],
+      "duration": {
+        "en": "30 min",
+        "ru": "30 мин"
+      },
+      "link": {
+        "type": "map",
+        "url": "https://maps.google.com/?cid=1519285082869693588"
+      },
+      "photo": "assets/photos/abanotubani.jpg"
+    },
+    {
+      "id": "dry-bridge",
+      "city": "tbilisi",
+      "category": "see",
+      "name": {
+        "en": "Dry Bridge flea market",
+        "ru": "Блошиный рынок «Сухой мост»"
+      },
+      "blurb": {
+        "en": "Soviet badges, paintings, antiques. Best on weekend mornings.",
+        "ru": "Советские значки, картины, антиквариат. Лучше всего в выходные утром."
+      },
+      "priority": "worth",
+      "when": [
+        "morning"
+      ],
+      "duration": {
+        "en": "1–1.5h",
+        "ru": "1–1,5 ч"
+      },
+      "group_plan": {
+        "en": "Together on 29 Oct",
+        "ru": "Вместе 29.10"
+      },
+      "link": {
+        "type": "map",
+        "url": "https://maps.google.com/?cid=11428997057205978411"
+      },
+      "photo": "assets/photos/dry-bridge.jpg"
+    },
+    {
+      "id": "fabrika",
+      "city": "tbilisi",
+      "category": "see",
+      "name": {
+        "en": "Fabrika",
+        "ru": "Fabrika"
+      },
+      "blurb": {
+        "en": "An old sewing factory turned into a courtyard of bars, cafés and shops.",
+        "ru": "Бывшая швейная фабрика: дворик с барами, кафе и магазинами."
+      },
+      "priority": "worth",
+      "when": [
+        "day",
+        "evening"
+      ],
+      "duration": {
+        "en": "1–2h",
+        "ru": "1–2 ч"
+      },
+      "group_plan": {
+        "en": "Together on 29 Oct",
+        "ru": "Вместе 29.10"
+      },
+      "link": {
+        "type": "map",
+        "url": "https://maps.google.com/?cid=17594368915314407962"
+      },
+      "photo": "assets/photos/fabrika.jpg"
+    },
+    {
+      "id": "bridge-of-peace",
+      "city": "tbilisi",
+      "category": "see",
+      "name": {
+        "en": "Bridge of Peace + Rike Park",
+        "ru": "Мост Мира + парк Рике"
+      },
+      "blurb": {
+        "en": "Glass bridge over the Kura — at its best lit up at night.",
+        "ru": "Стеклянный мост через Куру — лучше всего вечером, с подсветкой."
+      },
+      "priority": "worth",
+      "when": [
+        "evening"
+      ],
+      "duration": {
+        "en": "30 min",
+        "ru": "30 мин"
+      },
+      "link": {
+        "type": "map",
+        "url": "https://maps.google.com/?cid=15222257875093232121"
+      },
+      "photo": "assets/photos/bridge-of-peace.jpg"
+    },
+    {
+      "id": "rustaveli",
+      "city": "tbilisi",
+      "category": "see",
+      "name": {
+        "en": "Rustaveli Avenue",
+        "ru": "Проспект Руставели"
+      },
+      "blurb": {
+        "en": "The main avenue: opera, museums, cafés.",
+        "ru": "Главная улица: опера, музеи, кафе."
+      },
+      "warning": {
+        "en": "Major roadworks until end of November",
+        "ru": "Большой ремонт до конца ноября"
+      },
+      "priority": "if_time",
+      "when": [
+        "day"
+      ],
+      "duration": {
+        "en": "1h",
+        "ru": "1 ч"
+      },
+      "link": {
+        "type": "map",
+        "url": "https://maps.google.com/?cid=8408907428401004066"
+      },
+      "photo": "assets/photos/rustaveli.jpg"
+    },
+    {
+      "id": "chreli-abano",
+      "city": "tbilisi",
+      "category": "see",
+      "name": {
+        "en": "Orbeliani Baths (Chreli Abano)",
+        "ru": "Бани Орбелиани (Чрели-абано)"
+      },
+      "blurb": {
+        "en": "The blue-mosaic bathhouse — private rooms with sulphur water.",
+        "ru": "Та самая баня с голубой мозаикой — приватные комнаты с серной водой."
+      },
+      "priority": "must",
+      "when": [
+        "day",
+        "evening"
+      ],
+      "duration": {
+        "en": "1–1.5h",
+        "ru": "1–1,5 ч"
+      },
+      "group_plan": {
+        "en": "Together on 30 Oct",
+        "ru": "Вместе 30.10"
+      },
+      "link": {
+        "type": "map",
+        "url": "https://maps.google.com/?cid=12446867091872320383"
+      },
+      "photo": "assets/photos/chreli-abano.jpg"
+    },
+    {
+      "id": "gulos",
+      "city": "tbilisi",
+      "category": "see",
+      "name": {
+        "en": "Gulo's Thermal Spa",
+        "ru": "Gulo's Thermal Spa"
+      },
+      "blurb": {
+        "en": "A more local, cheaper sulphur bath.",
+        "ru": "Серная баня попроще и подешевле, для своих."
+      },
+      "priority": "if_time",
+      "when": [
+        "day",
+        "evening"
+      ],
+      "duration": {
+        "en": "1h",
+        "ru": "1 ч"
+      },
+      "link": {
+        "type": "map",
+        "url": "https://maps.google.com/?cid=9669588517861750381"
+      },
+      "photo": "assets/photos/gulos.jpg"
+    },
+    {
+      "id": "anchiskhati",
+      "city": "tbilisi",
+      "category": "see",
+      "name": {
+        "en": "Anchiskhati Basilica",
+        "ru": "Базилика Анчисхати"
+      },
+      "blurb": {
+        "en": "Tbilisi's oldest church (6th c.). Its famous choir sings at the Sunday morning service.",
+        "ru": "Старейшая церковь Тбилиси (VI век). На воскресной утренней службе поёт знаменитый хор."
+      },
+      "priority": "worth",
+      "when": [
+        "morning"
+      ],
+      "duration": {
+        "en": "30–60 min",
+        "ru": "30–60 мин"
+      },
+      "link": {
+        "type": "map",
+        "url": "https://maps.google.com/?cid=16311792404048748962"
+      },
+      "photo": "assets/photos/anchiskhati.jpg"
+    },
+    {
+      "id": "folk-concert",
+      "city": "tbilisi",
+      "category": "see",
+      "name": {
+        "en": "Erisioni / Sukhishvili concert",
+        "ru": "Концерт «Эрисиони» / «Сухишвили»"
+      },
+      "blurb": {
+        "en": "Georgian polyphony and dance on stage. Venue changes — check the listings and buy tickets ahead.",
+        "ru": "Грузинское многоголосие и танцы на сцене. Площадка меняется — смотри афишу и бери билеты заранее."
+      },
+      "priority": "worth",
+      "when": [
+        "evening"
+      ],
+      "duration": {
+        "en": "2h",
+        "ru": "2 ч"
+      },
+      "link": {
+        "type": "tickets",
+        "url": "https://tkt.ge/"
+      },
+      "photo": "assets/photos/folk-concert.jpg"
+    },
+    {
+      "id": "zodiaqo",
+      "city": "tbilisi",
+      "category": "eat",
+      "name": {
+        "en": "Zodiaqo",
+        "ru": "Zodiaqo"
+      },
+      "blurb": {
+        "en": "Proper Georgian classics, done right.",
+        "ru": "Добротная грузинская классика."
+      },
+      "priority": "must",
+      "when": [
+        "day",
+        "evening"
+      ],
+      "link": {
+        "type": "map",
+        "url": "https://maps.google.com/?cid=17695692270793943928"
+      },
+      "photo": null
+    },
+    {
+      "id": "salobie-bia",
+      "city": "tbilisi",
+      "category": "eat",
+      "name": {
+        "en": "Salobie Bia",
+        "ru": "Salobie Bia"
+      },
+      "blurb": {
+        "en": "Great interior and the best tomato salad in town.",
+        "ru": "Классный интерьер и лучший салат из помидоров в городе."
+      },
+      "priority": "worth",
+      "when": [
+        "day",
+        "evening"
+      ],
+      "link": {
+        "type": "map",
+        "url": "https://maps.google.com/?cid=11910202216351291245"
+      },
+      "photo": null
+    },
+    {
+      "id": "maspindzelo",
+      "city": "tbilisi",
+      "category": "eat",
+      "name": {
+        "en": "Maspindzelo",
+        "ru": "Maspindzelo"
+      },
+      "blurb": {
+        "en": "Really tasty, right by the baths. Open around the clock.",
+        "ru": "Очень вкусно, прямо у бань. Работает круглосуточно."
+      },
+      "priority": "worth",
+      "when": [
+        "day",
+        "evening",
+        "late"
+      ],
+      "group_plan": {
+        "en": "Together on 30 Oct",
+        "ru": "Вместе 30.10"
+      },
+      "link": {
+        "type": "map",
+        "url": "https://maps.google.com/?cid=11164547639585972447"
+      },
+      "photo": null
+    },
+    {
+      "id": "ethno-tsiskvili",
+      "city": "tbilisi",
+      "category": "eat",
+      "name": {
+        "en": "Ethno Tsiskvili",
+        "ru": "Ethno Tsiskvili («Мельница»)"
+      },
+      "blurb": {
+        "en": "Far out in Digomi but properly authentic — sometimes Mgzavrebi play here.",
+        "ru": "Далеко, в Дигоми, зато супераутентично — бывает, играют Мгзавреби."
+      },
+      "priority": "worth",
+      "when": [
+        "evening"
+      ],
+      "group_plan": {
+        "en": "Together on 30 Oct",
+        "ru": "Вместе 30.10"
+      },
+      "link": {
+        "type": "map",
+        "url": "https://maps.google.com/?cid=4893030621056386169"
+      },
+      "photo": null
+    },
+    {
+      "id": "shavi-lomi",
+      "city": "tbilisi",
+      "category": "eat",
+      "name": {
+        "en": "Shavi Lomi",
+        "ru": "Shavi Lomi"
+      },
+      "blurb": {
+        "en": "A fresh take on Georgian food.",
+        "ru": "Свежий взгляд на грузинскую кухню."
+      },
+      "priority": "worth",
+      "when": [
+        "evening"
+      ],
+      "link": {
+        "type": "map",
+        "url": "https://maps.google.com/?cid=5349691423837450253"
+      },
+      "photo": null
+    },
+    {
+      "id": "pasanauri",
+      "city": "tbilisi",
+      "category": "eat",
+      "name": {
+        "en": "Pasanauri (Baratashvili St)",
+        "ru": "Пасанаури (ул. Бараташвили)"
+      },
+      "blurb": {
+        "en": "Reliable classics — this branch is the best of the chain.",
+        "ru": "Надёжная классика — этот филиал лучший в сети."
+      },
+      "priority": "worth",
+      "when": [
+        "day",
+        "evening"
+      ],
+      "group_plan": {
+        "en": "Together on 25 Oct",
+        "ru": "Вместе 25.10"
+      },
+      "link": {
+        "type": "map",
+        "url": "https://maps.google.com/?cid=12688254749107582403"
+      },
+      "photo": null
+    },
+    {
+      "id": "machakhela",
+      "city": "tbilisi",
+      "category": "eat",
+      "name": {
+        "en": "Machakhela",
+        "ru": "Мачахела"
+      },
+      "blurb": {
+        "en": "Not top-tier, but open around the clock — your 3 a.m. option.",
+        "ru": "Не топ, зато круглосуточно — вариант на три часа ночи."
+      },
+      "priority": "if_time",
+      "when": [
+        "late"
+      ],
+      "link": {
+        "type": "map",
+        "url": "https://maps.google.com/?cid=16854302066052399589"
+      },
+      "photo": null
+    },
+    {
+      "id": "veliaminov",
+      "city": "tbilisi",
+      "category": "eat",
+      "name": {
+        "en": "Veliaminov",
+        "ru": "Велиаминов"
+      },
+      "blurb": {
+        "en": "Khinkali joint — cheap, no glamour.",
+        "ru": "Хинкальная — дёшево, без гламура."
+      },
+      "priority": "if_time",
+      "when": [
+        "day",
+        "evening"
+      ],
+      "link": {
+        "type": "map",
+        "url": "https://maps.google.com/?cid=17545985426520598454"
+      },
+      "photo": null
+    },
+    {
+      "id": "klikes",
+      "city": "tbilisi",
+      "category": "eat",
+      "name": {
+        "en": "Klike's Khinkali",
+        "ru": "Klike's Khinkali"
+      },
+      "blurb": {
+        "en": "Another honest khinkali spot — cheap and fast.",
+        "ru": "Ещё одна честная хинкальная — дёшево и быстро."
+      },
+      "priority": "if_time",
+      "when": [
+        "day",
+        "evening"
+      ],
+      "link": {
+        "type": "map",
+        "url": "https://maps.google.com/?cid=10759507000466549840"
+      },
+      "photo": null
+    },
+    {
+      "id": "racha",
+      "city": "tbilisi",
+      "category": "eat",
+      "name": {
+        "en": "Racha",
+        "ru": "Рача"
+      },
+      "blurb": {
+        "en": "Old-school khinkali cellar — cheap, no glamour.",
+        "ru": "Хинкальная старой школы — дёшево, без гламура."
+      },
+      "priority": "if_time",
+      "when": [
+        "day",
+        "evening"
+      ],
+      "link": {
+        "type": "map",
+        "url": "https://maps.google.com/?cid=4812925452384083783"
+      },
+      "photo": null
+    },
+    {
+      "id": "okro",
+      "city": "tbilisi",
+      "category": "eat",
+      "name": {
+        "en": "OKRO Coffee Roastery & Bakery",
+        "ru": "OKRO Coffee Roastery & Bakery"
+      },
+      "blurb": {
+        "en": "Coffee roastery and bakery with great breakfasts.",
+        "ru": "Кофейня-обжарка с пекарней и классными завтраками."
+      },
+      "priority": "worth",
+      "when": [
+        "morning"
+      ],
+      "link": {
+        "type": "map",
+        "url": "https://maps.google.com/?cid=12449548270862773559"
+      },
+      "photo": null
+    },
+    {
+      "id": "shadow-of-metekhi",
+      "city": "tbilisi",
+      "category": "eat",
+      "name": {
+        "en": "In the Shadow of Metekhi",
+        "ru": "«В тени Метехи»"
+      },
+      "blurb": {
+        "en": "Dinner with live folk polyphony and dancing.",
+        "ru": "Ужин с живым многоголосием и танцами."
+      },
+      "priority": "worth",
+      "when": [
+        "evening"
+      ],
+      "link": {
+        "type": "map",
+        "url": "https://maps.google.com/?cid=16128490485768595433"
+      },
+      "photo": null
+    },
+    {
+      "id": "vinoground",
+      "city": "tbilisi",
+      "category": "drink",
+      "name": {
+        "en": "Vinoground",
+        "ru": "Vinoground"
+      },
+      "blurb": {
+        "en": "Old wine cellar — qvevri and amber wines.",
+        "ru": "Старый винный погреб — квеври и янтарные вина."
+      },
+      "priority": "must",
+      "when": [
+        "evening"
+      ],
+      "group_plan": {
+        "en": "Together on 26 Oct",
+        "ru": "Вместе 26.10"
+      },
+      "link": {
+        "type": "map",
+        "url": "https://maps.google.com/?cid=987992559025579171"
+      },
+      "photo": null
+    },
+    {
+      "id": "41-gradus",
+      "city": "tbilisi",
+      "category": "drink",
+      "name": {
+        "en": "41° Art of Drinks",
+        "ru": "41° Art of Drinks"
+      },
+      "blurb": {
+        "en": "The best speakeasy in Tbilisi. Tiny — come in small groups.",
+        "ru": "Лучший спикизи Тбилиси. Крошечный — приходите небольшими компаниями."
+      },
+      "priority": "must",
+      "when": [
+        "late"
+      ],
+      "link": {
+        "type": "map",
+        "url": "https://maps.google.com/?cid=7849666592122272959"
+      },
+      "photo": null
+    },
+    {
+      "id": "apotheka",
+      "city": "tbilisi",
+      "category": "drink",
+      "name": {
+        "en": "Apotheka Bar & Lounge",
+        "ru": "Apotheka Bar & Lounge"
+      },
+      "blurb": {
+        "en": "The posh option.",
+        "ru": "Пафосный вариант."
+      },
+      "priority": "worth",
+      "when": [
+        "late"
+      ],
+      "link": {
+        "type": "map",
+        "url": "https://maps.google.com/?cid=7060800501144802252"
+      },
+      "photo": null
+    },
+    {
+      "id": "snobs",
+      "city": "tbilisi",
+      "category": "drink",
+      "name": {
+        "en": "SNOBS Wine & Cocktails",
+        "ru": "SNOBS Wine & Cocktails"
+      },
+      "blurb": {
+        "en": "Great interior and a balcony.",
+        "ru": "Классный интерьер и балкончик."
+      },
+      "priority": "worth",
+      "when": [
+        "evening",
+        "late"
+      ],
+      "group_plan": {
+        "en": "Together on 25 Oct",
+        "ru": "Вместе 25.10"
+      },
+      "link": {
+        "type": "map",
+        "url": "https://maps.google.com/?cid=16763567460033349474"
+      },
+      "photo": null
+    },
+    {
+      "id": "supertramp",
+      "city": "tbilisi",
+      "category": "drink",
+      "name": {
+        "en": "Supertramp Bar",
+        "ru": "Supertramp Bar"
+      },
+      "blurb": {
+        "en": "Garage-themed bar with pool tables.",
+        "ru": "Бар в гаражной тематике с бильярдом."
+      },
+      "priority": "worth",
+      "when": [
+        "late"
+      ],
+      "link": {
+        "type": "map",
+        "url": "https://maps.google.com/?cid=13693532264925024798"
+      },
+      "photo": null
+    },
+    {
+      "id": "atoneli",
+      "city": "tbilisi",
+      "category": "drink",
+      "name": {
+        "en": "Atoneli Wine Window",
+        "ru": "Винное окно на Атонели"
+      },
+      "blurb": {
+        "en": "A wine window — glass through the window, drink on the street.",
+        "ru": "Винное окно — бокал через окошко, пьёшь на улице."
+      },
+      "priority": "worth",
+      "when": [
+        "evening"
+      ],
+      "link": {
+        "type": "map",
+        "url": "https://maps.google.com/?cid=7222648535607365917"
+      },
+      "photo": null
+    },
+    {
+      "id": "cascade",
+      "city": "yerevan",
+      "category": "see",
+      "name": {
+        "en": "Cascade",
+        "ru": "Каскад"
+      },
+      "blurb": {
+        "en": "Giant staircase-gallery with a view of Ararat on a clear day.",
+        "ru": "Гигантская лестница-галерея, в ясный день — вид на Арарат."
+      },
+      "priority": "must",
+      "when": [
+        "day",
+        "sunset"
+      ],
+      "duration": {
+        "en": "1h",
+        "ru": "1 ч"
+      },
+      "group_plan": {
+        "en": "Together on 1 Nov",
+        "ru": "Вместе 1.11"
+      },
+      "link": {
+        "type": "map",
+        "url": "https://maps.google.com/?cid=6059134300791198915"
+      },
+      "photo": "assets/photos/cascade.jpg"
+    },
+    {
+      "id": "republic-square",
+      "city": "yerevan",
+      "category": "see",
+      "name": {
+        "en": "Republic Square",
+        "ru": "Площадь Республики"
+      },
+      "blurb": {
+        "en": "The main square, built of pink tuff.",
+        "ru": "Главная площадь из розового туфа."
+      },
+      "priority": "worth",
+      "when": [
+        "day",
+        "evening"
+      ],
+      "duration": {
+        "en": "30 min",
+        "ru": "30 мин"
+      },
+      "group_plan": {
+        "en": "Together on 1 Nov",
+        "ru": "Вместе 1.11"
+      },
+      "link": {
+        "type": "map",
+        "url": "https://maps.google.com/?cid=3160986876997168244"
+      },
+      "photo": "assets/photos/republic-square.jpg"
+    },
+    {
+      "id": "vernissage",
+      "city": "yerevan",
+      "category": "see",
+      "name": {
+        "en": "Vernissage market",
+        "ru": "Вернисаж"
+      },
+      "blurb": {
+        "en": "Open-air market of crafts, carpets and Soviet bits — busiest at weekends.",
+        "ru": "Рынок под открытым небом: ремёсла, ковры, советские мелочи — оживлённее всего в выходные."
+      },
+      "priority": "worth",
+      "when": [
+        "morning",
+        "day"
+      ],
+      "duration": {
+        "en": "1h",
+        "ru": "1 ч"
+      },
+      "link": {
+        "type": "map",
+        "url": "https://maps.google.com/?cid=12839570982798843047"
+      },
+      "photo": "assets/photos/vernissage.jpg"
+    },
+    {
+      "id": "matenadaran",
+      "city": "yerevan",
+      "category": "see",
+      "name": {
+        "en": "Matenadaran",
+        "ru": "Матенадаран"
+      },
+      "blurb": {
+        "en": "Museum of ancient Armenian manuscripts.",
+        "ru": "Музей древних армянских рукописей."
+      },
+      "priority": "worth",
+      "when": [
+        "morning",
+        "day"
+      ],
+      "duration": {
+        "en": "1–1.5h",
+        "ru": "1–1,5 ч"
+      },
+      "link": {
+        "type": "map",
+        "url": "https://maps.google.com/?cid=9160700839288794583"
+      },
+      "photo": "assets/photos/matenadaran.jpg"
+    },
+    {
+      "id": "gum-market",
+      "city": "yerevan",
+      "category": "see",
+      "name": {
+        "en": "GUM Market",
+        "ru": "Рынок ГУМ"
+      },
+      "blurb": {
+        "en": "Covered market for dried fruit, spices and sweets — take some home.",
+        "ru": "Крытый рынок: сухофрукты, специи, сладости — взять домой."
+      },
+      "priority": "if_time",
+      "when": [
+        "morning",
+        "day"
+      ],
+      "duration": {
+        "en": "45 min",
+        "ru": "45 мин"
+      },
+      "link": {
+        "type": "map",
+        "url": "https://maps.google.com/?cid=13072009671850844115"
+      },
+      "photo": "assets/photos/gum-market.jpg"
+    },
+    {
+      "id": "ararat-brandy",
+      "city": "yerevan",
+      "category": "see",
+      "name": {
+        "en": "Ararat Brandy Factory",
+        "ru": "Коньячный завод «Арарат»"
+      },
+      "blurb": {
+        "en": "Factory tour with tasting — book ahead. Noy, the other brandy house, is nearby too.",
+        "ru": "Экскурсия по заводу с дегустацией — по записи. Рядом есть и завод «Ной»."
+      },
+      "priority": "if_time",
+      "when": [
+        "day"
+      ],
+      "duration": {
+        "en": "1.5h",
+        "ru": "1,5 ч"
+      },
+      "link": {
+        "type": "map",
+        "url": "https://maps.google.com/?cid=2052085257361873212"
+      },
+      "photo": "assets/photos/ararat-brandy.jpg"
+    },
+    {
+      "id": "lavash",
+      "city": "yerevan",
+      "category": "eat",
+      "name": {
+        "en": "Lavash",
+        "ru": "Lavash"
+      },
+      "blurb": {
+        "en": "Armenian classics in the centre — book ahead.",
+        "ru": "Армянская классика в центре — лучше бронировать."
+      },
+      "priority": "worth",
+      "when": [
+        "day",
+        "evening"
+      ],
+      "group_plan": {
+        "en": "Together on 1 Nov",
+        "ru": "Вместе 1.11"
+      },
+      "link": {
+        "type": "map",
+        "url": "https://maps.google.com/?cid=17905162120822390188"
+      },
+      "photo": null
+    },
+    {
+      "id": "sherep",
+      "city": "yerevan",
+      "category": "eat",
+      "name": {
+        "en": "Sherep",
+        "ru": "Sherep"
+      },
+      "blurb": {
+        "en": "Right by Republic Square.",
+        "ru": "Прямо у площади Республики."
+      },
+      "priority": "worth",
+      "when": [
+        "evening"
+      ],
+      "group_plan": {
+        "en": "Together on 1 Nov",
+        "ru": "Вместе 1.11"
+      },
+      "link": {
+        "type": "map",
+        "url": "https://maps.google.com/?cid=5004375529947127824"
+      },
+      "photo": null
+    },
+    {
+      "id": "dolmama",
+      "city": "yerevan",
+      "category": "eat",
+      "name": {
+        "en": "Dolmama",
+        "ru": "Dolmama"
+      },
+      "blurb": {
+        "en": "Classic Armenian restaurant, famous for its dolma.",
+        "ru": "Классический армянский ресторан, знаменитый своей долмой."
+      },
+      "priority": "worth",
+      "when": [
+        "evening"
+      ],
+      "link": {
+        "type": "map",
+        "url": "https://maps.google.com/?cid=17096852822464230124"
+      },
+      "photo": null
+    },
+    {
+      "id": "tavern-yerevan",
+      "city": "yerevan",
+      "category": "eat",
+      "name": {
+        "en": "Tavern Yerevan",
+        "ru": "Таверна Ереван"
+      },
+      "blurb": {
+        "en": "Traditional Armenian tavern in the centre.",
+        "ru": "Традиционная армянская таверна в центре."
+      },
+      "priority": "if_time",
+      "when": [
+        "day",
+        "evening"
+      ],
+      "link": {
+        "type": "map",
+        "url": "https://maps.google.com/?cid=12868007291069093023"
+      },
+      "photo": null
+    },
+    {
+      "id": "in-vino",
+      "city": "yerevan",
+      "category": "drink",
+      "name": {
+        "en": "In Vino",
+        "ru": "In Vino"
+      },
+      "blurb": {
+        "en": "Cult Yerevan wine bar.",
+        "ru": "Культовый винный бар Еревана."
+      },
+      "priority": "worth",
+      "when": [
+        "evening",
+        "late"
+      ],
+      "link": {
+        "type": "map",
+        "url": "https://maps.google.com/?cid=9220807759126343994"
+      },
+      "photo": null
+    }
+  ]
+}

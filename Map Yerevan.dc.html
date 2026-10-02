@@ -28,6 +28,14 @@
     [data-lang-switch]{display:inline-flex;flex:none;border:2px solid var(--orange-500)}
     [data-lang-btn]{font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:6px 9px;background:transparent;color:var(--on-ink-muted);border:0;cursor:pointer;line-height:1}
     html[data-lang="en"] [data-lang-btn="en"],html[data-lang="ru"] [data-lang-btn="ru"]{background:var(--orange-500);color:var(--on-brand)}
+    @media (max-width:600px){
+      [data-hdr-tag]{display:none !important}
+      [data-hdr-bar]{gap:8px !important}
+      [data-hdr-logo]{font-size:19px !important}
+      [data-hdr-nav]{gap:5px !important}
+      [data-hdr-nav] > a{font-size:10px !important;letter-spacing:0.04em !important;padding:6px 7px !important}
+      [data-hdr-nav] [data-lang-btn]{font-size:10px !important;letter-spacing:0.04em !important;padding:6px 7px !important}
+    }
   </style>
   <script>
   (function(){var d=document.documentElement;try{d.setAttribute('data-lang',localStorage.getItem('shota-lang')||'en')}catch(e){d.setAttribute('data-lang','en')}
@@ -39,12 +47,12 @@
 <div style="min-height:100vh;background:var(--surface-page);display:flex;flex-direction:column">
 
   <header style="position:sticky;top:0;z-index:30;background:var(--ink-900);color:var(--on-ink);border-bottom:2px solid var(--orange-500)">
-    <div style="max-width:var(--container);margin:0 auto;padding:13px var(--gutter);display:flex;align-items:center;justify-content:space-between;gap:16px">
-      <a href="Route Page.dc.html" style="display:flex;align-items:baseline;gap:10px;flex:none;white-space:nowrap;text-decoration:none;font-family:var(--font-display);font-size:22px;letter-spacing:0.02em;text-transform:uppercase;color:var(--folk-white);transition:opacity 120ms" style-hover="opacity:0.8">
+    <div data-hdr-bar style="max-width:var(--container);margin:0 auto;padding:13px var(--gutter);display:flex;align-items:center;justify-content:space-between;gap:16px">
+      <a href="Route Page.dc.html" data-hdr-logo style="display:flex;align-items:baseline;gap:10px;flex:none;white-space:nowrap;text-decoration:none;font-family:var(--font-display);font-size:22px;letter-spacing:0.02em;text-transform:uppercase;color:var(--folk-white);transition:opacity 120ms" style-hover="opacity:0.8">
         Shota 4.0
-        <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.14em;color:var(--orange-400);white-space:nowrap">GE · AM</span>
+        <span data-hdr-tag style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.14em;color:var(--orange-400);white-space:nowrap">GE · AM</span>
       </a>
-      <nav style="display:flex;gap:8px;align-items:center">
+      <nav data-hdr-nav style="display:flex;gap:8px;align-items:center">
         <a href="Route Page.dc.html" style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--folk-white);text-decoration:none;padding:7px 13px;border:2px solid var(--orange-500);background:var(--orange-500);transition:background 120ms,transform 120ms,box-shadow 120ms" style-hover="background:var(--orange-600);transform:translate(-2px,-2px);box-shadow:3px 3px 0 0 var(--orange-700)"><span class="i18 en">Route</span><span class="i18 ru">Маршрут</span></a>
         <a href="Schedule Page.dc.html" style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--on-ink-muted);text-decoration:none;padding:7px 13px;border:2px solid var(--ink-600);transition:color 120ms,border-color 120ms,transform 120ms,box-shadow 120ms" style-hover="color:var(--folk-white);border-color:var(--orange-500);transform:translate(-2px,-2px);box-shadow:3px 3px 0 0 var(--orange-500)"><span class="i18 en">Schedule</span><span class="i18 ru">Расписание</span></a>
         <span data-lang-switch role="group" aria-label="Language"><button type="button" data-lang-btn="en">EN</button><button type="button" data-lang-btn="ru">RU</button></span>
